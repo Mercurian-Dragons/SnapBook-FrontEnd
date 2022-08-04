@@ -1,9 +1,9 @@
 function Nav() {
   return (
     <div>
-      <h1>
+      <h3>
         Navbar
-      </h1>
+      </h3>
     </div>
   )
 }

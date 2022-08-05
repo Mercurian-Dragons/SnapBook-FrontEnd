@@ -28,7 +28,7 @@ margin-right: 30px;
   
 }
 .img-container {
-  /* display: none; */
+  opacity: 0;
 }
 
 

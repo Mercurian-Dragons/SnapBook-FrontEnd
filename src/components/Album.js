@@ -6,8 +6,8 @@ const Album = () => {
   const navigate = useNavigate()
   const [photos, setPhotos] = useState([])
   const [deleted, setDeleted] = useState('')
+  const [isDeleted, setIsDeleted] = useState(false)
 
- 
   // handle click to get all images from db
   const handleClick = (event) => {
     event.preventDefault();
@@ -15,18 +15,34 @@ const Album = () => {
       .then(res => setPhotos(res.data))
   }
 
-  const handleDelete = (event) => {
+  const handleSelectMultiple = (event) => {
     const id = event.target.id
     // prevents multiple selection of same id
     // setState callback creates a persistent value in the state, or else it would update everytime to 
-    // the new item we added. 
-    setDeleted((prev) => !deleted.includes(id) ? [...prev, id] : deleted)
-   
+    // the new item we added. Spread unpacks elements of existing array into new array
+    setDeleted(!deleted.includes(id) ? id : deleted)
+    // delete multiple
+    // setDeleted((prev) => !deleted.includes(id) ? [...prev, id] : deleted)
   }
 
+  const handleDelete = () => {
+    axios.delete(`http://localhost:4000/photo/${deleted}`)
+      .then(() => {
+        setIsDeleted(true)
+        // navigate('/album')
+      })
+    }
+    if(isDeleted === true){
+      axios.get('http://localhost:4000/photo')
+      .then(res => setPhotos(res.data))
+      .then(setIsDeleted(false))
+    }
+    
 console.log(deleted)
   useEffect(() => {
-  },[photos])
+    console.log('you uploaded')
+  },[photos, isDeleted])
+
 
 console.log(photos)
 return (
@@ -36,7 +52,7 @@ return (
     </h2>
     <div className='img-container'>
     {photos.map((photos) => (
-      <img onClick={handleDelete}
+      <img onClick={handleSelectMultiple}
       src={photos.url}
       key={photos._id}
       id={photos._id}
@@ -46,6 +62,9 @@ return (
     </div>
     <button onClick={handleClick} >
       get image
+    </button>
+    <button onClick={handleDelete} >
+      delete
     </button>
   </div>
 )

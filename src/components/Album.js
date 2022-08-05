@@ -6,8 +6,8 @@ const Album = () => {
   const navigate = useNavigate()
   const [photos, setPhotos] = useState([])
   const [deleted, setDeleted] = useState('')
-  const [isLoading, setLoading] = useState(false)
- console.log(isLoading)
+
+ 
   // handle click to get all images from db
   const handleClick = (event) => {
     event.preventDefault();
@@ -34,7 +34,7 @@ return (
     <h2>
       album
     </h2>
-    <div>
+    <div className='img-container'>
     {photos.map((photos) => (
       <img onClick={handleDelete}
       src={photos.url}

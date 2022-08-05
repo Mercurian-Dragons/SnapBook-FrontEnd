@@ -1,54 +1,86 @@
-import { useNavigate } from 'react-router-dom';
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse } from "@fortawesome/free-solid-svg-icons"
+
+
 
 const Album = () => {
-  const navigate = useNavigate()
-  const [photos, setPhotos] = useState([])
-  const [deleted, setDeleted] = useState('')
 
- 
-  // handle click to get all images from db
-  const handleClick = (event) => {
-    event.preventDefault();
-    axios.get('http://localhost:4000/photo')
-      .then(res => setPhotos(res.data))
-  }
+  return (
+    <>
+      <div className='albumTopContainer'>
+        <FontAwesomeIcon icon={faHouse} className='logos' />
+        <div>
+          <div className='logosContainer'>
+            <h1>
+              <FontAwesomeIcon icon={faArrowLeft} className='logos' />
+              Album's info here
+            </h1>
+            <FontAwesomeIcon icon={faStar} className='logos' />
+            <FontAwesomeIcon icon={faPencil} className='logos' />
+            <FontAwesomeIcon icon={faSquareShareNodes} className='logos' />
+            <FontAwesomeIcon icon={faLock} className='logos' />
+            <FontAwesomeIcon icon={faLink} className='logos' />
 
-  const handleDelete = (event) => {
-    const id = event.target.id
-    // prevents multiple selection of same id
-    // setState callback creates a persistent value in the state, or else it would update everytime to 
-    // the new item we added. 
-    setDeleted((prev) => !deleted.includes(id) ? [...prev, id] : deleted)
-   
-  }
+          </div>
 
-console.log(deleted)
-  useEffect(() => {
-  },[photos])
+        </div>
 
-console.log(photos)
-return (
-  <div>
-    <h2>
-      album
-    </h2>
-    <div className='img-container'>
-    {photos.map((photos) => (
-      <img onClick={handleDelete}
-      src={photos.url}
-      key={photos._id}
-      id={photos._id}
-      alt={photos.caption}
-      />
-    ))}
-    </div>
-    <button onClick={handleClick} >
-      get image
-    </button>
-  </div>
-)
+        <Container className='albumContainer'>
+          <Card style={{ width: '18rem' }}>
+            <Card.Body className='img-container'>
+              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Title>Card Title1</Card.Title>
+              <Button variant="primary"> <a href="/photos">View Album </a></Button>
+            </Card.Body>
+          </Card>
+          <Card style={{ width: '18rem' }}>
+            <Card.Body className='img-container'>
+              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Title>Card Title2</Card.Title>
+              <Button variant="primary"> <a href="/photos">View Album </a></Button>
+            </Card.Body>
+          </Card>
+          <Card style={{ width: '18rem' }}>
+            <Card.Body className='img-container'>
+              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Title>Card Title3</Card.Title>
+              <Button variant="primary"> <a href="/photos">View Album </a></Button>
+            </Card.Body>
+          </Card>
+          <Card style={{ width: '18rem' }}>
+            <Card.Body className='img-container'>
+              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Title>Card Title4</Card.Title>
+              <Button variant="primary"> <a href="/photos">View Album </a></Button>
+            </Card.Body>
+          </Card>
+          <Card style={{ width: '18rem' }}>
+            <Card.Body className='img-container'>
+              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Title>Card Title5</Card.Title>
+              <Button variant="primary"> <a href="/photos">View Album </a></Button>
+            </Card.Body>
+          </Card>
+          <Card style={{ width: '18rem' }}>
+            <Card.Body className='img-container'>
+              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Title>Card Title6</Card.Title>
+              <Button variant="primary"> <a href="/photos">View Album </a></Button>
+            </Card.Body>
+          </Card>
+
+        </Container>
+        
+         
+      
+      </div>
+    </>
+
+  )
 }
 
 export default Album

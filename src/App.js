@@ -4,6 +4,7 @@ import Nav from './components/Nav.js';
 import Home from './components/Home.js'
 import Album from './components/Album.js'
 import Footer from './components/Footer.js';
+import Photos from './components/Photos.js'
 
 const App = () => {
   return (
@@ -12,6 +13,8 @@ const App = () => {
       <Routes>
         <Route path='/' element={ <Home /> } />
         <Route path='/album' element={ <Album /> } />
+        <Route path='/photos' element={ <Photos /> } />
+
       </Routes>
       <Footer />
     </>

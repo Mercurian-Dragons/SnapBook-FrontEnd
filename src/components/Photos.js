@@ -90,7 +90,10 @@ const Photos = () => {
         axios.get('http://localhost:4000/photo')
             .then(res => setPhotos(res.data))
         console.log(photos)
+        document.querySelector(".img-container").style.opacity = 1;
+
     }
+
 
     const handleDelete = (event) => {
         const id = event.target.id
@@ -105,9 +108,9 @@ const Photos = () => {
     useEffect(() => {
     }, [photos])
 
+
     return (
         <>
-
             <Container className='albumContainer'>
                 <div>
                     <div className='img-container'>
@@ -130,7 +133,6 @@ const Photos = () => {
                 </div>
             </Container>
         </>
-
     )
 };
 

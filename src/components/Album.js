@@ -31,42 +31,42 @@ const Album = () => {
 
         <Container className='albumContainer'>
           <Card style={{ width: '18rem' }}>
-            <Card.Body className='img-container'>
+            <Card.Body className='album-img-container'>
               <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Title>Card Title1</Card.Title>
               <Button variant="primary"> <a href="/photos">View Album </a></Button>
             </Card.Body>
           </Card>
           <Card style={{ width: '18rem' }}>
-            <Card.Body className='img-container'>
+            <Card.Body className='album-img-container'>
               <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Title>Card Title2</Card.Title>
               <Button variant="primary"> <a href="/photos">View Album </a></Button>
             </Card.Body>
           </Card>
           <Card style={{ width: '18rem' }}>
-            <Card.Body className='img-container'>
+            <Card.Body className='album-img-container'>
               <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Title>Card Title3</Card.Title>
               <Button variant="primary"> <a href="/photos">View Album </a></Button>
             </Card.Body>
           </Card>
           <Card style={{ width: '18rem' }}>
-            <Card.Body className='img-container'>
+            <Card.Body className='album-img-container'>
               <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Title>Card Title4</Card.Title>
               <Button variant="primary"> <a href="/photos">View Album </a></Button>
             </Card.Body>
           </Card>
           <Card style={{ width: '18rem' }}>
-            <Card.Body className='img-container'>
+            <Card.Body className='album-img-container'>
               <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Title>Card Title5</Card.Title>
               <Button variant="primary"> <a href="/photos">View Album </a></Button>
             </Card.Body>
           </Card>
           <Card style={{ width: '18rem' }}>
-            <Card.Body className='img-container'>
+            <Card.Body className='album-img-container'>
               <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Title>Card Title6</Card.Title>
               <Button variant="primary"> <a href="/photos">View Album </a></Button>

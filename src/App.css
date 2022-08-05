@@ -6,4 +6,23 @@
 .footerContainer{
 text-align: center;
 
+<<<<<<< HEAD
 }
+=======
+.App-link {
+  color: #61dafb;
+}
+
+img {
+  cursor: pointer;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+>>>>>>> 40281a010d1796d2c4e0121fb821aa8ef28e32d8

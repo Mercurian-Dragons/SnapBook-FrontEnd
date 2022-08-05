@@ -5,7 +5,7 @@ import Home from './components/Home.js'
 import Album from './components/Album.js'
 import Footer from './components/Footer.js';
 
-function App() {
+const App = () => {
   return (
     <>
       <Nav />

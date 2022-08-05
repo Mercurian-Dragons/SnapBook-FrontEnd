@@ -2,8 +2,36 @@
 @import url('https://fonts.googleapis.com/css?family=Saira+Semi+Condensed&display=swap');
 
 
-
+.navbarContainer{
+  text-align: center;
+}
 .footerContainer{
 text-align: center;
 
 }
+<<<<<<< HEAD
+=======
+
+.logosContainer{
+display: inline;
+}
+
+.logos{
+max-width: 3%;
+height: auto;
+margin-right: 30px;
+}
+.albumContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  
+}
+.img-container {
+  /* display: none; */
+}
+
+
+>>>>>>> 1f089ab (lunchSavePoint day2)

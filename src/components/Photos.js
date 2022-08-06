@@ -6,13 +6,12 @@ const Photos = () => {
   let { photoId } = useParams()
   const [photos, setPhotos] = useState([])
   const [loading, setLoading] = useState(false)
-  console.log(photoId)
 
   useEffect(() => {
     axios.get(`http://localhost:8000/photo/${photoId}`)
     .then(res => setPhotos(res.data))
   },[])
- 
+ console.log(photos)
 console.log(photos)
 
   return (
@@ -26,6 +25,7 @@ console.log(photos)
           key={photo._id}
           id={photo._id}
           src={photo.url}
+          alt={photo.altText}
           />
         ))}
       </div>

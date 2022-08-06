@@ -5,6 +5,11 @@ import Home from './components/Home.js'
 import Albums from './components/Albums.js'
 import Footer from './components/Footer.js';
 import Photos from './components/Photos.js'
+import Album from './components/albumComponent/Album'
+import Pictures from './components/Pictures'
+
+
+
 
 const App = () => {
   return (

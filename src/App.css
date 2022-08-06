@@ -27,8 +27,16 @@ margin-right: 30px;
   grid-row-gap: 20px;
   
 }
+.photosContainer {
+  display: grid;
+grid-template-columns: repeat(5, 0.5fr);
+grid-template-rows: repeat(5, 2fr);
+grid-column-gap: 10px;
+grid-row-gap: 10px;
+}
+
 .img-container {
-  opacity: 0;
+  
 }
 
 

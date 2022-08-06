@@ -14,8 +14,7 @@ function Navigation() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="Navbar">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/pictures">Pictures</Nav.Link>
-            <Nav.Link href="/album">Album</Nav.Link>
+            <Nav.Link href="/albums">Album</Nav.Link>
             </Nav>
         </Navbar.Collapse>
        

@@ -1,4 +1,44 @@
-.App {
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css?family=Saira+Semi+Condensed&display=swap');
+
+
+.navbarContainer{
+  text-align: center;
+}
+.footerContainer{
+text-align: center;
+
+}
+
+.logosContainer{
+display: inline;
+}
+
+.logos{
+max-width: 3%;
+height: auto;
+margin-right: 30px;
+}
+.albumContainer {
+  display: grid;
+  /* grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr); */
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  
+}
+.photosContainer {
+  display: grid;
+/* grid-template-columns: repeat(5, 0.5fr);
+grid-template-rows: repeat(5, 2fr); */
+grid-column-gap: 10px;
+grid-row-gap: 10px;
+}
+
+
+
+
+/* .App {
   text-align: center;
 }
 
@@ -39,4 +79,4 @@ img {
   to {
     transform: rotate(360deg);
   }
-}
+} */

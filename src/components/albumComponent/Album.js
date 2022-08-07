@@ -3,7 +3,6 @@ import axios from 'axios';
 import AlbumCard from './AlbumCard'
 
 const Album = () => {
-
   const [album, setAlbum] = useState([])
 
   useEffect(() => {

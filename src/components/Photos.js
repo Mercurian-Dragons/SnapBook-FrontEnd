@@ -5,36 +5,65 @@ import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
 
 const Photos = () => {
-  // retriece the parameter of id set in albumcard 
-  let { albumId } = useParams()
-  const [photos, setPhotos] = useState([])
-  const [loading, setLoading] = useState(false)
+    let { albumId } = useParams()
+    const [photos, setPhotos] = useState([])
+    const [deleted, setDeleted] = useState('')
 
+<<<<<<< HEAD
   useEffect(() => {
     // useParams of album id to retrieve images associated to the specific album
     axios.get(`http://localhost:8000/${albumId}/photos`)
     .then(res => setPhotos(res.data))
   },[])
 console.log(photos)
+=======
+    // handle click to get all images from db
+    const handleClick = (event) => {
+        event.preventDefault();
+        axios.get(`http://localhost:8000//${albumId}/photos`)
+            .then(res => setPhotos(res.data))
+        console.log(photos)
+    }
+
+    useEffect(() => {
+      // useParams of album id to retrieve images associated to the specific album
+      axios.get(`http://localhost:8000/${albumId}/photos`)
+      .then(res => setPhotos(res.data))
+    },[])
+    // console.log(photos)
+
+    const handleDelete = (event) => {
+        const id = event.target.id
+        // prevents multiple selection of same id
+        // setState callback creates a persistent value in the state, or else it would update everytime to 
+        // the new item we added. 
+        setDeleted((prev) => !deleted.includes(id) ? [...prev, id] : deleted)
+    }
+    // console.log(deleted)
+    
+    // useEffect(() => {
+    // }, [photos])
+>>>>>>> f3c2f0131578ace466511cd93ef6130ff1af24fd
 
   return (
     <div>
       <h3>
-        Photos
+        (Album name)'s photos
       </h3>
       <Container className='photosContainer'>
         {photos.map((photo) => (
-          <div key={photo._id}>
+        <div>
             <Card style={{ width: '18rem' }}>
-              <Card.Body className='img-container' >
+              <Card.Body className='img-container'>
                 <Card.Img variant='top' 
+                  key={photo._id}
                   id={photo._id}
                   src={photo.url}
                   alt={photo.altText}
                   />
               </Card.Body>
-           </Card>
-         </div>
+            </Card>
+        </div>
         ))}
       </Container>
       <button>
@@ -45,27 +74,3 @@ console.log(photos)
 }
 
 export default Photos
-
-{/* <Container className='photosContainer'>
-              {photos.map((photos) => (
-                    <div >
-                        <Card
-                            style={{ width: '18rem'}}
-                        >
-                             <Card.Body className='img-container'>
-                                <Card.Img variant="top" onClick={handleDelete}
-
-                                    src={photos.photos[0]}
-                                    key={photos._id}
-                                    id={photos._id}
-                                    alt={photos.caption}
-                                 />
-                            </Card.Body>
-                         </Card>
-                    </div>
-                 ))}
-                <button onClick={handleClick} >
-                     get image/album
-                 </button>
-
-             </Container> */}

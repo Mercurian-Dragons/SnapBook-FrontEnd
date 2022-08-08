@@ -2,10 +2,15 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <div>
-     <h3>
-      hello
-     </h3>
+    <div className='footerContainer'>
+      <div className='footerContent'>
+        <div className='footerHeader'>
+          <div className='footerBottom'>
+            © 2022,
+            <a href='/' title className='copyright'> SnapBook </a>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

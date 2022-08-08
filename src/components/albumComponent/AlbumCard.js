@@ -16,11 +16,8 @@ const AlbumCard = ({ id, albumName }) => {
     <div>
       <Card style={{ width: '18rem' }}>
         <Card.Body className='img-container'>
-      <p onClick={handleClick} id={id}>
+      <h3 onClick={handleClick} id={id}>
         {albumName}
-      </p>
-      <h3>
-        album card
       </h3>
         </Card.Body>
       </Card>

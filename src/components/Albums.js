@@ -36,7 +36,6 @@ const Albums = () => {
               <FontAwesomeIcon icon={faArrowLeft} className='logos' />
               Album's info here
             </h1>
-            < div className='Clickable logos'>
             {/* <button className='logosBtn'> */}
             <FontAwesomeIcon icon={faStar} className='logos' />
             {/* </button> */}
@@ -44,7 +43,6 @@ const Albums = () => {
             <FontAwesomeIcon icon={faSquareShareNodes} className='logos' />
             <FontAwesomeIcon icon={faLock} className='logos' />
             <FontAwesomeIcon icon={faLink} className='logos' />
-            </div>
           </div>
 
         </div>

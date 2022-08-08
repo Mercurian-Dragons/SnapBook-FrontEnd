@@ -1,35 +1,25 @@
-
+import React from 'react'
+import axios from 'axios'
 import { useState, useEffect } from "react";
 const Pictures = () => {
-const [caption, SetCaption] = useState('')
+  const [file, setFile] = useState()
+  const [caption, setCaption] = useState('')
 
-const handleSubmit = (event) => {
-  event.preventDefault()
-  const value = event.target.caption.value
-  SetCaption(value)
-}
+  const handleSubmit = async event => {
+    event.preventDefault()
 
-useEffect(() => {
-},[caption])
-console.log(caption)
-
+    const formData = new FormData();
+    formData.append("image", file)
+    formData.append("caption", caption)
+    await axios.post("http://localhost:8000/album/62ed7975d9ebd701018ca344", formData, { headers: {'Content-Type': 'multipart/form-data'}})
+  }
   return (
-  <div>
-    <h3>
-      Pictures Component
-    </h3>
     <form onSubmit={handleSubmit}>
-      <div>
-        <span>File</span>
-        <input name='myImage' type='file' />
-      </div>
-      <div>
-        <input name='caption' type='text' placeholder='enter a caption' />
-      </div>
-      <button type='submit'>Submit</button>
-    </form>
-  </div>
-  )
+       <input onChange={e => setFile(e.target.files[0])} type="file" accept="image/*"></input>
+       <input value={caption} onChange={e => setCaption(e.target.value)} type="text" placeholder='Caption'></input>
+       <button type="submit">Submit</button>
+     </form>
+  ) 
 }
 
 export default Pictures;

@@ -7,7 +7,7 @@ const AlbumCard = ({ id, albumName }) => {
 
   const handleClick = (event) => {
     console.log(event.target.id)
-    // id of album
+    // will set the parameter to the id associated with the album card
     navigate(`photos/${event.target.id}`)
   }
   return (
@@ -22,7 +22,6 @@ const AlbumCard = ({ id, albumName }) => {
       <h3>
         album card
       </h3>
-
         </Card.Body>
       </Card>
     </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import AlbumCard from './AlbumCard'
+import AlbumCard from './AlbumCard';
 
 const Album = () => {
   const [album, setAlbum] = useState([])

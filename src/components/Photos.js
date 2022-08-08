@@ -5,14 +5,11 @@ import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 
 
-
 const Photos = () => {
     const navigate = useNavigate()
     const [photos, setPhotos] = useState([])
     const [deleted, setDeleted] = useState('')
    
-
-
     // handle click to get all images from db
     const handleClick = (event) => {
         event.preventDefault();
@@ -21,6 +18,12 @@ const Photos = () => {
         console.log(photos)
     }
 
+    useEffect(() => {
+      // useParams of album id to retrieve images associated to the specific album
+      axios.get(`http://localhost:8000/${albumId}/photos`)
+      .then(res => setPhotos(res.data))
+    },[])
+    console.log(photos)
 
     const handleDelete = (event) => {
         const id = event.target.id
@@ -28,23 +31,19 @@ const Photos = () => {
         // setState callback creates a persistent value in the state, or else it would update everytime to 
         // the new item we added. 
         setDeleted((prev) => !deleted.includes(id) ? [...prev, id] : deleted)
-
     }
-
     console.log(deleted)
+    
     useEffect(() => {
     }, [photos])
-
 
     return (
         <>
             <Container className='photosContainer'>
-
                 {photos.map((photos) => (
                     <div >
                         <Card
-                            style={{ width: '18rem'}}
-                        >
+                            style={{ width: '18rem'}} >
                             <Card.Body className='img-container'>
                                 <Card.Img variant="top" onClick={handleDelete}
 
@@ -58,7 +57,7 @@ const Photos = () => {
                     </div>
                 ))}
                 <button onClick={handleClick} >
-                    get image/album
+                    Get Image/Album
                 </button>
 
             </Container>

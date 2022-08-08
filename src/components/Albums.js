@@ -4,8 +4,8 @@ import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse } from "@fortawesome/free-solid-svg-icons"
+// import { FontAwesomeIcon } from "@fontawesome/react-fontawesome";
+// import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse } from "@fontawesome/free-solid-svg-icons"
 
 
 
@@ -29,20 +29,20 @@ const Albums = () => {
   return (
     <>
       <div className='albumTopContainer'>
-        <FontAwesomeIcon icon={faHouse} className='logos' />
+        {/* <FontAwesomeIcon icon={faHouse} className='logos' /> */}
         <div>
           <div className='logosContainer'>
             <h1>
-              <FontAwesomeIcon icon={faArrowLeft} className='logos' />
+              {/* <FontAwesomeIcon icon={faArrowLeft} className='logos' /> */}
               Album's info here
             </h1>
             {/* <button className='logosBtn'> */}
-            <FontAwesomeIcon icon={faStar} className='logos' />
+            {/* <FontAwesomeIcon icon={faStar} className='logos' /> */}
             {/* </button> */}
-            <FontAwesomeIcon icon={faPencil} className='logos' />
+            {/* <FontAwesomeIcon icon={faPencil} className='logos' />
             <FontAwesomeIcon icon={faSquareShareNodes} className='logos' />
             <FontAwesomeIcon icon={faLock} className='logos' />
-            <FontAwesomeIcon icon={faLink} className='logos' />
+            <FontAwesomeIcon icon={faLink} className='logos' /> */}
           </div>
 
         </div>

@@ -17,7 +17,7 @@ const AlbumCard = ({ id, albumName }) => {
     {/* <Container className='albumContainer'> */}
     <div>
       <Card style={{ width: '18rem' }}>
-        <Card.Body className='album-img-container'>
+        <Card.Body className='album-img-container img-container'>
         <Card.Title>Card Title1</Card.Title>
         <Button onClick={handleClick} id={id} variant='primary'>View Album</Button>
       <p>

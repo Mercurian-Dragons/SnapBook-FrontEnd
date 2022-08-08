@@ -1,15 +1,14 @@
-import { useNavigate } from 'react-router-dom';
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import Card from 'react-bootstrap/Card';
-import Container from 'react-bootstrap/Container';
-
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import Card from 'react-bootstrap/Card'
+import Container from 'react-bootstrap/Container'
 
 const Photos = () => {
-    const navigate = useNavigate()
+    let { albumId } = useParams()
     const [photos, setPhotos] = useState([])
     const [deleted, setDeleted] = useState('')
-   
+
     // handle click to get all images from db
     const handleClick = (event) => {
         event.preventDefault();
@@ -23,7 +22,7 @@ const Photos = () => {
       axios.get(`http://localhost:8000/${albumId}/photos`)
       .then(res => setPhotos(res.data))
     },[])
-    console.log(photos)
+    // console.log(photos)
 
     const handleDelete = (event) => {
         const id = event.target.id
@@ -32,37 +31,37 @@ const Photos = () => {
         // the new item we added. 
         setDeleted((prev) => !deleted.includes(id) ? [...prev, id] : deleted)
     }
-    console.log(deleted)
+    // console.log(deleted)
     
-    useEffect(() => {
-    }, [photos])
+    // useEffect(() => {
+    // }, [photos])
 
-    return (
-        <>
-            <Container className='photosContainer'>
-                {photos.map((photos) => (
-                    <div >
-                        <Card
-                            style={{ width: '18rem'}} >
-                            <Card.Body className='img-container'>
-                                <Card.Img variant="top" onClick={handleDelete}
+  return (
+    <div>
+      <h3>
+        Photos
+      </h3>
+      <Container className='photosContainer'>
+        {photos.map((photo) => (
+        <div>
+            <Card style={{ width: '18rem' }}>
+              <Card.Body className='img-container'>
+                <Card.Img variant='top' 
+                  key={photo._id}
+                  id={photo._id}
+                  src={photo.url}
+                  alt={photo.altText}
+                  />
+              </Card.Body>
+            </Card>
+        </div>
+        ))}
+      </Container>
+      <button>
+        delete
+      </button>
+    </div>
+  )
+}
 
-                                    src={photos.photos[0]}
-                                    key={photos._id}
-                                    id={photos._id}
-                                    alt={photos.caption}
-                                />
-                            </Card.Body>
-                        </Card>
-                    </div>
-                ))}
-                <button onClick={handleClick} >
-                    Get Image/Album
-                </button>
-
-            </Container>
-        </>
-    )
-};
-
-export default Photos;
+export default Photos

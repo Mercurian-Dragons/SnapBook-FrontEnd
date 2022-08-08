@@ -1,3 +1,5 @@
+import {  useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -7,7 +9,22 @@ import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHo
 
 
 
-const Album = () => {
+const Albums = () => {
+ 
+  const navigate = useNavigate()
+  // const [albumPhotos, setAlbumPhotos] = useState([])
+
+    // handle click to get all images from db
+    const handleClick = (event) => {
+      event.preventDefault();
+  
+      navigate("/photos")
+      // change to album 
+    }
+    
+
+  // useEffect(() => {
+  // }, [albumPhotos])
 
   return (
     <>
@@ -34,48 +51,47 @@ const Album = () => {
             <Card.Body className='album-img-container'>
               <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Title>Card Title1</Card.Title>
-              <Button variant="primary"> <a href="/photos">View Album </a></Button>
+              <Button  onClick={handleClick} variant="primary"> View Album</Button>
             </Card.Body>
           </Card>
           <Card style={{ width: '18rem' }}>
             <Card.Body className='album-img-container'>
               <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Title>Card Title2</Card.Title>
-              <Button variant="primary"> <a href="/photos">View Album </a></Button>
+              <Button  onClick={handleClick} variant="primary"> View Album</Button>
             </Card.Body>
           </Card>
           <Card style={{ width: '18rem' }}>
             <Card.Body className='album-img-container'>
               <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Title>Card Title3</Card.Title>
-              <Button variant="primary"> <a href="/photos">View Album </a></Button>
+              <Button  onClick={handleClick} variant="primary"> View Album</Button>
             </Card.Body>
           </Card>
           <Card style={{ width: '18rem' }}>
             <Card.Body className='album-img-container'>
               <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Title>Card Title4</Card.Title>
-              <Button variant="primary"> <a href="/photos">View Album </a></Button>
+              <Button  onClick={handleClick} variant="primary"> View Album</Button>
             </Card.Body>
           </Card>
           <Card style={{ width: '18rem' }}>
             <Card.Body className='album-img-container'>
               <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Title>Card Title5</Card.Title>
-              <Button variant="primary"> <a href="/photos">View Album </a></Button>
+              <Button  onClick={handleClick} variant="primary"> View Album</Button>
             </Card.Body>
           </Card>
           <Card style={{ width: '18rem' }}>
             <Card.Body className='album-img-container'>
               <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Title>Card Title6</Card.Title>
-              <Button variant="primary"> <a href="/photos">View Album </a></Button>
+              <Button  onClick={handleClick} variant="primary">  View Album</Button>
             </Card.Body>
           </Card>
 
         </Container>
-        
-         
+       
       
       </div>
     </>
@@ -83,6 +99,8 @@ const Album = () => {
   )
 }
 
-export default Album
+
+
+export default Albums
 
 

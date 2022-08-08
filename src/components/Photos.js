@@ -78,20 +78,20 @@ import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 
 
+
 const Photos = () => {
     const navigate = useNavigate()
     const [photos, setPhotos] = useState([])
     const [deleted, setDeleted] = useState('')
+   
 
 
     // handle click to get all images from db
     const handleClick = (event) => {
         event.preventDefault();
-        axios.get('http://localhost:4000/photo')
+        axios.get('http://localhost:8000/album')
             .then(res => setPhotos(res.data))
         console.log(photos)
-        document.querySelector(".img-container").style.opacity = 1;
-
     }
 
 
@@ -111,26 +111,29 @@ const Photos = () => {
 
     return (
         <>
-            <Container className='albumContainer'>
-                <div>
-                    <div className='img-container'>
-                        <Card style={{ width: '18rem' }}>
+            <Container className='photosContainer'>
+
+                {photos.map((photos) => (
+                    <div >
+                        <Card
+                            style={{ width: '18rem'}}
+                        >
                             <Card.Body className='img-container'>
-                                {photos.map((photos) => (
-                                    <Card.Img variant="top" onClick={handleDelete}
-                                        src={photos.url}
-                                        key={photos._id}
-                                        id={photos._id}
-                                        alt={photos.caption}
-                                    />
-                                ))}
+                                <Card.Img variant="top" onClick={handleDelete}
+
+                                    src={photos.photos[0]}
+                                    key={photos._id}
+                                    id={photos._id}
+                                    alt={photos.caption}
+                                />
                             </Card.Body>
                         </Card>
                     </div>
-                    <button onClick={handleClick} >
-                        get image/album
-                    </button>
-                </div>
+                ))}
+                <button onClick={handleClick} >
+                    get image/album
+                </button>
+
             </Container>
         </>
     )

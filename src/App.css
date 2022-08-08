@@ -2,81 +2,8 @@
 @import url('https://fonts.googleapis.com/css?family=Saira+Semi+Condensed&display=swap');
 
 
-.navbarContainer{
-  text-align: center;
-}
+
 .footerContainer{
 text-align: center;
 
 }
-
-.logosContainer{
-display: inline;
-}
-
-.logos{
-max-width: 3%;
-height: auto;
-margin-right: 30px;
-}
-.albumContainer {
-  display: grid;
-  /* grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr); */
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
-  
-}
-.photosContainer {
-  display: grid;
-/* grid-template-columns: repeat(5, 0.5fr);
-grid-template-rows: repeat(5, 2fr); */
-grid-column-gap: 10px;
-grid-row-gap: 10px;
-}
-
-
-
-
-/* .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-img {
-  cursor: pointer;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */

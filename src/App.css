@@ -1,60 +1,14 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import url('https://fonts.googleapis.com/css?family=Saira+Semi+Condensed&display=swap');
 
-
-
-.navbarContainer{
+.navbarContainer {
   text-align: center;
 }
-.footerContainer{
-text-align: center;
 
-}
-
-.logosContainer{
-display: inline;
-}
-
-.logos{
-max-width: 3%;
-height: auto;
-margin-right: 30px;
-}
-.albumContainer {
-  display: grid;
-  /* grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr); */
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
-  
-}
-.photosContainer {
-  display: grid;
-/* grid-template-columns: repeat(5, 0.5fr);
-grid-template-rows: repeat(5, 2fr); */
-grid-column-gap: 10px;
-grid-row-gap: 10px;
-}
-
-
-
-.navbarContainer{
+.footerContainer {
   text-align: center;
 }
-.footerContainer{
-text-align: center;
 
-}
-
-.logosContainer{
-display: inline;
-}
-
-.logos{
-max-width: 3%;
-height: auto;
-margin-right: 30px;
-}
 .albumContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -64,23 +18,14 @@ margin-right: 30px;
   
 }
 .photosContainer {
-display: grid;
-grid-template-columns: repeat(5, 0.5fr);
-grid-template-rows: repeat(5, 2fr);
-grid-column-gap: 10px;
-grid-row-gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(5, 0.5fr);
+  grid-template-rows: repeat(5, 2fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
 }
 
-.img-container {
-  
-}
-
-
-.logosBtn{
-  
-}
-
-/* .App {
+.App {
   text-align: center;
 }
 
@@ -110,15 +55,14 @@ grid-row-gap: 10px;
   color: #61dafb;
 }
 
-img {
-  cursor: pointer;
+.logosContainer {
+  display: inline;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
+.logos {
+  max-width: 3%;
+  height: auto;
+  margin-right: 30px;
+}
+
+.logosBtn {}

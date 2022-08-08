@@ -6,7 +6,7 @@ const Album = () => {
   const [album, setAlbum] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:8000/album')
+    axios.get('http://localhost:8000/albums')
       .then(res => setAlbum(res.data))
       console.log(album)
     },[])

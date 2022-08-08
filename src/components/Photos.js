@@ -16,7 +16,7 @@ const Photos = () => {
     // handle click to get all images from db
     const handleClick = (event) => {
         event.preventDefault();
-        axios.get('http://localhost:8000/albums')
+        axios.get(`http://localhost:8000//${albumId}/photos`)
             .then(res => setPhotos(res.data))
         console.log(photos)
     }

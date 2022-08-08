@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 // each individual album
-const AlbumCard = ({ id, albumName }) => {
+const AlbumCard = ({ id, albumName, createdAt }) => {
   const navigate = useNavigate()
 
   const handleClick = (event) => {
@@ -19,6 +19,7 @@ const AlbumCard = ({ id, albumName }) => {
       <h3 onClick={handleClick} id={id}>
         {albumName}
       </h3>
+      <p>{createdAt}</p>
         </Card.Body>
       </Card>
     </div>

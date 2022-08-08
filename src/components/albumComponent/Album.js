@@ -19,11 +19,11 @@ if(!album){
 return (
   <div>
     <h2>
-      album
+      Albums
     </h2>
     <div>
     {album.map((album) => (
-      <AlbumCard key={album._id} id={album._id} albumName={album.albumName} />
+      <AlbumCard key={album._id} id={album._id} albumName={album.albumName} createdAt={album.createdAt}/>
     ))}
     </div>
     <button>

@@ -3,11 +3,15 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
+import AlbumEdit from './AlbumEdit';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse } from "@fortawesome/free-solid-svg-icons"
 
 const Photos = () => {
     let { albumId } = useParams()
     const [photos, setPhotos] = useState([])
     const [deleted, setDeleted] = useState('')
+    const [modalShow, setModalShow] = React.useState(false);
 
     // handle click to get all images from db
     const handleClick = (event) => {
@@ -41,6 +45,16 @@ const Photos = () => {
       <h3>
         (Album name)'s photos
       </h3>
+      <FontAwesomeIcon 
+        icon={faPencil} 
+        className='logos'
+        onClick={() => setModalShow(true)}/>
+          {/* ^ opens edit modal */}
+          {/* <Button variant="primary" onClick={() => setModalShow(true)}>Edit/Delete Album</Button> */}
+        <AlbumEdit
+        show={modalShow}
+        onHide={() => setModalShow(false)}/>
+
       <Container className='photosContainer'>
         {photos.map((photo) => (
         <div>

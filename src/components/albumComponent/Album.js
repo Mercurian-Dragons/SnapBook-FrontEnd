@@ -8,14 +8,12 @@ import Container from 'react-bootstrap/Container';
 
 const Album = () => {
   const [album, setAlbum] = useState([])
-  const [modalShow, setModalShow] = React.useState(false);
 
   useEffect(() => {
     axios.get('http://localhost:8000/albums')
       .then(res => setAlbum(res.data))
       console.log(album)
     },[])
-
 
 
 if(!album){
@@ -33,18 +31,6 @@ return (
         </h1>
       <div>
         <div className='logosContainer'>
-
-
-        <FontAwesomeIcon 
-        icon={faPencil} 
-        className='logos'
-        onClick={() => setModalShow(true)}/>
-          {/* ^ opens edit modal */}
-          {/* <Button variant="primary" onClick={() => setModalShow(true)}>Edit/Delete Album</Button> */}
-        <AlbumEdit
-        show={modalShow}
-        onHide={() => setModalShow(false)}/>
-          
           {/* <FontAwesomeIcon icon={faStar} className='logos' /> */}
           {/* ^ favorites (stretch) */}
           {/* <FontAwesomeIcon icon={faSquareShareNodes} className='logos' /> */}

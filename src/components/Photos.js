@@ -12,7 +12,7 @@ const Photos = () => {
 
   useEffect(() => {
     // useParams of album id to retrieve images associated to the specific album
-    axios.get(`http://localhost:8000/photo/${albumId}`)
+    axios.get(`http://localhost:8000/${albumId}/photos`)
     .then(res => setPhotos(res.data))
   },[])
 console.log(photos)

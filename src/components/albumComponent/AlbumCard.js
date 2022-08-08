@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button'
@@ -6,11 +6,12 @@ import Button from 'react-bootstrap/Button'
 // each individual album
 const AlbumCard = ({ id, albumName }) => {
   const navigate = useNavigate()
+  let { albumId } = useParams()
 
   const handleClick = (event) => {
     console.log(event.target.id)
     // will set the parameter to the id associated with the album card
-    navigate(`photos/${event.target.id}`)
+    navigate(`/${event.target.id}/photos`)
   }
   return (
     <>
@@ -35,19 +36,3 @@ const AlbumCard = ({ id, albumName }) => {
 }
 
 export default AlbumCard
-
-
-
-
-
-
-
-
-
-{/* <Card style={{ width: '18rem' }}>
-            <Card.Body className='album-img-container'>
-              <Card.Img variant="top" src="holder.js/100px180" />
-              <Card.Title>Card Title1</Card.Title>
-              <Button  onClick={handleClick} variant="primary"> View Album</Button>
-            </Card.Body>
-          </Card> */}

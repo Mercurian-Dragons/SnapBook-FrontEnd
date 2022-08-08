@@ -92,8 +92,7 @@ const Albums = () => {
           </Card>
 
         </Container>
-       
-      
+
       </div>
     </>
 

@@ -39,7 +39,7 @@ const Photos = () => {
   return (
     <div>
       <h3>
-        Photos
+        (Album name)'s photos
       </h3>
       <Container className='photosContainer'>
         {photos.map((photo) => (

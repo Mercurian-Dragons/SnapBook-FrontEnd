@@ -14,14 +14,12 @@ function Navigation() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="Navbar">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/albums">Album</Nav.Link>
+            <Nav.Link href="/albums">Albums</Nav.Link>
             </Nav>
         </Navbar.Collapse>
-       
       </Container>
     </Navbar>
-   <Card.Img className='Logo' variant="top" src="" alt='' /> Your logo
-   
+  {/* <Card.Img className='Logo' variant="top" src="" alt='' /> Your logo */}
     </>
   )
 }

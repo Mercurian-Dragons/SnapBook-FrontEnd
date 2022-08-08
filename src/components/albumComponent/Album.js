@@ -29,13 +29,19 @@ return (
         <div className='logosContainer'>
         <h1>
           <FontAwesomeIcon icon={faArrowLeft} className='logos' />
-          Album's info here
+          Your Albums
         </h1>
-          <FontAwesomeIcon icon={faStar} className='logos' />
+          {/* <FontAwesomeIcon icon={faStar} className='logos' /> */}
+          {/* ^ favorites (stretch) */}
           <FontAwesomeIcon icon={faPencil} className='logos' />
-          <FontAwesomeIcon icon={faSquareShareNodes} className='logos' />
-          <FontAwesomeIcon icon={faLock} className='logos' />
+          {/* ^edit  */}
+
+          {/* <FontAwesomeIcon icon={faSquareShareNodes} className='logos' /> */}
+          {/* ^ might not need this one?  */}
+          {/* <FontAwesomeIcon icon={faLock} className='logos' /> */}
+          {/* ^ private (stretch)  */}
           <FontAwesomeIcon icon={faLink} className='logos' />
+          {/* ^ get sharing link */}
         </div>
       </div>
     </div>
@@ -43,13 +49,13 @@ return (
     <div>
     <Container className='albumContainer'>
     {album.map((album) => (
-      <AlbumCard key={album._id} id={album._id} albumName={album.name} />
+      <AlbumCard key={album._id} id={album._id} albumName={album.albumName} />
     ))}
     </Container>
     </div>
-    <button>
+    {/* <button>
       delete
-    </button>
+    </button> */}
   </div>
   </>
 )}

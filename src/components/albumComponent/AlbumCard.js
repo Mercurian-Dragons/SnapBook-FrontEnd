@@ -19,14 +19,14 @@ const AlbumCard = ({ id, albumName }) => {
     <div>
       <Card style={{ width: '18rem' }}>
         <Card.Body className='album-img-container img-container'>
-        <Card.Title>Card Title1</Card.Title>
+        <Card.Title>{ albumName }</Card.Title>
         <Button onClick={handleClick} id={id} variant='primary'>View Album</Button>
       <p>
-        {albumName}
+        Created by (username) on (date)
+
+        {/* Shared with (names) */}
+        {/* stretch functionality to show who(users) it's shared with/the group */}
       </p>
-      <h3>
-        album card
-      </h3>
         </Card.Body>
       </Card>
     </div>

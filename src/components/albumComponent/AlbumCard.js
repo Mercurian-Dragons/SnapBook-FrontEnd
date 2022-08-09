@@ -4,12 +4,11 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button'
 
 // each individual album
-const AlbumCard = ({ id, albumName }) => {
+const AlbumCard = ({ id, albumName}) => {
   const navigate = useNavigate()
   let { albumId } = useParams()
 
   const handleClick = (event) => {
-    console.log(event.target.id)
     // will set the parameter to the id associated with the album card
     navigate(`/${event.target.id}/photos`)
   }
@@ -20,9 +19,9 @@ const AlbumCard = ({ id, albumName }) => {
       <Card style={{ width: '18rem' }}>
         <Card.Body className='album-img-container img-container'>
         <Card.Title>{ albumName }</Card.Title>
-        <Button onClick={handleClick} id={id} variant='primary'>View Album</Button>
+        <Button onClick={handleClick} id={id} variant='primary'>View { albumName }</Button>
       <p>
-        Created by (username) on (date)
+        Created by (creatorName) on (date)
 
         {/* Shared with (names) */}
         {/* stretch functionality to show who(users) it's shared with/the group */}

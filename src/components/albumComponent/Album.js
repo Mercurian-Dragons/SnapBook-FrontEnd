@@ -12,13 +12,13 @@ const Album = () => {
   useEffect(() => {
     axios.get('http://localhost:8000/albums')
       .then(res => setAlbum(res.data))
-      console.log(album)
     },[])
 
 
-if(!album){
-  <p>loading</p>
-}
+// if(!album){
+//   <p>loading</p>
+// }
+// Update with spinner
 
 return (
   <>

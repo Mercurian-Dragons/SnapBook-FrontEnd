@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
 import AlbumEdit from './AlbumEdit';
@@ -10,16 +10,21 @@ import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHo
 
 const Photos = () => {
     let { albumId } = useParams()
+    let { photoId } = useParams()
     const [photos, setPhotos] = useState([])
     const [deleted, setDeleted] = useState('')
     const [modalShow, setModalShow] = React.useState(false);
+    const navigate = useNavigate()
 
     // handle click to get all images from db
     const handleClick = (event) => {
         event.preventDefault();
+    
         axios.get(`http://localhost:8000//${albumId}/photos`)
             .then(res => setPhotos(res.data))
-        console.log(event.target.albumName)
+        // console.log(event.target.albumName)
+        navigate(`/photos/${event.target}`)
+        console.log('hi')
     }
 
     useEffect(() => {
@@ -79,9 +84,9 @@ const Photos = () => {
         </div>
         ))}
       </Container>
-      <button>
+      {/* <button>
         delete
-      </button>
+      </button> */}
     </div>
   )
 }

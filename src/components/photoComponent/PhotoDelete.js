@@ -4,14 +4,14 @@ import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-const PhotoEdit = (props) => {
+const PhotoDelete = (props) => {
     const [photo, setPhoto] = useState(null)
-    // const [deleteImage, setDeleteImage] = useState(props.deletePhoto)
+    const [deleteImage, setDeleteImage] = useState(props.deletePhoto)
     // const [deleted, setDeleted] = useState(false)
     // const [edited, setEdited] = useState(false)
     let { albumId } = useParams()
     const navigate = useNavigate();
-    // console.log(deleteImage)
+    console.log(deleteImage)
     const [modalShow, setModalShow] = React.useState(false);
 
     // const handleChange = (event) => {
@@ -27,6 +27,17 @@ const PhotoEdit = (props) => {
     // };
 // ^ for editing
 
+// button to delete the photo
+const handleDelete = () => {
+    axios.delete(`http://localhost:8000/${albumId}/${deleteImage}`)
+    .then(res => {
+        // put some message here to display that it's been deleted?
+        // Deleting works, but it does not navigate away after clicking button. It needs to close modal(s) and navigate back to the album
+        navigate(`/${albumId}/photos`);
+    })	
+};
+
+
 return (
     <>
     <Modal
@@ -36,27 +47,25 @@ return (
         centered>
         <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
-                Edit Image
+                Edit or Delete
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
             <h4>Photo Settings</h4>
             <p>
-            (Here will be a form with edit options)
-                {/* <Button variant="danger"
-                onClick={handleDelete}
+                <Button variant="danger"
+                onClick={props.onHide}
                 >
                     Delete Photo
                     (Warning, this can't be undone!)
-                </Button> */}
+                </Button>
             </p>
         </Modal.Body>
         <Modal.Footer>
-            <Button onClick={props.onHide}>
-            Close</Button>
+
         </Modal.Footer>
     </Modal>
     </>
 )}
 
-export default PhotoEdit
+export default PhotoDelete

@@ -4,8 +4,9 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Card from 'react-bootstrap/Card'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse } from "@fortawesome/free-solid-svg-icons"
+import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse, faTrashCan } from "@fortawesome/free-solid-svg-icons"
 import PhotoEdit from '../photoComponent/PhotoEdit'
+import PhotoDelete from './PhotoDelete';
 
 
 
@@ -18,6 +19,7 @@ const PhotoViewer = ({ photo, deletePhoto }) => {
     const handleShow = () => setShow(true);
     const [modalShow, setModalShow] = React.useState(false);
 console.log(deletePhoto)
+
     return (
         <>
             <Card className='img-container' style={{ width: '18rem' }} onClick={handleShow}>
@@ -47,7 +49,6 @@ console.log(deletePhoto)
                 />
 
                 <PhotoEdit
-                deletePhoto={deletePhoto}
                 show={modalShow}
                 onHide={() => setModalShow(false)}
                 albumId={albumId}
@@ -57,6 +58,16 @@ console.log(deletePhoto)
 
 
                     <FontAwesomeIcon icon={faLink} className='logosModal' />
+                    {/* ^ needs to have link to photo and copy it */}
+
+                <FontAwesomeIcon icon="fa-solid fa-trash-can" />
+
+                <PhotoDelete 
+                deletePhoto={deletePhoto}
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+                albumId={albumId}
+                photoId={photoId}/>
                 </Modal.Header>
 
                 <Modal.Body >

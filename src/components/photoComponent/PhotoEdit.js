@@ -43,12 +43,6 @@ return (
             <h4>Photo Settings</h4>
             <p>
             (Here will be a form with edit options)
-                {/* <Button variant="danger"
-                onClick={handleDelete}
-                >
-                    Delete Photo
-                    (Warning, this can't be undone!)
-                </Button> */}
             </p>
         </Modal.Body>
         <Modal.Footer>

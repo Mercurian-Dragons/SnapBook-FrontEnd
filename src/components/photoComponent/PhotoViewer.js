@@ -14,74 +14,95 @@ const PhotoViewer = ({ photo, deletePhoto }) => {
     let { albumId } = useParams()
     let { photoId } = useParams()
     const navigate = useNavigate()
+
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    // ^photo viewer modal
     const [modalShow, setModalShow] = React.useState(false);
-console.log(deletePhoto)
+    // ^ edit modal
+    const [deleteModalShow, setDeleteModalShow] = React.useState(false);
+    const handleDeleteClose = () => setDeleteModalShow(false);
+    const handleDeleteShow = () => setDeleteModalShow(true);
+    //  ^delete modal
+    
+    
 
     return (
-        <>
-            <Card className='img-container' style={{ width: '18rem' }} onClick={handleShow}>
-                <Card.Body className='img-container' >
-                    <Card.Img variant='top' className='imagos'
-                        key={photo._id}
-                        id={photo._id}
-                        src={photo.url}
-                        alt={photo.altText}
-                    />
-                </Card.Body>
-            </Card>
-
-            <Modal className='modal'
-                show={show}
-                onHide={handleClose}
-                backdrop="static"
-                keyboard={false}
-            >
-                <Modal.Header closeButton >
-                <FontAwesomeIcon 
-                    icon={faPencil} 
-                    className='logos'
-                    onClick={() => setModalShow(true)}
-                    albumId={albumId}
-                    photoId={photoId}
+    <>
+        <Card 
+        className='img-container' 
+        style={{ width: '18rem' }} 
+        onClick={handleShow}>
+            <Card.Body className='img-container' >
+                <Card.Img variant='top' className='imagos'
+                    key={photo._id}
+                    id={photo._id}
+                    src={photo.url}
+                    alt={photo.altText}
                 />
+            </Card.Body>
+        </Card>
 
-                <PhotoEdit
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-                albumId={albumId}
-                photoId={photoId}
-                />
+        <Modal className='modal'
+            show={show}
+            onHide={handleClose}
+            backdrop="static"
+            keyboard={false}
+        >
 
+            <Modal.Header closeButton >
 
+            <FontAwesomeIcon icon={faLink} className='logosModal' />
+                {/* ^ needs to have link to photo and copy it */}
 
-                    <FontAwesomeIcon icon={faLink} className='logosModal' />
-                    {/* ^ needs to have link to photo and copy it */}
+        {/* Pencil icon, open edit modal */}
+            <FontAwesomeIcon 
+            icon={faPencil} 
+            className='logos'
+            onClick={() => setModalShow(true)}
+            albumId={albumId}
+            photoId={photoId}
+            />
 
-                <FontAwesomeIcon icon="fa-solid fa-trash-can" />
+            <PhotoEdit
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+            albumId={albumId}
+            photoId={photoId}
+            />
 
-                <PhotoDelete 
-                deletePhoto={deletePhoto}
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-                albumId={albumId}
-                photoId={photoId}/>
-                </Modal.Header>
+        {/* Trash icon, open delete modal */}
+            <FontAwesomeIcon 
+            icon={ faTrashCan }
+            className='logosModal'
+            onClick={() => setModalShow(true)} />
 
-                <Modal.Body >
-                    <img src={photo.url}
-                    id={photo._id} 
-                    alt={photo.altText} className='modal-content' />
-                    <p className='caption'> Caption </p>
-                </Modal.Body>
-                <Modal.Footer>
-                    {/* <PhotoCarousel /> */}
-                    Carousel ?
-                </Modal.Footer>
-            </Modal>
-        </>
+            <PhotoDelete 
+            show={modalShow}
+            deletePhoto={deletePhoto}
+            deleteModalShow={deleteModalShow}
+            onHide={() => setModalShow(false)}
+            // ^ delete modal
+            onClick={handleDeleteShow}
+            albumId={albumId}
+            photoId={photoId}/>
+
+            </Modal.Header>
+
+            <Modal.Body >
+                <img src={photo.url}
+                id={photo._id} 
+                alt={photo.altText} className='modal-content' />
+                <p className='caption'> Caption </p>
+            </Modal.Body>
+            {/* ^Photo viewing modal */}
+            <Modal.Footer>
+                {/* <PhotoCarousel /> */}
+                Carousel ?
+            </Modal.Footer>
+        </Modal>
+    </>
     );
 };
 

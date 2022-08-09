@@ -9,7 +9,7 @@ import PhotoEdit from '../photoComponent/PhotoEdit'
 
 
 
-const PhotoViewer = ({ photo }) => {
+const PhotoViewer = ({ photo, deletePhoto }) => {
     let { albumId } = useParams()
     let { photoId } = useParams()
     const navigate = useNavigate()
@@ -17,7 +17,7 @@ const PhotoViewer = ({ photo }) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const [modalShow, setModalShow] = React.useState(false);
-
+console.log(deletePhoto)
     return (
         <>
             <Card className='img-container' style={{ width: '18rem' }} onClick={handleShow}>
@@ -47,6 +47,7 @@ const PhotoViewer = ({ photo }) => {
                 />
 
                 <PhotoEdit
+                deletePhoto={deletePhoto}
                 show={modalShow}
                 onHide={() => setModalShow(false)}
                 albumId={albumId}

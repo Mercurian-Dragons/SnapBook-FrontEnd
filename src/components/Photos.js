@@ -1,6 +1,6 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import React, { useEffect, useState, createContext} from 'react'
+import { useParams, useNavigate, Route } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
 import AlbumEdit from './AlbumEdit';
@@ -9,13 +9,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse } from "@fortawesome/free-solid-svg-icons"
 
 const Photos = () => {
-    let { albumId } = useParams()
-    let { photoId } = useParams()
-    const [photos, setPhotos] = useState([])
-    const [deleted, setDeleted] = useState('')
-    const [modalShow, setModalShow] = React.useState(false);
-    const navigate = useNavigate()
-
+  let { albumId } = useParams()
+  let { photoId } = useParams()
+  const [photos, setPhotos] = useState([])
+  const [deleted, setDeleted] = useState('')
+  const [modalShow, setModalShow] = React.useState(false);
+  const [deletePhoto, setDeletePhoto] = useState('')
+  const Context = createContext()
+  const navigate = useNavigate()
+  console.log(Context)
     // handle click to get all images from db
     const handleClick = (event) => {
         event.preventDefault();
@@ -44,9 +46,12 @@ const Photos = () => {
     // }
     // console.log(deleted)
     
-    // useEffect(() => {
-    // }, [photos])
-
+   
+  const photoViewerClick = (event) => {
+    event.preventDefault()
+    setDeletePhoto(event.target.id)
+  }
+ 
   return (
     <div>
       <FontAwesomeIcon 
@@ -67,10 +72,10 @@ const Photos = () => {
       </h3>
       
 
-      <Container className='photosContainer'>
+      <Container className='photosContainer' onClick={photoViewerClick}>
         {photos.map((photo, i) => (
         <div key={i}>
-          <PhotoViewer photo={photo} show={modalShow} onHide={() => setModalShow(false)} />
+          <PhotoViewer photo={photo} show={modalShow} onHide={() => setModalShow(false)} deletePhoto={deletePhoto}/>
             {/* <Card style={{ width: '18rem' }}>
               <Card.Body className='img-container'>
                 <Card.Img variant='top' 
@@ -81,6 +86,7 @@ const Photos = () => {
                   />
               </Card.Body>
             </Card> */}
+        
         </div>
         ))}
       </Container>

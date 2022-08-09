@@ -1,24 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import React, { useEffect, useState, useContext } from 'react';
+import { useNavigate, useParams} from 'react-router-dom';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 const PhotoEdit = (props) => {
-    
     const [photo, setPhoto] = useState(null)
+    const [deleteImage, setDeleteImage] = useState(props.deletePhoto)
     // const [deleted, setDeleted] = useState(false)
     // const [edited, setEdited] = useState(false)
     let { albumId } = useParams()
-    let { photoId } = useParams()
     const navigate = useNavigate();
+    console.log(deleteImage)
 
-useEffect(() => {
-    axios.get(`http://localhost:8000/${albumId}/${photoId}`)
-
-    .then(res => 
-        setPhoto(res.data))
-    }, [photoId])
 
     // const handleChange = (event) => {
     // 	setPhoto({ ...photo, [event.target.id]: event.target.value });
@@ -35,12 +29,13 @@ useEffect(() => {
 
 // button to delete the photo
 const handleDelete = () => {
-    axios.delete(`http://localhost:8000/${photoId}/edit`)
-        .then(res => {
-    // put some message here to display that it's been deleted?
-            navigate(`/${albumId}/photos`);
-        })	
+    axios.delete(`http://localhost:8000/${albumId}/${deleteImage}/edit`)
+    .then(res => {
+        // put some message here to display that it's been deleted?
+        navigate(`/${albumId}/photos`);
+    })	
 };
+
 
 return (
     <>

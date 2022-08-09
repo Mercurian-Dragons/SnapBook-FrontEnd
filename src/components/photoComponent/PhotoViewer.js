@@ -10,7 +10,7 @@ import PhotoCarousel from './PhotoCarousel'
 
 
 
-const PhotoViewer = ({ photo }) => {
+const PhotoViewer = ({ photo, photos }) => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -40,15 +40,11 @@ const PhotoViewer = ({ photo }) => {
                     <FontAwesomeIcon icon={faLink} className='logosModal' />
                 </Modal.Header>
 
-                <Modal.Body >
-                    <img src={photo.url} alt={photo.altText} className='modal-content' />
-                    {/* <PhotoCarousel /> */}
-                    <p className='caption'> Caption </p>
+                <Modal.Body className='modal-content' >
+                    {/* <img src={photo.url} alt={photo.altText} className='modal-content' /> */}
+                    <PhotoCarousel photo={photo} photos= {photos} />
+                    <p className='caption-container'> Caption </p>
                 </Modal.Body>
-                <Modal.Footer>
-                    <PhotoCarousel />
-                    Carousel ?
-                </Modal.Footer>
             </Modal>
         </>
     );

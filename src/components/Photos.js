@@ -4,24 +4,17 @@ import { useParams } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
 import PhotoViewer from './photoComponent/PhotoViewer'
-import Carousel from 'react-bootstrap/Carousel';
-import Modal from 'react-bootstrap/Modal';
-
 
 const Photos = () => {
 
     const [index, setIndex] = useState(0);
+    let { albumId } = useParams()
+    const [photos, setPhotos] = useState([])
+    const [deleted, setDeleted] = useState('')
 
     const handleSelect = (selectedIndex, e) => {
         setIndex(selectedIndex);
     };
-
-    const [modalShow, setModalShow] = React.useState(false)
-
-
-    let { albumId } = useParams()
-    const [photos, setPhotos] = useState([])
-    const [deleted, setDeleted] = useState('')
 
     // handle click to get all images from db
     const handleClick = (event) => {
@@ -56,10 +49,6 @@ const Photos = () => {
 
     // }
 
-    // const [show, setShow] = useState(false);
-    // const handleClose = () => setShow(false);
-    // const handleShow = () => setShow(true);
-
 
     return (
         <div>
@@ -69,11 +58,10 @@ const Photos = () => {
             <Container className='photosContainer'>
                 {photos.map((photo, i) => (
                     <div key={i}>
-                        <PhotoViewer photo={photo} show={modalShow} onHide={() => setModalShow(false)} />
+                        <PhotoViewer photo={photo} photos={photos} />
                         {/* <Card className='img-container' style={{ width: '18rem' }}>
                             <Card.Body className='img-container' >
-                        
-                                        <Card.Img variant='top' className='imagos' onClick={() => setModalShow(true)}
+                            <Card.Img variant='top' className='imagos' onClick={() => setModalShow(true)}
                                             key={photo._id}
                                             id={photo._id}
                                             src={photo.url}
@@ -81,7 +69,6 @@ const Photos = () => {
                                         />
                             </Card.Body> 
                         </Card> */}
-                        
                     </div>
                 ))}
             </Container>

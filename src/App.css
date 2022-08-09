@@ -42,6 +42,13 @@
   margin-right: 30px;
 }
 
+.link-logo {
+  max-width: 6%;
+  height: auto;
+  margin-right: 30px;
+  cursor: pointer;
+}
+
 .logosBtn {}
 
 

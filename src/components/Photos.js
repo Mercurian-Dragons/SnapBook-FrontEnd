@@ -5,8 +5,10 @@ import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
 import AlbumEdit from './AlbumEdit';
 import PhotoViewer from './photoComponent/PhotoViewer'
+import UploadPictures from '../components/UploadPictures'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse, faTrashCan } from "@fortawesome/free-solid-svg-icons"
+
 
 const Photos = () => {
   let { albumId } = useParams()
@@ -52,6 +54,7 @@ const Photos = () => {
  
   return (
     <div>
+      <UploadPictures />
       <FontAwesomeIcon 
         icon={faArrowLeft} 
         className='logos' 

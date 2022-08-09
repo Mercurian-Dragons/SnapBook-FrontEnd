@@ -5,7 +5,7 @@ import Home from './components/Home.js'
 import Album from './components/albumComponent/Album'
 import Footer from './components/Footer.js';
 import Photos from './components/Photos.js'
-import Pictures from './components/Pictures'
+import UploadPictures from './components/UploadPictures'
 
 const App = () => {
   return (
@@ -15,7 +15,7 @@ const App = () => {
         <Route path='/' element={ <Home /> } />
         <Route path='/albums' element={ <Album /> } />
         <Route path='/:albumId/photos/' element={ <Photos /> } />
-        <Route path='/pictures' element={ <Pictures /> } />
+        <Route path='/pictures' element={ <UploadPictures /> } />
       </Routes>
       <Footer />
     </>

@@ -8,6 +8,7 @@ import PhotoViewer from './photoComponent/PhotoViewer'
 import UploadPictures from '../components/UploadPictures'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse, faTrashCan } from "@fortawesome/free-solid-svg-icons"
+import copy from 'copy-to-clipboard'
 
 
 const Photos = () => {
@@ -52,10 +53,11 @@ const Photos = () => {
     navigate('/albums/')
   }
 
-  const copyLink = (event) => {
-    console.log(event.target.value)
-  }
- 
+  function copyToClipboard(text) {
+    copy(window.location.href)
+    alert('Copied!')
+}
+
   return (
     <div>
       <UploadPictures />
@@ -64,7 +66,7 @@ const Photos = () => {
         className='logos' 
         onClick={handleReturn}/>
       {/* set up to return to /albums */}
-        <FontAwesomeIcon icon={faLink} className='logos link-logo' onClick={copyLink} />
+        <FontAwesomeIcon icon={faLink} className='logos link-logo' onClick={copyToClipboard} />
         {/* ^ get sharing link */}
 
       <FontAwesomeIcon 

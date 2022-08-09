@@ -81,6 +81,7 @@ const Photos = () => {
                                         />
                             </Card.Body> 
                         </Card> */}
+                        
                     </div>
                 ))}
             </Container>

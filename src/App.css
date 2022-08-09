@@ -26,7 +26,8 @@
 }
 
 .img-container{
- 
+  height: 100%;
+  width: 100%;
 }
 
 .logosContainer {
@@ -46,6 +47,8 @@
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
+  height: 70%;
+  width: 100%;
 }
 
 .imagos:hover {opacity: 0.7;}

@@ -4,7 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import Card from 'react-bootstrap/Card'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse } from "@fortawesome/free-solid-svg-icons"
-
+import PhotoCarousel from './PhotoCarousel'
 
 
 
@@ -19,7 +19,7 @@ const PhotoViewer = ({ photo }) => {
     return (
         <>
             <Card className='img-container' style={{ width: '18rem' }} onClick={handleShow}>
-                <Card.Body className='img-container' >
+                <Card.Body className='imgBody' >
                     <Card.Img variant='top' className='imagos'
                         key={photo._id}
                         id={photo._id}
@@ -42,10 +42,11 @@ const PhotoViewer = ({ photo }) => {
 
                 <Modal.Body >
                     <img src={photo.url} alt={photo.altText} className='modal-content' />
+                    {/* <PhotoCarousel /> */}
                     <p className='caption'> Caption </p>
                 </Modal.Body>
                 <Modal.Footer>
-                    {/* <PhotoCarousel /> */}
+                    <PhotoCarousel />
                     Carousel ?
                 </Modal.Footer>
             </Modal>

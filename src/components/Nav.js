@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Card from 'react-bootstrap/Card';
+import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
 
 
 function Navigation() {

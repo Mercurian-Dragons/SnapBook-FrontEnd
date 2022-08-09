@@ -9,6 +9,7 @@ import Spinner from 'react-bootstrap/Spinner';
 
 const Album = () => {
   const [album, setAlbum] = useState([])
+  
 
   useEffect(() => {
     axios.get('http://localhost:8000/albums')
@@ -41,8 +42,10 @@ return (
           {/* ^ favorites (stretch) */}
           {/* <FontAwesomeIcon icon={faSquareShareNodes} className='logos' /> */}
           {/* ^ might not need this one?  */}
+          <FontAwesomeIcon icon={faLink} className='logos' />
           {/* <FontAwesomeIcon icon={faLock} className='logos' /> */}
           {/* ^ private (stretch)  */}
+
         </div>
       </div>
     </div>

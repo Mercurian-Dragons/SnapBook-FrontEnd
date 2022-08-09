@@ -8,12 +8,12 @@ import Container from 'react-bootstrap/Container';
 
 const Album = () => {
   const [album, setAlbum] = useState([])
+  
 
   useEffect(() => {
     axios.get('http://localhost:8000/albums')
       .then(res => setAlbum(res.data))
     },[])
-
 
 // if(!album){
 //   <p>loading</p>
@@ -35,9 +35,9 @@ return (
           {/* ^ favorites (stretch) */}
           {/* <FontAwesomeIcon icon={faSquareShareNodes} className='logos' /> */}
           {/* ^ might not need this one?  */}
+          <FontAwesomeIcon icon={faLink} className='logos' />
           {/* <FontAwesomeIcon icon={faLock} className='logos' /> */}
           {/* ^ private (stretch)  */}
-          <FontAwesomeIcon icon={faLink} className='logos' />
           {/* ^ get sharing link */}
         </div>
       </div>

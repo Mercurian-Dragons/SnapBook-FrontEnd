@@ -9,14 +9,13 @@ const Photos = () => {
     const [photos, setPhotos] = useState([])
     const [deleted, setDeleted] = useState('')
 
-<<<<<<< HEAD
   useEffect(() => {
     // useParams of album id to retrieve images associated to the specific album
     axios.get(`http://localhost:8000/${albumId}/photos`)
     .then(res => setPhotos(res.data))
   },[])
+  
 console.log(photos)
-=======
     // handle click to get all images from db
     const handleClick = (event) => {
         event.preventDefault();
@@ -43,7 +42,7 @@ console.log(photos)
     
     // useEffect(() => {
     // }, [photos])
->>>>>>> f3c2f0131578ace466511cd93ef6130ff1af24fd
+
 
   return (
     <div>

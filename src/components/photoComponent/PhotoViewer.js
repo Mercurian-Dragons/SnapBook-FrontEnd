@@ -46,8 +46,7 @@ const PhotoViewer = ({ photo, deletePhoto }) => {
 
         <Modal className='modal'
             show={show}
-            onHide={handleClose}
-        >
+            onHide={handleClose}>
 
             <Modal.Header closeButton >
 
@@ -74,15 +73,15 @@ const PhotoViewer = ({ photo, deletePhoto }) => {
             <FontAwesomeIcon 
             icon={ faTrashCan }
             className='logosModal'
-            onClick={() => setModalShow(true)} />
+            onClick={handleDeleteShow}
+            onHide={handleDeleteClose} />
 
             <PhotoDelete 
-            show={modalShow}
+            show={deleteModalShow}
             deletePhoto={deletePhoto}
             deleteModalShow={deleteModalShow}
-            onHide={() => setModalShow(false)}
-            // ^ delete modal
-            onClick={handleDeleteShow}
+            onHide={handleDeleteClose}
+
             albumId={albumId}
             photoId={photoId}/>
 

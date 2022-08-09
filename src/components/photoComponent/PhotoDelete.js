@@ -7,15 +7,10 @@ import Modal from 'react-bootstrap/Modal';
 const PhotoDelete = (props) => {
     const [photo, setPhoto] = useState(null)
     const [deleteImage, setDeleteImage] = useState(props.deletePhoto)
-    // const [deleted, setDeleted] = useState(false)
-    // const [edited, setEdited] = useState(false)
+
     let { albumId } = useParams()
     const navigate = useNavigate();
- 
-    // const [deleteModalShow, setDeleteModalShow] = React.useState(true);
-    // const handleDeleteClose = () => setDeleteModalShow(false);
-    // const handleDeleteShow = () => setDeleteModalShow(true);
-    // can delete three above if don't need to close 
+
 
 // button to delete the photo
 const handleDelete = () => {
@@ -48,7 +43,8 @@ return (
                 >
                     Delete Photo
                 </Button>
-                <Button variant="primary" onClick={props.onHide}>
+                <Button variant="primary" 
+                onClick={props.onHide}>
             Nevermind</Button>
             </Modal.Body>
            

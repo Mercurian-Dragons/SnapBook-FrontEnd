@@ -7,7 +7,7 @@ function PhotoCarousel({photo, photos}) {
     const [index, setIndex] = useState(0);
 
     const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
+        setIndex(selectedIndex);
     };
 
     const handleClick = ( item  ) => {
@@ -36,7 +36,6 @@ return (
         </Carousel>
 
         <div className="row" >
-      {/* <img className='demo' src={photo.url} alt={photo.altText}/> */}
         {photos.map((photo) => (
         // thumbnail images 
         <div className="column" >

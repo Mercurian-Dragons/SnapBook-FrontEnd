@@ -18,7 +18,7 @@ const Photos = () => {
   const Context = createContext()
   const navigate = useNavigate()
   const [index, setIndex] = useState(0);
-  console.log(Context)
+  // console.log(Context)
 
     // handle click to get all images from db
     const handleClick = (event) => {
@@ -27,7 +27,7 @@ const Photos = () => {
             .then(res => setPhotos(res.data))
         // console.log(event.target.albumName)
         navigate(`/photos/${event.target}`)
-        console.log('hi')
+        // console.log('hi')
     }
   // select carousel image
     const handleSelect = (selectedIndex, e) => {
@@ -82,8 +82,8 @@ const Photos = () => {
         {photos.map((photo, i) => (
         <div key={i}>
           
-          <PhotoViewer photo={photo} show={modalShow} onHide={() => setModalShow(false)} deletePhoto={deletePhoto}/>
-
+          {/* <PhotoViewer photo={photo} show={modalShow} onHide={() => setModalShow(false)} deletePhoto={deletePhoto}/> */}
+          <PhotoViewer photo={photo} photos={photos}/>
         </div>
         ))}
       </Container>

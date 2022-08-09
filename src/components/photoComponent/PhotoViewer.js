@@ -7,10 +7,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse, faTrashCan } from "@fortawesome/free-solid-svg-icons"
 import PhotoEdit from './PhotoEdit'
 import PhotoDelete from './PhotoDelete';
+import PhotoCarousel from './PhotoCarousel'
 
 
-
-const PhotoViewer = ({ photo, deletePhoto }) => {
+const PhotoViewer = ({ photo, photos, deletePhoto }) => {
     let { albumId } = useParams()
     let { photoId } = useParams()
     const navigate = useNavigate()
@@ -34,7 +34,7 @@ const PhotoViewer = ({ photo, deletePhoto }) => {
         className='img-container' 
         style={{ width: '18rem' }} 
         onClick={handleShow}>
-            <Card.Body className='img-container' >
+            <Card.Body className='imgBody' >
                 <Card.Img variant='top' className='imagos'
                     key={photo._id}
                     id={photo._id}
@@ -53,7 +53,7 @@ const PhotoViewer = ({ photo, deletePhoto }) => {
             <FontAwesomeIcon icon={faLink} className='logosModal' />
                 {/* ^ needs to have link to photo and copy it */}
 
-        {/* Pencil icon, open edit modal */}
+            {/* Pencil icon, open edit modal */}
             <FontAwesomeIcon 
             icon={faPencil} 
             className='logos'
@@ -87,17 +87,11 @@ const PhotoViewer = ({ photo, deletePhoto }) => {
 
             </Modal.Header>
 
-            <Modal.Body >
-                <img src={photo.url}
-                id={photo._id} 
-                alt={photo.altText} className='modal-content' />
-                <p className='caption'> Caption </p>
+            <Modal.Body>
+                <PhotoCarousel photo={photo} photos= {photos} />
+                <p className='caption-container'> Caption </p>
             </Modal.Body>
             {/* ^Photo viewing modal */}
-            <Modal.Footer>
-                {/* <PhotoCarousel /> */}
-                Carousel ?
-            </Modal.Footer>
         </Modal>
     </>
     );

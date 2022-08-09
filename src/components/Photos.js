@@ -52,6 +52,9 @@ console.log(photos)
     event.preventDefault()
     setDeletePhoto(event.target.id)
   }
+  const handleReturn = () => {
+    navigate('/albums/')
+  }
 
   return (
     <div>

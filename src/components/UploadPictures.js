@@ -10,6 +10,7 @@ const UploadPictures = () => {
     name: '',
     url: ''
   });
+  const [reload, setReload] = useState(false)
 
   const handleChange = (event) => {
     setInput({ ...input, [event.target.id]: event.target.value });
@@ -27,10 +28,12 @@ const UploadPictures = () => {
       .then(res => {
         console.log(res);
         console.log(res.data)
-        navigate(`/${albumId}/photos?`)
+        setReload(true)
       })
   }
-
+ 
+  useEffect(() => {
+  },[reload])
   return (
     <div>
       <h2>

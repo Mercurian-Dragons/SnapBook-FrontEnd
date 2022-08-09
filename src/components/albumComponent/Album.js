@@ -14,7 +14,7 @@ const Album = () => {
   useEffect(() => {
     axios.get('http://localhost:8000/albums')
       .then(res => setAlbum(res.data))
-    },[])
+    },[album])
 
 
     if(!album){

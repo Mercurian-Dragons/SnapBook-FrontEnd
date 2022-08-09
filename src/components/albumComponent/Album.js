@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import AlbumCard from './AlbumCard';
+import AlbumEdit from '../AlbumEdit';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse } from "@fortawesome/free-solid-svg-icons"
 import Container from 'react-bootstrap/Container';
@@ -11,31 +12,27 @@ const Album = () => {
   useEffect(() => {
     axios.get('http://localhost:8000/albums')
       .then(res => setAlbum(res.data))
-      console.log(album)
     },[])
 
 
-
-if(!album){
-  <p>loading</p>
-}
+// if(!album){
+//   <p>loading</p>
+// }
+// Update with spinner
 
 return (
   <>
   <div>
       <div className='albumTopContainer'>
-        <FontAwesomeIcon icon={faHouse} className='logos' />
-      <div>
-        <div className='logosContainer'>
+        <FontAwesomeIcon icon={faHouse} className='logos' /> 
+        <FontAwesomeIcon icon={faArrowLeft} className='logos' />
         <h1>
-          <FontAwesomeIcon icon={faArrowLeft} className='logos' />
           Your Albums
         </h1>
+      <div>
+        <div className='logosContainer'>
           {/* <FontAwesomeIcon icon={faStar} className='logos' /> */}
           {/* ^ favorites (stretch) */}
-          <FontAwesomeIcon icon={faPencil} className='logos' />
-          {/* ^edit  */}
-
           {/* <FontAwesomeIcon icon={faSquareShareNodes} className='logos' /> */}
           {/* ^ might not need this one?  */}
           {/* <FontAwesomeIcon icon={faLock} className='logos' /> */}

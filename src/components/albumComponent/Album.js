@@ -4,6 +4,7 @@ import AlbumCard from './AlbumCard';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse } from "@fortawesome/free-solid-svg-icons"
 import Container from 'react-bootstrap/Container';
+import Spinner from 'react-bootstrap/Spinner';
 
 const Album = () => {
   const [album, setAlbum] = useState([])
@@ -17,7 +18,13 @@ const Album = () => {
 
 
 if(!album){
-  <p>loading</p>
+  <Spinner
+          as="span"
+          animation="border"
+          size="sm"
+          role="status"
+          aria-hidden="true"
+        />
 }
 
 return (

@@ -51,6 +51,10 @@ const Photos = () => {
   const handleReturn = () => {
     navigate('/albums/')
   }
+
+  const copyLink = (event) => {
+    console.log(event.target.value)
+  }
  
   return (
     <div>
@@ -60,7 +64,7 @@ const Photos = () => {
         className='logos' 
         onClick={handleReturn}/>
       {/* set up to return to /albums */}
-      <FontAwesomeIcon icon={faLink} className='logos' />
+        <FontAwesomeIcon icon={faLink} className='logos link-logo' onClick={copyLink} />
         {/* ^ get sharing link */}
 
       <FontAwesomeIcon 

@@ -42,7 +42,7 @@ return (
           {/* ^ favorites (stretch) */}
           {/* <FontAwesomeIcon icon={faSquareShareNodes} className='logos' /> */}
           {/* ^ might not need this one?  */}
-          <FontAwesomeIcon icon={faLink} className='logos' />
+          {/* <FontAwesomeIcon icon={faLink} className='logos' /> */}
           {/* <FontAwesomeIcon icon={faLock} className='logos' /> */}
           {/* ^ private (stretch)  */}
 

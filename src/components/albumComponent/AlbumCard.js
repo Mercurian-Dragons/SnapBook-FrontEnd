@@ -17,9 +17,6 @@ const AlbumCard = ({ id, albumName}) => {
     navigate(`/${event.target.id}/photos`)
   }
 
-  const copyLink = (event) => {
-    console.log(event.target.value)
-  }
 
   return (
     <>
@@ -27,7 +24,7 @@ const AlbumCard = ({ id, albumName}) => {
     <div>
       <Card style={{ width: '18rem' }}>
         <div className='logosContainer'>
-        <FontAwesomeIcon icon={faLink} className='logos link-logo' onClick={copyLink} />
+      
         </div>
         <Card.Body className='album-img-container img-container'>
         <Card.Title>{ albumName }</Card.Title>

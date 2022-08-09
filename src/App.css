@@ -19,44 +19,21 @@
 }
 .photosContainer {
   display: grid;
-  grid-template-columns: repeat(5, 0.5fr);
+  grid-template-columns: repeat(3, 0.5fr);
   grid-template-rows: repeat(5, 2fr);
   grid-column-gap: 10px;
   grid-row-gap: 10px;
 }
 
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
+.img-container {
+  height: 100%;
+  width: 100%;
 }
 
 .logosContainer {
   display: inline;
+  height: 70%;
+  width: 100%;
 }
 
 .logos {
@@ -66,3 +43,127 @@
 }
 
 .logosBtn {}
+
+
+.imagos {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.imagos:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;  /*Stay in place */
+  /* z-index: 1; Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 90%;
+  max-width: 700px;
+  margin-bottom: 10px;
+}
+
+/* Caption of Modal Image */
+.caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+Add Animation
+.modal-content, .caption {  
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform: scale(0.1)} 
+  to {transform: scale(1)}
+}
+
+.logosModal {
+  width: 40px;
+  height: auto;
+}
+
+img {
+  vertical-align: middle;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.carouselContainer {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+  /* margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px; */
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+  height: auto;
+  margin: auto;
+  display: block;
+  width: 90%;
+  max-width: 900px;
+  margin-bottom: 10px;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+.demo, .caption-container {  
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}

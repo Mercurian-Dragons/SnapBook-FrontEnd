@@ -1,13 +1,24 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useEffect, useState, createContext} from 'react'
+import { useParams, useNavigate, Route } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
+import AlbumEdit from './AlbumEdit';
+import PhotoViewer from './photoComponent/PhotoViewer'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse, faTrashCan } from "@fortawesome/free-solid-svg-icons"
 
 const Photos = () => {
-    let { albumId } = useParams()
-    const [photos, setPhotos] = useState([])
-    const [deleted, setDeleted] = useState('')
+  let { albumId } = useParams()
+  let { photoId } = useParams()
+  const [photos, setPhotos] = useState([])
+  // const [deleted, setDeleted] = useState('')
+  const [modalShow, setModalShow] = React.useState(false);
+  const [deletePhoto, setDeletePhoto] = useState('')
+  const Context = createContext()
+  const navigate = useNavigate()
+  const [index, setIndex] = useState(0);
+  // console.log(Context)
 
   useEffect(() => {
     // useParams of album id to retrieve images associated to the specific album
@@ -21,53 +32,64 @@ console.log(photos)
         event.preventDefault();
         axios.get(`http://localhost:8000//${albumId}/photos`)
             .then(res => setPhotos(res.data))
-        console.log(photos)
+        // console.log(event.target.albumName)
+        navigate(`/photos/${event.target}`)
+        // console.log('hi')
     }
+  // select carousel image
+    const handleSelect = (selectedIndex, e) => {
+      setIndex(selectedIndex);
+  };
 
     useEffect(() => {
       // useParams of album id to retrieve images associated to the specific album
       axios.get(`http://localhost:8000/${albumId}/photos`)
-      .then(res => setPhotos(res.data))
+      .then(res => setPhotos(res.data)
+      )
     },[])
-    // console.log(photos)
 
-    const handleDelete = (event) => {
-        const id = event.target.id
-        // prevents multiple selection of same id
-        // setState callback creates a persistent value in the state, or else it would update everytime to 
-        // the new item we added. 
-        setDeleted((prev) => !deleted.includes(id) ? [...prev, id] : deleted)
-    }
-    // console.log(deleted)
-    
-    // useEffect(() => {
-    // }, [photos])
-
+  const photoViewerClick = (event) => {
+    event.preventDefault()
+    setDeletePhoto(event.target.id)
+  }
 
   return (
     <div>
+      <FontAwesomeIcon 
+        icon={faArrowLeft} 
+        className='logos' 
+        onClick={handleReturn}/>
+      {/* set up to return to /albums */}
+      <FontAwesomeIcon icon={faLink} className='logos' />
+        {/* ^ get sharing link */}
+
+      <FontAwesomeIcon 
+        icon={faPencil} 
+        className='logos'
+        onClick={() => setModalShow(true)}/>
+          {/* ^ opens edit modal */}
+          {/* <Button variant="primary" onClick={() => setModalShow(true)}>Edit/Delete Album</Button> */}
+      <AlbumEdit
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        albumId={albumId}/>
+          {/* Trash icon, open edit modal */}
+
+
       <h3>
         (Album name)'s photos
       </h3>
-      <Container className='photosContainer'>
-        {photos.map((photo) => (
-        <div>
-            <Card style={{ width: '18rem' }}>
-              <Card.Body className='img-container'>
-                <Card.Img variant='top' 
-                  key={photo._id}
-                  id={photo._id}
-                  src={photo.url}
-                  alt={photo.altText}
-                  />
-              </Card.Body>
-            </Card>
+      
+
+      <Container className='photosContainer' onClick={photoViewerClick}>
+        {photos.map((photo, i) => (
+        <div key={i}>
+          
+          {/* <PhotoViewer photo={photo} show={modalShow} onHide={() => setModalShow(false)} deletePhoto={deletePhoto}/> */}
+          <PhotoViewer photo={photo} photos={photos}/>
         </div>
         ))}
       </Container>
-      <button>
-        delete
-      </button>
     </div>
   )
 }

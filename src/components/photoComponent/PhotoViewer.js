@@ -5,7 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 import Card from 'react-bootstrap/Card'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse, faTrashCan } from "@fortawesome/free-solid-svg-icons"
-import PhotoEdit from '../photoComponent/PhotoEdit'
+import PhotoEdit from './PhotoEdit'
 import PhotoDelete from './PhotoDelete';
 
 
@@ -47,8 +47,6 @@ const PhotoViewer = ({ photo, deletePhoto }) => {
         <Modal className='modal'
             show={show}
             onHide={handleClose}
-            backdrop="static"
-            keyboard={false}
         >
 
             <Modal.Header closeButton >

@@ -25,12 +25,15 @@
   grid-row-gap: 10px;
 }
 
-.img-container{
- 
+.img-container {
+  height: 100%;
+  width: 100%;
 }
 
 .logosContainer {
   display: inline;
+  height: 70%;
+  width: 100%;
 }
 
 .logos {
@@ -71,6 +74,7 @@
   display: block;
   width: 90%;
   max-width: 700px;
+  margin-bottom: 10px;
 }
 
 /* Caption of Modal Image */
@@ -96,8 +100,70 @@ Add Animation
   to {transform: scale(1)}
 }
 
-
 .logosModal {
   width: 40px;
   height: auto;
+}
+
+img {
+  vertical-align: middle;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.carouselContainer {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+  /* margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px; */
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+  height: auto;
+  margin: auto;
+  display: block;
+  width: 90%;
+  max-width: 900px;
+  margin-bottom: 10px;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+.demo, .caption-container {  
+  animation-name: zoom;
+  animation-duration: 0.6s;
 }

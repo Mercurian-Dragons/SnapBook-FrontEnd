@@ -12,7 +12,7 @@ const PhotoEdit = (props) => {
     let { albumId } = useParams()
     const navigate = useNavigate();
     console.log(deleteImage)
-
+    const [modalShow, setModalShow] = React.useState(false);
 
     // const handleChange = (event) => {
     // 	setPhoto({ ...photo, [event.target.id]: event.target.value });
@@ -20,7 +20,7 @@ const PhotoEdit = (props) => {
 
     // const handleSubmit = (event) => {
     //     event.preventDefault();
-    //     axios.patch(`http://localhost:8000/${photoId}/edit`, photo)
+    //     axios.patch(`http://localhost:8000/${photoId}/`, photo)
     //         .then(res => {
     //             navigate(`/${albumId}/${photoId}`);
     //         })
@@ -29,9 +29,10 @@ const PhotoEdit = (props) => {
 
 // button to delete the photo
 const handleDelete = () => {
-    axios.delete(`http://localhost:8000/${albumId}/${deleteImage}/edit`)
+    axios.delete(`http://localhost:8000/${albumId}/${deleteImage}`)
     .then(res => {
         // put some message here to display that it's been deleted?
+        // Deleting works, but it does not navigate away after clicking button. It needs to close modal(s) and navigate back to the album
         navigate(`/${albumId}/photos`);
     })	
 };
@@ -54,7 +55,8 @@ return (
             <p>
             (Here will be a form with edit options)
                 <Button variant="danger"
-                onClick={handleDelete}>
+                onClick={handleDelete}
+                >
                     Delete Photo
                     (Warning, this can't be undone!)
                 </Button>

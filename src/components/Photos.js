@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
 import AlbumEdit from './AlbumEdit';
+import PhotoViewer from './photoComponent/PhotoViewer'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse } from "@fortawesome/free-solid-svg-icons"
 
@@ -43,9 +44,6 @@ const Photos = () => {
 
   return (
     <div>
-      <h3>
-        (Album name)'s photos
-      </h3>
       <FontAwesomeIcon 
         icon={faPencil} 
         className='logos'
@@ -57,13 +55,18 @@ const Photos = () => {
         show={modalShow}
         onHide={() => setModalShow(false)}
         albumId={albumId}
-
         />
 
+      <h3>
+        (Album name)'s photos
+      </h3>
+      
+
       <Container className='photosContainer'>
-        {photos.map((photo) => (
-        <div>
-            <Card style={{ width: '18rem' }}>
+        {photos.map((photo, i) => (
+        <div key={i}>
+          <PhotoViewer photo={photo} show={modalShow} onHide={() => setModalShow(false)} />
+            {/* <Card style={{ width: '18rem' }}>
               <Card.Body className='img-container'>
                 <Card.Img variant='top' 
                   key={photo._id}
@@ -72,7 +75,7 @@ const Photos = () => {
                   alt={photo.altText}
                   />
               </Card.Body>
-            </Card>
+            </Card> */}
         </div>
         ))}
       </Container>

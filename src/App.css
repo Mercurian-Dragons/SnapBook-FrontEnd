@@ -100,7 +100,6 @@ Add Animation
   to {transform: scale(1)}
 }
 
-
 .logosModal {
   width: 40px;
   height: auto;
@@ -119,7 +118,6 @@ img {
 .mySlides {
   display: none;
 }
-
 
 
 /* Container for image text */
@@ -147,7 +145,7 @@ img {
 /* Six columns side by side */
 .column {
   float: left;
-  width: 30%;
+  width: 16.66%;
 }
 
 /* Add a transparency effect for thumnbail images */

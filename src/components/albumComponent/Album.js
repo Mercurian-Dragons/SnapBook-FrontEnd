@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import AlbumCard from './AlbumCard';
-import AlbumEdit from '../AlbumEdit';
+import AlbumEdit from './AlbumEdit';
 import CreateAlbum from './CreateAlbum';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse, faTrashCan } from "@fortawesome/free-solid-svg-icons"

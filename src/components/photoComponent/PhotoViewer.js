@@ -84,7 +84,7 @@ const PhotoViewer = ({ photo, photos, deletePhoto }) => {
 
             <Modal.Body >
                 <PhotoCarousel photo={photo} photos={photos} />
-                <p className='caption-container'> Caption </p>
+                <p className='caption-container'> caption </p>
             </Modal.Body>
             {/* ^Photo viewing modal */}
         </Modal>

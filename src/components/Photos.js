@@ -88,7 +88,7 @@ const Photos = () => {
         ))}
       </Container>
     </div>
-    </span>
+   
   )
 }
 

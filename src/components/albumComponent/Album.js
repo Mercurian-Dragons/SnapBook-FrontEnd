@@ -7,14 +7,28 @@ import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHo
 import Container from 'react-bootstrap/Container';
 import Spinner from 'react-bootstrap/Spinner';
 
+
 const Album = () => {
   const [album, setAlbum] = useState([])
-  
-
+  const [targetAlbum, setTargetAlbum] = ('')
+  const [editAlbum, setEditAlbum] = useState({
+    albumName: '',
+    description: '',
+  })
+ 
   useEffect(() => {
     axios.get('http://localhost:8000/albums')
       .then(res => setAlbum(res.data))
     },[album])
+
+    // const onClick = (event) => {
+    //   event.preventDefault()
+    //   axios.patch(`http://localhost:8000/albums/edit/${event.target.id}`, editAlbum)
+    //     .then((res) => {
+    //       console.log(res)
+    //       console.log(res.data)
+    //     })
+    // }
 
 
     if(!album){
@@ -51,11 +65,15 @@ return (
     </div>
 
     <div>
-    <Container className='albumContainer'>
+      <Container className='albumContainer' >
       {album.map((album) => (
-        <AlbumCard key={album._id} id={album._id} albumName={album.albumName} />
-      ))}
-    </Container>
+          <AlbumCard  
+          key={album._id} 
+          id={album._id} 
+          albumName={album.albumName} 
+          />
+        ))}
+      </Container>
     </div>
   </div>
   </>

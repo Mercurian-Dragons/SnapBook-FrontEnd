@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse } from "@fortawesome/free-solid-svg-icons"
+import AlbumChange from "./AlbumChange";
 
 // each individual album
 const AlbumCard = ({ id, albumName}) => {
@@ -26,9 +27,11 @@ const AlbumCard = ({ id, albumName}) => {
         <div className='logosContainer'>
       
         </div>
-        <Card.Body className='album-img-container img-container'>
-        <Card.Title>{ albumName }</Card.Title>
-        <Button onClick={handleClick} id={id} variant='primary'>View { albumName }</Button>
+          <Card.Body className='album-img-container img-container'>
+          <Card.Title >{ albumName }</Card.Title>
+          <p id={id}>edit</p>
+          <AlbumChange id={id}/>
+          <Button onClick={handleClick} id={id} variant='primary'>View</Button>
       <p>
         Created by (creatorName) on (date)
 

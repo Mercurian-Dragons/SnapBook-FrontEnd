@@ -3,57 +3,55 @@ import axios from 'axios'
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from 'react-router-dom'
 
-const UploadPictures = () => {
+
+const AlbumChange = ({ id }) => {
   const navigate = useNavigate()
-  let { albumId } = useParams()
-  const [input, setInput] = useState({
-    name: '',
-    url: ''
+  const [albumChange, setAlbumChange] = useState({
+    albumName: '',
+    description: ''
   });
   const [reload, setReload] = useState(false)
 
   const handleChange = (event) => {
-    setInput({ ...input, [event.target.id]: event.target.value });
+    setAlbumChange({ ...albumChange, [event.target.id]: event.target.value });
     console.log(event.target.id)
     console.log(event.target.value)
   }
   
-  // const bodyFormData = new FormData();
-  // bodyFormData.append('url', input)
-  // console.log(bodyFormData)
-  
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post(`http://localhost:8000/${albumId}/upload`, input)
+    axios.patch(`http://localhost:8000/album/edit/${id}`, albumChange)
       .then(res => {
         console.log(res);
         console.log(res.data)
+        console.log(albumChange)
+        console.log(id)
         setReload(true)
+        navigate('/albums')
       })
   }
  
   return (
     <div>
       <h2>
-        Picture Component
+        Album Change Component
       </h2>
       <form onSubmit={handleSubmit}>
         <input 
-          placeholder='enter name of image' 
+          placeholder='enter name of album' 
           onChange={handleChange} 
-          id='name'
-          value={input.name} 
+          id='albumName'
+          value={albumChange.albumName} 
           />
         <input 
-          placeholder='upload your image url' 
+          placeholder='enter description' 
           onChange={handleChange} 
-          id='url'
-          value={input.url} 
+          id='description'
+          value={albumChange.description} 
           />
         <button type='submit'>Submit</button>
       </form>
     </div>
   ) 
 }
-
-export default UploadPictures;
+ export default AlbumChange

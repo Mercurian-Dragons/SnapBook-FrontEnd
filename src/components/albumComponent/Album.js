@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import AlbumCard from './AlbumCard';
-// import AlbumEdit from '../AlbumEdit';
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse, faTrashCan } from "@fortawesome/free-solid-svg-icons"
+import AlbumEdit from '../AlbumEdit';
+import CreateAlbum from './CreateAlbum';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse, faTrashCan } from "@fortawesome/free-solid-svg-icons"
 import Container from 'react-bootstrap/Container';
 import Spinner from 'react-bootstrap/Spinner';
 
@@ -48,6 +49,7 @@ return (
         <h1>
           Your Albums
         </h1>
+        <CreateAlbum />
       <div>
         <div className='logosContainer'>
           {/* <FontAwesomeIcon icon={faStar} className='logos' /> */}

@@ -46,7 +46,8 @@ return (
         {...props}
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
-        centered>
+        centered
+        >
         <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
                 Edit or Delete
@@ -56,6 +57,7 @@ return (
             <h4>Album Settings</h4>
             <p>
             (Here will be a form with edit options)
+            <p></p>
                 <Button variant="danger"
                 onClick={handleDelete}>
                     Delete Album

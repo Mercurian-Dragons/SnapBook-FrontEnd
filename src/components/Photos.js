@@ -1,19 +1,16 @@
 import axios from 'axios'
 import React, { useEffect, useState, useRef } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-// import Card from 'react-bootstrap/Card'
+import copy from 'copy-to-clipboard'
+import Tooltip from 'react-bootstrap/Tooltip';
+import { OverlayTrigger } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container'
-import AlbumEdit from './albumComponent/AlbumEdit';
-import PhotoViewer from './photoComponent/PhotoViewer'
-import UploadPictures from '../picturesComponent/UploadPictures'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil, faLink, faArrowLeft, faPlus } from "@fortawesome/free-solid-svg-icons"
 // import { faStar, faSquareShareNodes, faLock, faHouse, faTrashCan } from "@fortawesome/free-solid-svg-icons"
-import copy from 'copy-to-clipboard'
-import Overlay from 'react-bootstrap/Overlay';
-import Popover from 'react-bootstrap/Popover';
-import Button from 'react-bootstrap/Button';
-
+import AlbumEdit from './albumComponent/AlbumEdit';
+import PhotoViewer from './photoComponent/PhotoViewer'
+import UploadPictures from '../picturesComponent/UploadPictures'
 
 
 const Photos = () => {
@@ -27,11 +24,12 @@ const Photos = () => {
   // const Context = createContext()
   const navigate = useNavigate()
   const [index, setIndex] = useState(0);
+  
   // Tooltip styles below
   const [show, setShow] = useState(false);
   const [target, setTarget] = useState(null);
   const ref = useRef(null);
-  // console.log(Context)
+
 
   useEffect(() => {
     // useParams of album id to retrieve images associated to the specific album
@@ -48,12 +46,11 @@ const Photos = () => {
         navigate(`/photos/${event.target}`)
         // console.log('hi')
     }
+    
   // select carousel image
     const handleSelect = (selectedIndex, e) => {
       setIndex(selectedIndex);
   };
-
-
     
   useEffect(() => {
     // useParams of album id to retrieve images associated to the specific album
@@ -62,19 +59,25 @@ const Photos = () => {
       )
   }, [photos])
 
-
   const photoViewerClick = (event) => {
     event.preventDefault()
     setDeletePhoto(event.target.id)
   }
+  
   const handleReturn = () => {
     navigate('/albums/')
   }
 
   function copyToClipboard(text) {
     copy(window.location.href)
-    alert('Copied!')
-  }
+    // alert('Copied!')
+}
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Click me to copy link!
+    </Tooltip>
+  );
+
 
   return (
     <div>
@@ -85,23 +88,28 @@ const Photos = () => {
         onClick={handleReturn}/>
       <span className='albumName'>{albumName}</span>
       <span>
-          <FontAwesomeIcon icon={faLink} className='logos link-logo' onClick={copyToClipboard} />
-          {/* ^ get sharing link */}
-          <FontAwesomeIcon
-            icon={faPencil}
-            className='logos'
-            onClick={() => setModalShow(true)} />
-            
+
+      <OverlayTrigger
+      placement="right"
+      overlay={renderTooltip}>
+          <FontAwesomeIcon icon={faLink} className='logos link-logo' onClick={copyToClipboard} ref={target}/>
+          </OverlayTrigger>
+         
+        {/* ^ get sharing link */}
+      
+      <FontAwesomeIcon 
+        icon={faPencil} 
+        className='logos'
+        onClick={() => setModalShow(true)}/>
+
           <UploadPictures photos={photos} />
-        
-          {/* ^ opens edit modal */}
-          {/* <Button variant="primary" onClick={() => setModalShow(true)}>Edit/Delete Album</Button> */}
+
+     {/* <Button variant="primary" onClick={() => setModalShow(true)}>Edit/Delete Album</Button> */}
       <AlbumEdit
         show={modalShow}
         onHide={() => setModalShow(false)}
         albumId={albumId}
         />
-          {/* Trash icon, open edit modal */}
 
         </span>
       </span>
@@ -118,5 +126,4 @@ const Photos = () => {
     </div>
   )
 }
-
 export default Photos

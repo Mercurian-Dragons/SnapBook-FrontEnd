@@ -5,13 +5,15 @@ import { useParams, useNavigate } from 'react-router-dom'
 import Container from 'react-bootstrap/Container'
 import AlbumEdit from './albumComponent/AlbumEdit';
 import PhotoViewer from './photoComponent/PhotoViewer'
-import UploadPictures from './UploadPictures'
+import UploadPictures from '../picturesComponent/UploadPictures'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faPencil,faLink, faArrowLeft, } from "@fortawesome/free-solid-svg-icons"
+import { faPencil, faLink, faArrowLeft, faPlus } from "@fortawesome/free-solid-svg-icons"
 // import { faStar, faSquareShareNodes, faLock, faHouse, faTrashCan } from "@fortawesome/free-solid-svg-icons"
 import copy from 'copy-to-clipboard'
 import Overlay from 'react-bootstrap/Overlay';
 import Popover from 'react-bootstrap/Popover';
+import Button from 'react-bootstrap/Button';
+
 
 
 const Photos = () => {
@@ -29,21 +31,42 @@ const Photos = () => {
   const [show, setShow] = useState(false);
   const [target, setTarget] = useState(null);
   const ref = useRef(null);
+  // console.log(Context)
+
+  useEffect(() => {
+    // useParams of album id to retrieve images associated to the specific album
+    axios.get(`http://localhost:8000/${albumId}/photos`)
+    .then(res => setPhotos(res.data))
+  },[])
+  
+    // handle click to get all images from db
+    const handleClick = (event) => {
+        event.preventDefault();
+        axios.get(`http://localhost:8000//${albumId}/photos`)
+            .then(res => setPhotos(res.data))
+        // console.log(event.target.albumName)
+        navigate(`/photos/${event.target}`)
+        // console.log('hi')
+    }
+  // select carousel image
+    const handleSelect = (selectedIndex, e) => {
+      setIndex(selectedIndex);
+  };
 
 
-    useEffect(() => {
-      // useParams of album id to retrieve images associated to the specific album
-      axios.get(`http://localhost:8000/${albumId}/photos`)
+    
+  useEffect(() => {
+    // useParams of album id to retrieve images associated to the specific album
+    axios.get(`http://localhost:8000/${albumId}/photos`)
       .then(res => setPhotos(res.data)
       )
-    },[photos])
+  }, [photos])
 
 
   const photoViewerClick = (event) => {
     event.preventDefault()
     setDeletePhoto(event.target.id)
   }
-
   const handleReturn = () => {
     navigate('/albums/')
   }
@@ -51,11 +74,10 @@ const Photos = () => {
   function copyToClipboard(text) {
     copy(window.location.href)
     alert('Copied!')
-}
+  }
 
   return (
     <div>
-      <UploadPictures  photos={photos}/>
       <span class='albumHeader'>
       <FontAwesomeIcon 
         icon={faArrowLeft} 
@@ -64,11 +86,14 @@ const Photos = () => {
       <span className='albumName'>{albumName}</span>
       <span>
           <FontAwesomeIcon icon={faLink} className='logos link-logo' onClick={copyToClipboard} />
-        {/* ^ get sharing link */}
-      <FontAwesomeIcon 
-        icon={faPencil} 
-        className='logos'
-        onClick={() => setModalShow(true)}/>
+          {/* ^ get sharing link */}
+          <FontAwesomeIcon
+            icon={faPencil}
+            className='logos'
+            onClick={() => setModalShow(true)} />
+            
+          <UploadPictures photos={photos} />
+        
           {/* ^ opens edit modal */}
           {/* <Button variant="primary" onClick={() => setModalShow(true)}>Edit/Delete Album</Button> */}
       <AlbumEdit
@@ -80,14 +105,14 @@ const Photos = () => {
 
         </span>
       </span>
-      
+
       <Container className='photosContainer' onClick={photoViewerClick}>
         {photos.map((photo, i) => (
-        <div key={i}>
-          
-          {/* <PhotoViewer photo={photo} show={modalShow} onHide={() => setModalShow(false)} deletePhoto={deletePhoto}/> */}
-          <PhotoViewer photo={photo} photos={photos} key={i}/>
-        </div>
+          <div key={i}>
+
+            {/* <PhotoViewer photo={photo} show={modalShow} onHide={() => setModalShow(false)} deletePhoto={deletePhoto}/> */}
+            <PhotoViewer photo={photo} photos={photos} key={i} />
+          </div>
         ))}
       </Container>
     </div>

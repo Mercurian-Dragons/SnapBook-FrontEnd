@@ -5,7 +5,7 @@ import Home from './components/Home.js'
 import Album from './components/albumComponent/Album'
 import Footer from './components/Footer.js';
 import Photos from './components/Photos.js'
-import UploadPictures from './components/UploadPictures'
+import UploadPictures from './picturesComponent/UploadPictures'
 
 const App = () => {
   return (

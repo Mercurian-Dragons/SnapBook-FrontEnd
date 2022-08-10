@@ -10,7 +10,7 @@ import PhotoDelete from './PhotoDelete';
 import PhotoCarousel from './PhotoCarousel'
 
 const PhotoViewer = ({ photo, photos, deletePhoto }) => {
-    let { albumId } = useParams()
+  
     const navigate = useNavigate()
 
     const [show, setShow] = useState(false);
@@ -23,7 +23,8 @@ const PhotoViewer = ({ photo, photos, deletePhoto }) => {
     const handleDeleteClose = () => setDeleteModalShow(false);
     const handleDeleteShow = () => setDeleteModalShow(true);
     //  ^delete modal
-  
+  useEffect(() =>{
+  }, [modalShow])
     return (
     <>
         <Card 
@@ -80,8 +81,8 @@ const PhotoViewer = ({ photo, photos, deletePhoto }) => {
 
             </Modal.Header>
 
-            <Modal.Body>
-                <PhotoCarousel photo={photo} photos={photos}/>
+            <Modal.Body >
+                <PhotoCarousel photo={photo} photos={photos} />
                 <p className='caption-container'> Caption </p>
             </Modal.Body>
             {/* ^Photo viewing modal */}

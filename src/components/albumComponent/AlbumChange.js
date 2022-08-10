@@ -18,18 +18,16 @@ const AlbumChange = ({ id }) => {
   
   const handleSubmit = (event) => {
     event.preventDefault();
-    if(albumChange.albumName === ''){
       axios.patch(`http://localhost:8000/album/edit/${id}`, albumChange)
       .then(() => {
-        navigate('/albums')
       })
-    }else {
-      axios.patch(`http://localhost:8000/album/edit/${id}`, albumChange)
-      .then(() => {
-        navigate('/albums')
-      })
+
     }
-  }
+    useEffect(() => {
+     if(albumChange){
+       setReload(true)
+     }
+    },[reload])
 
   return (
     <div>
@@ -54,4 +52,4 @@ const AlbumChange = ({ id }) => {
     </div>
   ) 
 }
- export default AlbumChange
+ export default AlbumChange;

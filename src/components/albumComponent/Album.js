@@ -7,7 +7,6 @@ import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHo
 import Container from 'react-bootstrap/Container';
 import Spinner from 'react-bootstrap/Spinner';
 
-
 const Album = () => {
   const [album, setAlbum] = useState([])
   const [targetAlbum, setTargetAlbum] = ('')

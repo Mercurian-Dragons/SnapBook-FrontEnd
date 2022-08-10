@@ -12,7 +12,7 @@ const PhotoEdit = (props) => {
     const navigate = useNavigate();
     // console.log(deleteImage)
     const [modalShow, setModalShow] = React.useState(false);
-console.log(props)
+
  
 return (
     <>

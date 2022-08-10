@@ -117,7 +117,6 @@ console.log(photos)
         ))}
       </Container>
     </div>
-
   )
 }
 

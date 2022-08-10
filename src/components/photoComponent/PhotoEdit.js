@@ -13,7 +13,7 @@ const PhotoEdit = (props) => {
     const navigate = useNavigate();
     // console.log(deleteImage)
     const [modalShow, setModalShow] = React.useState(false);
-
+console.log(props)
     // const handleChange = (event) => {
     // 	setPhoto({ ...photo, [event.target.id]: event.target.value });
     // };

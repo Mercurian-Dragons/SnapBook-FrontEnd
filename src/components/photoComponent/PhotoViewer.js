@@ -12,7 +12,6 @@ import PhotoCarousel from './PhotoCarousel'
 
 const PhotoViewer = ({ photo, photos, deletePhoto }) => {
     let { albumId } = useParams()
-    let { photoId } = useParams()
     const navigate = useNavigate()
 
     const [show, setShow] = useState(false);
@@ -26,8 +25,6 @@ const PhotoViewer = ({ photo, photos, deletePhoto }) => {
     const handleDeleteShow = () => setDeleteModalShow(true);
     //  ^delete modal
     
-    
-
     return (
     <>
         <Card 
@@ -59,14 +56,14 @@ const PhotoViewer = ({ photo, photos, deletePhoto }) => {
             className='logos'
             onClick={() => setModalShow(true)}
             albumId={albumId}
-            photoId={photoId}
+            id={photo._id}
             />
 
             <PhotoEdit
             show={modalShow}
             onHide={() => setModalShow(false)}
             albumId={albumId}
-            photoId={photoId}
+            id={photo._id}
             />
 
         {/* Trash icon, open delete modal */}
@@ -74,21 +71,23 @@ const PhotoViewer = ({ photo, photos, deletePhoto }) => {
             icon={ faTrashCan }
             className='logosModal'
             onClick={handleDeleteShow}
-            onHide={handleDeleteClose} />
+            onHide={handleDeleteClose} 
+            id={photo._id}
+            />
 
             <PhotoDelete 
             show={deleteModalShow}
-            deletePhoto={deletePhoto}
             deleteModalShow={deleteModalShow}
             onHide={handleDeleteClose}
-
             albumId={albumId}
-            photoId={photoId}/>
+            id={photo._id}
+         
+            />
 
             </Modal.Header>
 
             <Modal.Body>
-                <PhotoCarousel photo={photo} photos= {photos} />
+                <PhotoCarousel photo={photo} photos= {photos} key={photo._id}/>
                 <p className='caption-container'> Caption </p>
             </Modal.Body>
             {/* ^Photo viewing modal */}

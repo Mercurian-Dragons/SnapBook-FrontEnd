@@ -6,31 +6,33 @@ import { useParams, useNavigate } from 'react-router-dom'
 
 const AlbumChange = ({ id }) => {
   const navigate = useNavigate()
+  const [reload, setReload] = useState(false)
   const [albumChange, setAlbumChange] = useState({
     albumName: '',
     description: ''
   });
-  const [reload, setReload] = useState(false)
 
   const handleChange = (event) => {
     setAlbumChange({ ...albumChange, [event.target.id]: event.target.value });
-    console.log(event.target.id)
     console.log(event.target.value)
   }
   
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.patch(`http://localhost:8000/album/edit/${id}`, albumChange)
-      .then(res => {
-        console.log(res);
-        console.log(res.data)
-        console.log(albumChange)
-        console.log(id)
-        setReload(true)
+    if(albumChange.albumName === ''){
+      axios.patch(`http://localhost:8000/album/edit/${id}`, albumChange)
+      .then(() => {
         navigate('/albums')
       })
+    }else {
+      axios.patch(`http://localhost:8000/album/edit/${id}`, albumChange)
+      .then(() => {
+        navigate('/albums')
+      })
+    }
   }
- 
+
+
   return (
     <div>
       <h2>

@@ -8,7 +8,7 @@ import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHo
 import AlbumChange from "./AlbumChange";
 
 // each individual album
-const AlbumCard = ({ id, albumName}) => {
+const AlbumCard = ({ id, albumName }) => {
   const navigate = useNavigate()
   const [copied, setCopied] = useState(false)
   let { albumId } = useParams()
@@ -30,7 +30,7 @@ const AlbumCard = ({ id, albumName}) => {
           <Card.Body className='album-img-container img-container'>
           <Card.Title >{ albumName }</Card.Title>
           <p id={id}>edit</p>
-          <AlbumChange id={id}/>
+          <AlbumChange id={id} albumName={albumName}/>
           <Button onClick={handleClick} id={id} variant='primary'>View</Button>
       <p>
         Created by (creatorName) on (date)

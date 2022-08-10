@@ -30,6 +30,28 @@ const Photos = () => {
   const [show, setShow] = useState(false);
   const [target, setTarget] = useState(null);
   const ref = useRef(null);
+  // console.log(Context)
+
+  useEffect(() => {
+    // useParams of album id to retrieve images associated to the specific album
+    axios.get(`http://localhost:8000/${albumId}/photos`)
+    .then(res => setPhotos(res.data))
+  },[])
+  
+console.log(photos)
+    // handle click to get all images from db
+    const handleClick = (event) => {
+        event.preventDefault();
+        axios.get(`http://localhost:8000//${albumId}/photos`)
+            .then(res => setPhotos(res.data))
+        // console.log(event.target.albumName)
+        navigate(`/photos/${event.target}`)
+        // console.log('hi')
+    }
+  // select carousel image
+    const handleSelect = (selectedIndex, e) => {
+      setIndex(selectedIndex);
+  };
 
   useEffect(() => {
     // useParams of album id to retrieve images associated to the specific album
@@ -43,7 +65,6 @@ const Photos = () => {
     event.preventDefault()
     setDeletePhoto(event.target.id)
   }
-
   const handleReturn = () => {
     navigate('/albums/')
   }

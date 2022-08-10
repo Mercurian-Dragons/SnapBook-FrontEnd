@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 // import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
@@ -10,6 +10,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faPencil,faLink, faArrowLeft, } from "@fortawesome/free-solid-svg-icons"
 // import { faStar, faSquareShareNodes, faLock, faHouse, faTrashCan } from "@fortawesome/free-solid-svg-icons"
 import copy from 'copy-to-clipboard'
+import Overlay from 'react-bootstrap/Overlay';
+import Popover from 'react-bootstrap/Popover';
 
 
 const Photos = () => {
@@ -22,21 +24,11 @@ const Photos = () => {
   // const Context = createContext()
   const navigate = useNavigate()
   const [index, setIndex] = useState(0);
-  // console.log(Context)
+  // Tooltip styles below
+  const [show, setShow] = useState(false);
+  const [target, setTarget] = useState(null);
+  const ref = useRef(null);
 
-    // handle click to get all images from db
-    // const handleClick = (event) => {
-    //     event.preventDefault();
-    //     axios.get(`http://localhost:8000//${albumId}/photos`)
-    //         .then(res => setPhotos(res.data))
-    //     // console.log(event.target.albumName)
-    //     navigate(`/photos/${event.target}`)
-    //     // console.log('hi')
-    // }
-  // select carousel image
-  //   const handleSelect = (selectedIndex, e) => {
-  //     setIndex(selectedIndex);
-  // };
 
     useEffect(() => {
       // useParams of album id to retrieve images associated to the specific album
@@ -56,20 +48,42 @@ const Photos = () => {
 
   function copyToClipboard(text) {
     copy(window.location.href)
-    alert('Copied!')
+    // alert('Copied!')
 }
+
+const handleCopy = (event) => {
+  setShow(!show);
+  setTarget(event.target);
+};
+
 
   return (
     <div>
       <UploadPictures />
+      <span class='albumHeader'>
       <FontAwesomeIcon 
         icon={faArrowLeft} 
         className='logos' 
         onClick={handleReturn}/>
-      {/* set up to return to /albums */}
-        <FontAwesomeIcon icon={faLink} className='logos link-logo' onClick={copyToClipboard} />
-        {/* ^ get sharing link */}
 
+      <span className='albumName'>(Album name)'s photos</span>
+      <span ref={ref}
+        onClick={handleCopy} >
+          <FontAwesomeIcon icon={faLink} className='logos link-logo' onClick={copyToClipboard} />
+        {/* ^ get sharing link */}
+        <Overlay
+          show={show}
+          target={target}
+          placement="bottom"
+          container={ref}
+          containerPadding={20}
+        >
+        <Popover id="popover-contained">
+          <Popover.Body>
+          Album link copied to clipboard
+          </Popover.Body>
+        </Popover>
+      </Overlay>
       <FontAwesomeIcon 
         icon={faPencil} 
         className='logos'
@@ -81,13 +95,9 @@ const Photos = () => {
         onHide={() => setModalShow(false)}
         albumId={albumId}/>
           {/* Trash icon, open edit modal */}
-
-
-      <h3>
-        (Album name)'s photos
-      </h3>
+        </span>
+      </span>
       
-
       <Container className='photosContainer' onClick={photoViewerClick}>
         {photos.map((photo, i) => (
         <div key={i}>

@@ -78,7 +78,7 @@ const Photos = () => {
 
   return (
     <div>
-      <span class='albumHeader'>
+      <span className='albumHeader'>
       <FontAwesomeIcon 
         icon={faArrowLeft} 
         className='logos' 

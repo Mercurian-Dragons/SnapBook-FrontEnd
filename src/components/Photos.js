@@ -38,7 +38,6 @@ const Photos = () => {
     .then(res => setPhotos(res.data))
   },[])
   
-console.log(photos)
     // handle click to get all images from db
     const handleClick = (event) => {
         event.preventDefault();

@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
 import AlbumEdit from './AlbumEdit';
 import PhotoViewer from './photoComponent/PhotoViewer'
-import UploadPictures from '../components/UploadPictures'
+import UploadPictures from './UploadPictures'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse, faTrashCan } from "@fortawesome/free-solid-svg-icons"
 
@@ -41,7 +41,7 @@ const Photos = () => {
       axios.get(`http://localhost:8000/${albumId}/photos`)
       .then(res => setPhotos(res.data)
       )
-    },[])
+    },[photos])
 
   const photoViewerClick = (event) => {
     event.preventDefault()
@@ -58,7 +58,7 @@ const Photos = () => {
  
   return (
     <div>
-      <UploadPictures />
+      <UploadPictures photos={photos}/>
       <FontAwesomeIcon 
         icon={faArrowLeft} 
         className='logos' 

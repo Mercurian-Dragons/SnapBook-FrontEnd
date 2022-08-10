@@ -14,11 +14,6 @@ console.log(props)
 // button to delete the photo
 const handleDelete = () => {
     axios.delete(`http://localhost:8000/${albumId}/${props.id}`)
-    .then(res => {
-        navigate('/albums')
-        // change this to navigate to album image was in
-
-    })	
 };
 
 return (

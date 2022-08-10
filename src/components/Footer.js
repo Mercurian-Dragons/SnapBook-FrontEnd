@@ -7,7 +7,7 @@ const Footer = () => {
         <div className='footerHeader'>
           <div className='footerBottom'>
             © 2022,
-            <a href='/' title className='copyright'> SnapBook </a>
+            <a href='/' className='copyright'> SnapBook </a>
           </div>
         </div>
       </div>

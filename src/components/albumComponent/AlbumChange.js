@@ -3,7 +3,6 @@ import axios from 'axios'
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from 'react-router-dom'
 
-
 const AlbumChange = ({ id }) => {
   const navigate = useNavigate()
   const [reload, setReload] = useState(false)
@@ -31,7 +30,6 @@ const AlbumChange = ({ id }) => {
       })
     }
   }
-
 
   return (
     <div>

@@ -18,19 +18,6 @@ useEffect(() => {
         setAlbum(res.data))
     }, [albumId])
 
-    // const handleChange = (event) => {
-    // 	setAlbum({ ...album, [event.target.id]: event.target.value });
-    // };
-
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     axios.patch(`http://localhost:8000/album/edit/${id}`, album)
-    //         .then(res => {
-    //             navigate(`/albums`);
-    //         })
-    // };
-// ^ for editing
-
 // button to delete the album
 const handleDelete = () => {
     axios.delete(`http://localhost:8000/album/edit/${albumId}`)

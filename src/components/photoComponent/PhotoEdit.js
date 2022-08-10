@@ -13,19 +13,7 @@ const PhotoEdit = (props) => {
     // console.log(deleteImage)
     const [modalShow, setModalShow] = React.useState(false);
 console.log(props)
-    // const handleChange = (event) => {
-    // 	setPhoto({ ...photo, [event.target.id]: event.target.value });
-    // };
-
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     axios.patch(`http://localhost:8000/${photoId}/`, photo)
-    //         .then(res => {
-    //             navigate(`/${albumId}/${photoId}`);
-    //         })
-    // };
-// ^ for editing
-
+ 
 return (
     <>
     <Modal

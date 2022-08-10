@@ -12,9 +12,8 @@ const AlbumCard = ({ id, albumName }) => {
   
   const navigate = useNavigate()
   const [copied, setCopied] = useState(false)
- 
   const handleClick = (event) => {
-    navigate(`/${event.target.id}/photos`)
+    navigate(`/${event.target.id}/${albumName}/photos`)
   }
 
   return (

@@ -8,10 +8,12 @@ import Card from 'react-bootstrap/Card'
 
 const CreateAlbum = () => {
   const navigate = useNavigate()
-  const [createAlbum, setCreateAlbum] = useState({
+  const initialFormState = {
     albumName: '',
     description: ''
-  });
+  }
+  const [createAlbum, setCreateAlbum] = useState(initialFormState);
+
   const handleChange = (event) => {
     setCreateAlbum({ ...createAlbum, [event.target.id]: event.target.value });
     // console.log(event.target.value)
@@ -20,11 +22,12 @@ const CreateAlbum = () => {
   
   const handleSubmit = (event) => {
     event.preventDefault();
+    
       axios.post(`http://localhost:8000/album/create`, createAlbum)
       .then(() => {
         navigate('/albums')
       })
-
+      setCreateAlbum(initialFormState)
     }
    
   return (
@@ -44,9 +47,9 @@ const CreateAlbum = () => {
           />
       <button>Submit</button>
         </form>
-        <button>
+        {/* <button>
           create album
-        </button>
+        </button> */}
     </div>
   )
 }

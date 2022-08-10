@@ -47,7 +47,8 @@ return (
     <CreateAlbum/>
     <Container className='albumContainer'>
       {album.map((album) => (
-        <AlbumCard key={album._id} id={album._id} albumName={album.albumName} />
+        <AlbumCard key={album._id} id={album._id} albumName={album.albumName} 
+        album={album}/>
       ))}
     </Container>
   </>

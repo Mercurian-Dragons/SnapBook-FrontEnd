@@ -1,15 +1,25 @@
 import React from 'react'
 import axios from 'axios'
-import { useState} from "react";
+import { useState } from "react";
 import { useParams, useNavigate } from 'react-router-dom'
+import PicturesModal from './PicturesModal';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, } from "@fortawesome/free-solid-svg-icons"
+
+
 
 const UploadPictures = ({ photos }) => {
   const navigate = useNavigate()
   let { albumId } = useParams()
-  const [input, setInput] = useState({
+
+  const initialInputState = {
     name: '',
     url: ''
-  });
+  }
+
+  const [input, setInput] = useState(initialInputState);
   const [reload, setReload] = useState(false)
 
   const handleChange = (event) => {
@@ -24,6 +34,7 @@ const UploadPictures = ({ photos }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setInput(initialInputState)
     axios.post(`http://localhost:8000/${albumId}/upload`, input)
       .then(res => {
         console.log(res);
@@ -31,29 +42,12 @@ const UploadPictures = ({ photos }) => {
         setReload(true)
       })
   }
- 
+
   return (
-    <div>
-      <h2>
-        Picture Component
-      </h2>
-      <form onSubmit={handleSubmit}>
-        <input 
-          placeholder='enter name of image' 
-          onChange={handleChange} 
-          id='name'
-          value={input.name} 
-          />
-        <input 
-          placeholder='upload your image url' 
-          onChange={handleChange} 
-          id='url'
-          value={input.url} 
-          />
-        <button type='submit'>Submit</button>
-      </form>
-    </div>
-  ) 
+
+      <PicturesModal />
+      
+  )
 }
 
 export default UploadPictures;

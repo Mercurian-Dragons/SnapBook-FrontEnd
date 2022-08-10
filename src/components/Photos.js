@@ -1,22 +1,22 @@
 import axios from 'axios'
 import React, { useEffect, useState, useRef } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-// import Card from 'react-bootstrap/Card'
-import Container from 'react-bootstrap/Container'
-import AlbumEdit from './albumComponent/AlbumEdit';
-import PhotoViewer from './photoComponent/PhotoViewer'
-import UploadPictures from './UploadPictures'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faPencil,faLink, faArrowLeft, } from "@fortawesome/free-solid-svg-icons"
-// import { faStar, faSquareShareNodes, faLock, faHouse, faTrashCan } from "@fortawesome/free-solid-svg-icons"
 import copy from 'copy-to-clipboard'
 import Tooltip from 'react-bootstrap/Tooltip';
 import { OverlayTrigger } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencil, faLink, faArrowLeft, faPlus } from "@fortawesome/free-solid-svg-icons"
+// import { faStar, faSquareShareNodes, faLock, faHouse, faTrashCan } from "@fortawesome/free-solid-svg-icons"
+import AlbumEdit from './albumComponent/AlbumEdit';
+import PhotoViewer from './photoComponent/PhotoViewer'
+import UploadPictures from '../picturesComponent/UploadPictures'
 
 
 const Photos = () => {
   let { albumId } = useParams()
-  let { albumName } = useParams()
+  let {albumName} = useParams()
+  // let { photoId } = useParams()
   const [photos, setPhotos] = useState([])
   // const [deleted, setDeleted] = useState('')
   const [modalShow, setModalShow] = React.useState(false);
@@ -24,24 +24,46 @@ const Photos = () => {
   // const Context = createContext()
   const navigate = useNavigate()
   const [index, setIndex] = useState(0);
+  
   // Tooltip styles below
   const [show, setShow] = useState(false);
   const [target, setTarget] = useState(null);
   const ref = useRef(null);
 
-    useEffect(() => {
-      // useParams of album id to retrieve images associated to the specific album
-      axios.get(`http://localhost:8000/${albumId}/photos`)
+
+  useEffect(() => {
+    // useParams of album id to retrieve images associated to the specific album
+    axios.get(`http://localhost:8000/${albumId}/photos`)
+    .then(res => setPhotos(res.data))
+  },[])
+  
+    // handle click to get all images from db
+    const handleClick = (event) => {
+        event.preventDefault();
+        axios.get(`http://localhost:8000//${albumId}/photos`)
+            .then(res => setPhotos(res.data))
+        // console.log(event.target.albumName)
+        navigate(`/photos/${event.target}`)
+        // console.log('hi')
+    }
+    
+  // select carousel image
+    const handleSelect = (selectedIndex, e) => {
+      setIndex(selectedIndex);
+  };
+    
+  useEffect(() => {
+    // useParams of album id to retrieve images associated to the specific album
+    axios.get(`http://localhost:8000/${albumId}/photos`)
       .then(res => setPhotos(res.data)
       )
-    },[photos])
-
+  }, [photos])
 
   const photoViewerClick = (event) => {
     event.preventDefault()
     setDeletePhoto(event.target.id)
   }
-
+  
   const handleReturn = () => {
     navigate('/albums/')
   }
@@ -55,12 +77,10 @@ const Photos = () => {
       Click me to copy link!
     </Tooltip>
   );
-  
 
 
   return (
     <div>
-      <UploadPictures  photos={photos}/>
       <span class='albumHeader'>
       <FontAwesomeIcon 
         icon={faArrowLeft} 
@@ -81,27 +101,29 @@ const Photos = () => {
         icon={faPencil} 
         className='logos'
         onClick={() => setModalShow(true)}/>
-          {/* ^ opens edit modal */}
-          {/* <Button variant="primary" onClick={() => setModalShow(true)}>Edit/Delete Album</Button> */}
+
+          <UploadPictures photos={photos} />
+
+     {/* <Button variant="primary" onClick={() => setModalShow(true)}>Edit/Delete Album</Button> */}
       <AlbumEdit
         show={modalShow}
         onHide={() => setModalShow(false)}
         albumId={albumId}
         />
-          {/* Trash icon, open edit modal */}
+
         </span>
       </span>
-      
+
       <Container className='photosContainer' onClick={photoViewerClick}>
         {photos.map((photo, i) => (
-        <div key={i}>
-          
-          {/* <PhotoViewer photo={photo} show={modalShow} onHide={() => setModalShow(false)} deletePhoto={deletePhoto}/> */}
-          <PhotoViewer photo={photo} photos={photos} key={i}/>
-        </div>
+          <div key={i}>
+
+            {/* <PhotoViewer photo={photo} show={modalShow} onHide={() => setModalShow(false)} deletePhoto={deletePhoto}/> */}
+            <PhotoViewer photo={photo} photos={photos} key={i} />
+          </div>
         ))}
       </Container>
     </div>
   )
-        }
+}
 export default Photos

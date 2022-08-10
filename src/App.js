@@ -13,6 +13,7 @@ const App = () => {
       <Nav />
       <Routes>
         <Route path='/' element={ <Home /> } />
+        {/* until have login functionality, makes most sense to route directly */}
         <Route path='/albums' element={ <Album /> } />
         <Route path='/:albumId/photos/' element={ <Photos /> } />
         <Route path='/pictures' element={ <UploadPictures /> } />

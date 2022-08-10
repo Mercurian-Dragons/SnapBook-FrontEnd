@@ -12,7 +12,7 @@ const PhotoEdit = (props) => {
     // const [edited, setEdited] = useState(false)
     // const [modalShow, setModalShow] = React.useState(false);
     
-const navigate = useNavigate();
+// const navigate = useNavigate();
 
 return (
     <>

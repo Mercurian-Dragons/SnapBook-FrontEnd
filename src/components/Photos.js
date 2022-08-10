@@ -48,14 +48,8 @@ const Photos = () => {
 
   function copyToClipboard(text) {
     copy(window.location.href)
-    // alert('Copied!')
+    alert('Copied!')
 }
-
-const handleCopy = (event) => {
-  setShow(!show);
-  setTarget(event.target);
-};
-
 
   return (
     <div>
@@ -67,23 +61,9 @@ const handleCopy = (event) => {
         onClick={handleReturn}/>
 
       <span className='albumName'>(Album name)'s photos</span>
-      <span ref={ref}
-        onClick={handleCopy} >
+      <span>
           <FontAwesomeIcon icon={faLink} className='logos link-logo' onClick={copyToClipboard} />
         {/* ^ get sharing link */}
-        <Overlay
-          show={show}
-          target={target}
-          placement="bottom"
-          container={ref}
-          containerPadding={20}
-        >
-        <Popover id="popover-contained">
-          <Popover.Body>
-          Album link copied to clipboard
-          </Popover.Body>
-        </Popover>
-      </Overlay>
       <FontAwesomeIcon 
         icon={faPencil} 
         className='logos'

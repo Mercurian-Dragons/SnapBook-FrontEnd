@@ -1,7 +1,10 @@
 import React from 'react'
 import axios from 'axios'
-import { useState} from "react";
+import { useState } from "react";
 import { useParams, useNavigate } from 'react-router-dom'
+import PicturesModal from './PicturesModal';
+
+
 
 const UploadPictures = ({ photos }) => {
   const navigate = useNavigate()
@@ -31,29 +34,15 @@ const UploadPictures = ({ photos }) => {
         setReload(true)
       })
   }
- 
+
   return (
-    <div>
-      <h2>
-        Picture Component
-      </h2>
-      <form onSubmit={handleSubmit}>
-        <input 
-          placeholder='enter name of image' 
-          onChange={handleChange} 
-          id='name'
-          value={input.name} 
-          />
-        <input 
-          placeholder='upload your image url' 
-          onChange={handleChange} 
-          id='url'
-          value={input.url} 
-          />
-        <button type='submit'>Submit</button>
-      </form>
-    </div>
-  ) 
+
+
+    <PicturesModal />
+
+
+
+  )
 }
 
 export default UploadPictures;

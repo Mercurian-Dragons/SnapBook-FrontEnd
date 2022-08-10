@@ -14,7 +14,7 @@ import copy from 'copy-to-clipboard'
 
 const Photos = () => {
   let { albumId } = useParams()
-  // let { photoId } = useParams()
+  let { albumName } = useParams()
   const [photos, setPhotos] = useState([])
   // const [deleted, setDeleted] = useState('')
   const [modalShow, setModalShow] = React.useState(false);
@@ -23,20 +23,6 @@ const Photos = () => {
   const navigate = useNavigate()
   const [index, setIndex] = useState(0);
   // console.log(Context)
-
-    // handle click to get all images from db
-    // const handleClick = (event) => {
-    //     event.preventDefault();
-    //     axios.get(`http://localhost:8000//${albumId}/photos`)
-    //         .then(res => setPhotos(res.data))
-    //     // console.log(event.target.albumName)
-    //     navigate(`/photos/${event.target}`)
-    //     // console.log('hi')
-    // }
-  // select carousel image
-  //   const handleSelect = (selectedIndex, e) => {
-  //     setIndex(selectedIndex);
-  // };
 
     useEffect(() => {
       // useParams of album id to retrieve images associated to the specific album
@@ -83,12 +69,10 @@ const Photos = () => {
         albumId={albumId}/>
           {/* Trash icon, open edit modal */}
 
-
       <h3>
-        (Album name)'s photos
+        {albumName} 
       </h3>
       
-
       <Container className='photosContainer' onClick={photoViewerClick}>
         {photos.map((photo, i) => (
         <div key={i}>

@@ -14,7 +14,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={ <Home /> } />
         <Route path='/albums' element={ <Album /> } />
-        <Route path='/:albumId/photos/' element={ <Photos /> } />
+        <Route path='/:albumId/:albumName/photos/' element={ <Photos /> } />
         <Route path='/pictures' element={ <UploadPictures /> } />
       </Routes>
       <Footer />

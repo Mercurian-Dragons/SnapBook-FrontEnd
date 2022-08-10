@@ -3,13 +3,14 @@ import axios from 'axios'
 import { useState} from "react";
 import { useParams, useNavigate } from 'react-router-dom'
 
-const UploadPictures = () => {
+const UploadPictures = ({ photos }) => {
   const navigate = useNavigate()
   let { albumId } = useParams()
   const [input, setInput] = useState({
     name: '',
     url: ''
   });
+  const [reload, setReload] = useState(false)
 
   const handleChange = (event) => {
     setInput({ ...input, [event.target.id]: event.target.value });
@@ -17,6 +18,8 @@ const UploadPictures = () => {
     console.log(event.target.value)
   }
   
+  useEffect(() => {
+  }, [photos])
   // const bodyFormData = new FormData();
   // bodyFormData.append('url', input)
   // console.log(bodyFormData)
@@ -27,10 +30,10 @@ const UploadPictures = () => {
       .then(res => {
         console.log(res);
         console.log(res.data)
-        navigate(`/${albumId}/photos?`)
+        setReload(true)
       })
   }
-
+ 
   return (
     <div>
       <h2>

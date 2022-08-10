@@ -10,23 +10,9 @@ const PhotoEdit = (props) => {
     // const [deleteImage, setDeleteImage] = useState(props.deletePhoto)
     // const [deleted, setDeleted] = useState(false)
     // const [edited, setEdited] = useState(false)
-    // let { albumId } = useParams()
-    // const navigate = useNavigate();
-    // console.log(deleteImage)
     // const [modalShow, setModalShow] = React.useState(false);
-
-    // const handleChange = (event) => {
-    // 	setPhoto({ ...photo, [event.target.id]: event.target.value });
-    // };
-
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     axios.patch(`http://localhost:8000/${photoId}/`, photo)
-    //         .then(res => {
-    //             navigate(`/${albumId}/${photoId}`);
-    //         })
-    // };
-// ^ for editing
+    
+const navigate = useNavigate();
 
 return (
     <>

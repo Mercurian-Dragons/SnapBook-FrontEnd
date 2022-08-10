@@ -4,43 +4,88 @@ import Modal from 'react-bootstrap/Modal';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons"
 import Form from 'react-bootstrap/Form';
+import axios from 'axios'
+import { useParams, useNavigate } from 'react-router-dom'
 
+const PicturesModal = ({ name, url}) => {
+  const navigate = useNavigate()
+  let { albumId } = useParams()
+  let { albumName } = useParams()
 
+  const initialInputState = {
+    name: '',
+    url: ''
+  }
 
+  // const [reload, setReload] = useState(false)
+  const [input, setInput] = useState(initialInputState);
 
-const PicturesModal = ({handleSubmit, handleChange}) => {
-    const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    axios.post(`http://localhost:8000/${albumId}/upload`, input)
+      .then(res => {
+        // console.log(res);
+        // console.log(res.data)
+        // setReload(true)
+      })
+      setShow(false)
+      navigate(`/${albumId}/${albumName}/photos`);
+      setInput(initialInputState)
+  }
+
+  const handleChange = (event) => {
+    setInput({ ...input, [event.target.id]: event.target.value });
+    console.log(event.target.id)
+    console.log(event.target.value)
+  }
   
     return (
       <>
-      
-        <FontAwesomeIcon icon={faPlus}  className='logos' onClick={handleShow} />
-
+      <FontAwesomeIcon icon={faPlus}  className='logos' onClick={handleShow} />
         <Modal show={show} onHide={handleClose}>
+
           <Modal.Header closeButton>
-            <Modal.Title>Upload/Add Picture</Modal.Title>
+            <Modal.Title>Upload Picture</Modal.Title>
           </Modal.Header>
+          
           <Modal.Body>
           <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Control type="text" placeholder='enter name of image' onChange={handleChange} />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Control type="url" placeholder='upload your image url' onChange={handleChange} />
-        </Form.Group>
+            <Form.Group className="mb-3">
+            <label htmlFor="name">Enter a name for the image</label>
+              <Form.Control 
+                type="text" 
+                id="name"
+                // placeholder='Enter a name for the image' 
+                onChange={handleChange} 
+                value={input.name}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+            <label htmlFor="url">Enter your image URL</label>
+              <Form.Control 
+                  type="url" 
+                  id="url"
+                  // placeholder='Enter your image URL' 
+                  onChange={handleChange} 
+                  value={input.url}
+              />
+            </Form.Group>
       </Form>
-          </Modal.Body>
-          <Modal.Footer>
-        <Button  type="submit">
+      </Modal.Body>
+
+      <Modal.Footer>
+        <Button type="submit" onClick={handleSubmit}>
           Submit 
         </Button>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-          </Modal.Footer>
+        <Button variant="secondary" onClick={handleClose}>
+          Close
+        </Button>
+      </Modal.Footer>
+      
         </Modal>
       </>
     );

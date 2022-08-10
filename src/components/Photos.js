@@ -100,6 +100,7 @@ const Photos = () => {
         show={modalShow}
         onHide={() => setModalShow(false)}
         albumId={albumId}
+        albumName={albumName}
         />
           {/* Trash icon, open edit modal */}
 

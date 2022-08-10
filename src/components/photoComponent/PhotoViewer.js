@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+// import { useNavigate } from  'react-router-dom';
+// import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Card from 'react-bootstrap/Card'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse, faTrashCan } from "@fortawesome/free-solid-svg-icons"
+import { faPencil, faLink,faTrashCan } from "@fortawesome/free-solid-svg-icons"
+// import { faStar,  faArrowLeft, faSquareShareNodes, faLock, faHouse } from "@fortawesome/free-solid-svg-icons"
 import PhotoEdit from './PhotoEdit'
 import PhotoDelete from './PhotoDelete';
 import PhotoCarousel from './PhotoCarousel'
@@ -13,7 +15,7 @@ import PhotoCarousel from './PhotoCarousel'
 const PhotoViewer = ({ photo, photos, deletePhoto }) => {
     let { albumId } = useParams()
     let { photoId } = useParams()
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);

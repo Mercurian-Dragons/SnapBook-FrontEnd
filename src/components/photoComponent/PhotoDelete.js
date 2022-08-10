@@ -1,11 +1,12 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, {  useState } from 'react';
+// import {  useEffect, useContext } from 'react';
 import { useNavigate, useParams} from 'react-router-dom';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 const PhotoDelete = (props) => {
-    const [photo, setPhoto] = useState(null)
+    // const [photo, setPhoto] = useState(null)
     const [deleteImage, setDeleteImage] = useState(props.deletePhoto)
 
     let { albumId } = useParams()
@@ -16,7 +17,7 @@ const PhotoDelete = (props) => {
 const handleDelete = () => {
     axios.delete(`http://localhost:8000/${albumId}/${deleteImage}`)
     .then(res => {
-        console.log(deleteImage)
+        // console.log(deleteImage)
         navigate('/albums')
         // change this to navigate to album image was in
     })	
@@ -39,7 +40,6 @@ return (
                 <h5>Warning, this can't be undone!</h5>
                 <Button variant="danger"
                 onClick={handleDelete}
-                // onHide={handleDeleteClose}
                 >
                     Delete Photo
                 </Button>
@@ -47,17 +47,9 @@ return (
                 onClick={props.onHide}>
             Nevermind</Button>
             </Modal.Body>
-           
         
     </Modal>
     </>
 )}
 
 export default PhotoDelete
-
-{/* <Button variant="danger"
-onClick={props.onHide}
-closeButton>
-    Delete Photo
-    (Warning, this can't be undone!)
-</Button> */}

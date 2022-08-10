@@ -17,8 +17,6 @@ const handleDelete = () => {
     axios.delete(`http://localhost:8000/${albumId}/${props.id}`)
 };
 
-useEffect(() => {
-},[props.show])
 
 return (
     <>

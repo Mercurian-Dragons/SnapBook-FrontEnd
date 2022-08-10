@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 // import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
-import AlbumEdit from './AlbumEdit';
+import AlbumEdit from './albumComponent/AlbumEdit';
 import PhotoViewer from './photoComponent/PhotoViewer'
 import UploadPictures from './UploadPictures'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

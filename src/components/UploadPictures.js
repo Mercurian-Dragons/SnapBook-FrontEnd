@@ -18,12 +18,7 @@ const UploadPictures = ({ photos }) => {
     console.log(event.target.value)
   }
   
-  useEffect(() => {
-  }, [photos])
-  // const bodyFormData = new FormData();
-  // bodyFormData.append('url', input)
-  // console.log(bodyFormData)
-  
+
   const handleSubmit = (event) => {
     event.preventDefault();
     axios.post(`http://localhost:8000/${albumId}/upload`, input)

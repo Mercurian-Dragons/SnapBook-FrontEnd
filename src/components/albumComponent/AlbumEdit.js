@@ -3,11 +3,12 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import AlbumChange from './AlbumChange'
 
 const AlbumEdit = (props) => {
     
     const [album, setAlbum] = useState(null)
-    // const [deleted, setDeleted] = useState(false)
+    // const [deleted, setDeleted] `= useState(false)
     // const [edited, setEdited] = useState(false)
     let { albumId } = useParams()
     const navigate = useNavigate();
@@ -42,7 +43,8 @@ return (
         <Modal.Body>
             <h4>Album Settings</h4>
             <p>
-            (Here will be a form with edit options)
+           <AlbumChange />
+           <p></p>
                 <Button variant="danger"
                 onClick={handleDelete}>
                     Delete Album

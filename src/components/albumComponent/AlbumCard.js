@@ -31,6 +31,7 @@ const AlbumCard = ({ id, album, albumName }) => {
           <Card.Body className='album-img-container img-container'>
           <Card.Title >{ albumName }</Card.Title>
           <Button onClick={handleClick} id={id} variant='primary'>View</Button>
+        <span>{album.description}</span>
       <p>
         {
           album.creator ? (<p>Created by {album.creator.username}</p>):null

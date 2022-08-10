@@ -2,9 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState } from 'react' 
 import { useNavigate } from 'react-router-dom'
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import Card from 'react-bootstrap/Card'
+import AlbumModal from "./AlbumModal";
 
 const CreateAlbum = () => {
   const navigate = useNavigate()
@@ -31,26 +29,9 @@ const CreateAlbum = () => {
     }
    
   return (
-    <div>
-       <form onSubmit={handleSubmit}>
-        <input 
-          placeholder='enter name of album' 
-          onChange={handleChange} 
-          id='albumName'
-          value={createAlbum.albumName} 
-          />
-        <input 
-          placeholder='enter description' 
-          onChange={handleChange} 
-          id='description'
-          value={createAlbum.description} 
-          />
-      <button>Submit</button>
-        </form>
-        {/* <button>
-          create album
-        </button> */}
-    </div>
+
+      <AlbumModal handleSubmit={handleSubmit} handleChange={handleChange} createAlbum={createAlbum} />
+
   )
 }
 

@@ -45,7 +45,7 @@ const UploadPictures = ({ photos }) => {
 
   return (
 
-      <PicturesModal />
+      <PicturesModal handleSubmitPictures={handleSubmit} handleChange={handleChange} input={input} photos={photos}/>
       
   )
 }

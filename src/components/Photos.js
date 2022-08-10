@@ -16,7 +16,7 @@ import Popover from 'react-bootstrap/Popover';
 
 const Photos = () => {
   let { albumId } = useParams()
-  // let { photoId } = useParams()
+  let { albumName } = useParams()
   const [photos, setPhotos] = useState([])
   // const [deleted, setDeleted] = useState('')
   const [modalShow, setModalShow] = React.useState(false);
@@ -28,7 +28,6 @@ const Photos = () => {
   const [show, setShow] = useState(false);
   const [target, setTarget] = useState(null);
   const ref = useRef(null);
-
 
     useEffect(() => {
       // useParams of album id to retrieve images associated to the specific album
@@ -75,6 +74,11 @@ const Photos = () => {
         onHide={() => setModalShow(false)}
         albumId={albumId}/>
           {/* Trash icon, open edit modal */}
+
+      <h3>
+        {albumName} 
+      </h3>
+
         </span>
       </span>
       

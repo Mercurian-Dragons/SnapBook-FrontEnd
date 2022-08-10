@@ -17,7 +17,10 @@ const UploadPictures = ({ photos }) => {
     console.log(event.target.id)
     console.log(event.target.value)
   }
-  
+
+  // const bodyFormData = new FormData();
+  // bodyFormData.append('url', input)
+  // console.log(bodyFormData)
 
   const handleSubmit = (event) => {
     event.preventDefault();

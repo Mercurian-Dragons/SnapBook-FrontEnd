@@ -1,6 +1,6 @@
-
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate} from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Card from 'react-bootstrap/Card'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -26,7 +26,6 @@ const PhotoViewer = ({ photo, photos, deletePhoto }) => {
     const handleDeleteClose = () => setDeleteModalShow(false);
     const handleDeleteShow = () => setDeleteModalShow(true);
     //  ^delete modal
-    
     return (
     <>
         <Card 
@@ -85,7 +84,7 @@ const PhotoViewer = ({ photo, photos, deletePhoto }) => {
 
             <Modal.Body >
                 <PhotoCarousel photo={photo} photos={photos} />
-                <p className='caption-container'> Caption </p>
+                <p className='caption-container'> caption </p>
             </Modal.Body>
             {/* ^Photo viewing modal */}
         </Modal>

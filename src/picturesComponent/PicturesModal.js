@@ -8,7 +8,7 @@ import Form from 'react-bootstrap/Form';
 
 
 
-const PicturesModal = ({handleSubmit, handleChange}) => {
+const PicturesModal = ({handleSubmit, handleChange, input}) => {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -25,11 +25,21 @@ const PicturesModal = ({handleSubmit, handleChange}) => {
           </Modal.Header>
           <Modal.Body>
           <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Control type="text" placeholder='enter name of image' onChange={handleChange} />
+        <Form.Group className="mb-3" controlId="formBasicText">
+          <Form.Control
+           type="text" 
+           value={input.name}
+           placeholder='enter name of image'
+            onChange={handleChange} 
+            />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Control type="url" placeholder='upload your image url' onChange={handleChange} />
+        <Form.Group className="mb-3" controlId="formBasicUrl">
+          <Form.Control
+           type="url" 
+          value={input.url}
+          placeholder='upload your image url'
+           onChange={handleChange}
+            />
         </Form.Group>
       </Form>
           </Modal.Body>

@@ -9,13 +9,25 @@ import Spinner from 'react-bootstrap/Spinner';
 
 const Album = () => {
   const [album, setAlbum] = useState([])
-  
-
+  const [targetAlbum, setTargetAlbum] = ('')
+  const [editAlbum, setEditAlbum] = useState({
+    albumName: '',
+    description: '',
+  })
+ 
   useEffect(() => {
     axios.get('http://localhost:8000/albums')
       .then(res => setAlbum(res.data))
-    },[])
+    },[album])
 
+    // const onClick = (event) => {
+    //   event.preventDefault()
+    //   axios.patch(`http://localhost:8000/albums/edit/${event.target.id}`, editAlbum)
+    //     .then((res) => {
+    //       console.log(res)
+    //       console.log(res.data)
+    //     })
+    // }
 
     if(!album){
       <Spinner
@@ -24,8 +36,7 @@ const Album = () => {
               size="sm"
               role="status"
               aria-hidden="true"
-            />
-    }
+            />}
 
 return (
   <>

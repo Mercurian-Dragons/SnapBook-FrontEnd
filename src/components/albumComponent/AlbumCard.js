@@ -1,23 +1,21 @@
-import { useNavigate } from "react-router-dom";
-// import { useParams } from 'react-router-dom'
-// import { useState } from 'react';
+
+import { useNavigate} from "react-router-dom";
+import { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
-// import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button'
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse } from "@fortawesome/free-solid-svg-icons"
+import AlbumChange from "./AlbumChange";
 
 // each individual album
-const AlbumCard = ({ id, albumName}) => {
+const AlbumCard = ({ id, albumName }) => {
+  
   const navigate = useNavigate()
-  // const [copied, setCopied] = useState(false)
-  // let { albumId } = useParams()
-
+  const [copied, setCopied] = useState(false)
+ 
   const handleClick = (event) => {
-    // will set the parameter to the id associated with the album card
     navigate(`/${event.target.id}/photos`)
   }
-
 
   return (
     <>
@@ -27,9 +25,11 @@ const AlbumCard = ({ id, albumName}) => {
         <div className='logosContainer'>
       
         </div>
-        <Card.Body className='album-img-container img-container'>
-        <Card.Title>{ albumName }</Card.Title>
-        <Button onClick={handleClick} id={id} variant='primary'>View { albumName }</Button>
+          <Card.Body className='album-img-container img-container'>
+          <Card.Title >{ albumName }</Card.Title>
+          <p id={id}>edit</p>
+          <AlbumChange id={id} />
+          <Button onClick={handleClick} id={id} variant='primary'>View</Button>
       <p>
         Created by (creatorName) on (date)
 

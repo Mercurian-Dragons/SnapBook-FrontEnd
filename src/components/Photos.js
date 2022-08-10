@@ -5,7 +5,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import Container from 'react-bootstrap/Container'
 import AlbumEdit from './albumComponent/AlbumEdit';
 import PhotoViewer from './photoComponent/PhotoViewer'
-import UploadPictures from '../components/UploadPictures'
+import UploadPictures from './UploadPictures'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faPencil,faLink, faArrowLeft, } from "@fortawesome/free-solid-svg-icons"
 // import { faStar, faSquareShareNodes, faLock, faHouse, faTrashCan } from "@fortawesome/free-solid-svg-icons"
@@ -35,7 +35,8 @@ const Photos = () => {
       axios.get(`http://localhost:8000/${albumId}/photos`)
       .then(res => setPhotos(res.data)
       )
-    },)
+    },[photos])
+
 
   const photoViewerClick = (event) => {
     event.preventDefault()
@@ -53,13 +54,12 @@ const Photos = () => {
 
   return (
     <div>
-      <UploadPictures />
+      <UploadPictures  photos={photos}/>
       <span class='albumHeader'>
       <FontAwesomeIcon 
         icon={faArrowLeft} 
         className='logos' 
         onClick={handleReturn}/>
-
       <span className='albumName'>(Album name)'s photos</span>
       <span>
           <FontAwesomeIcon icon={faLink} className='logos link-logo' onClick={copyToClipboard} />
@@ -83,11 +83,12 @@ const Photos = () => {
         <div key={i}>
           
           {/* <PhotoViewer photo={photo} show={modalShow} onHide={() => setModalShow(false)} deletePhoto={deletePhoto}/> */}
-          <PhotoViewer photo={photo} photos={photos}/>
+          <PhotoViewer photo={photo} photos={photos} key={i}/>
         </div>
         ))}
       </Container>
     </div>
+    </span>
   )
 }
 

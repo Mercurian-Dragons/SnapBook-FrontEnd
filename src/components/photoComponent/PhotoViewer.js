@@ -1,7 +1,6 @@
+
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
-// import { useNavigate } from  'react-router-dom';
-// import Button from 'react-bootstrap/Button';
+import { useNavigate } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
 import Card from 'react-bootstrap/Card'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,25 +10,23 @@ import PhotoEdit from './PhotoEdit'
 import PhotoDelete from './PhotoDelete';
 import PhotoCarousel from './PhotoCarousel'
 
-
 const PhotoViewer = ({ photo, photos, deletePhoto }) => {
-    let { albumId } = useParams()
-    let { photoId } = useParams()
-    // const navigate = useNavigate()
+
+    const navigate = useNavigate()
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     // ^photo viewer modal
+    
     const [modalShow, setModalShow] = React.useState(false);
     // ^ edit modal
+    
     const [deleteModalShow, setDeleteModalShow] = React.useState(false);
     const handleDeleteClose = () => setDeleteModalShow(false);
     const handleDeleteShow = () => setDeleteModalShow(true);
     //  ^delete modal
     
-    
-
     return (
     <>
         <Card 
@@ -60,15 +57,13 @@ const PhotoViewer = ({ photo, photos, deletePhoto }) => {
             icon={faPencil} 
             className='logos'
             onClick={() => setModalShow(true)}
-            albumId={albumId}
-            photoId={photoId}
+            id={photo._id}
             />
 
             <PhotoEdit
             show={modalShow}
             onHide={() => setModalShow(false)}
-            albumId={albumId}
-            photoId={photoId}
+            id={photo._id}
             />
 
         {/* Trash icon, open delete modal */}
@@ -76,21 +71,20 @@ const PhotoViewer = ({ photo, photos, deletePhoto }) => {
             icon={ faTrashCan }
             className='logosModal'
             onClick={handleDeleteShow}
-            onHide={handleDeleteClose} />
-
+            onHide={handleDeleteClose} 
+            id={photo._id}
+            />
+       
             <PhotoDelete 
             show={deleteModalShow}
-            deletePhoto={deletePhoto}
-            deleteModalShow={deleteModalShow}
             onHide={handleDeleteClose}
-
-            albumId={albumId}
-            photoId={photoId}/>
+            id={photo._id}
+            /> 
 
             </Modal.Header>
 
-            <Modal.Body>
-                <PhotoCarousel photo={photo} photos= {photos} />
+            <Modal.Body >
+                <PhotoCarousel photo={photo} photos={photos} />
                 <p className='caption-container'> Caption </p>
             </Modal.Body>
             {/* ^Photo viewing modal */}

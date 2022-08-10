@@ -10,8 +10,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faPencil,faLink, faArrowLeft, } from "@fortawesome/free-solid-svg-icons"
 // import { faStar, faSquareShareNodes, faLock, faHouse, faTrashCan } from "@fortawesome/free-solid-svg-icons"
 import copy from 'copy-to-clipboard'
-import Overlay from 'react-bootstrap/Overlay';
-import Popover from 'react-bootstrap/Popover';
+import Tooltip from 'react-bootstrap/Tooltip';
+import { OverlayTrigger } from 'react-bootstrap';
 
 
 const Photos = () => {
@@ -48,8 +48,15 @@ const Photos = () => {
 
   function copyToClipboard(text) {
     copy(window.location.href)
-    alert('Copied!')
+    // alert('Copied!')
 }
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Click me to copy link!
+    </Tooltip>
+  );
+  
+
 
   return (
     <div>
@@ -61,8 +68,15 @@ const Photos = () => {
         onClick={handleReturn}/>
       <span className='albumName'>{albumName}</span>
       <span>
-          <FontAwesomeIcon icon={faLink} className='logos link-logo' onClick={copyToClipboard} />
+
+      <OverlayTrigger
+      placement="right"
+      overlay={renderTooltip}>
+          <FontAwesomeIcon icon={faLink} className='logos link-logo' onClick={copyToClipboard} ref={target}/>
+          </OverlayTrigger>
+         
         {/* ^ get sharing link */}
+      
       <FontAwesomeIcon 
         icon={faPencil} 
         className='logos'
@@ -75,11 +89,6 @@ const Photos = () => {
         albumId={albumId}
         />
           {/* Trash icon, open edit modal */}
-
-      <h3>
-        
-      </h3>
-
         </span>
       </span>
       
@@ -94,6 +103,5 @@ const Photos = () => {
       </Container>
     </div>
   )
-}
-
+        }
 export default Photos

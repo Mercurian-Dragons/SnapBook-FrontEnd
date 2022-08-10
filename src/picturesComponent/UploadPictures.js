@@ -13,10 +13,13 @@ import { faPlus, } from "@fortawesome/free-solid-svg-icons"
 const UploadPictures = ({ photos }) => {
   const navigate = useNavigate()
   let { albumId } = useParams()
-  const [input, setInput] = useState({
+
+  const initialInputState = {
     name: '',
     url: ''
-  });
+  }
+
+  const [input, setInput] = useState(initialInputState);
   const [reload, setReload] = useState(false)
 
   const handleChange = (event) => {
@@ -31,6 +34,7 @@ const UploadPictures = ({ photos }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setInput(initialInputState)
     axios.post(`http://localhost:8000/${albumId}/upload`, input)
       .then(res => {
         console.log(res);

@@ -8,8 +8,11 @@ const PhotoEdit = (props) => {
     // const [deleteImage, setDeleteImage] = useState(props.deletePhoto)
     // const [deleted, setDeleted] = useState(false)
     // const [edited, setEdited] = useState(false)
-    // console.log(deleteImage)
-    const [modalShow, setModalShow] = React.useState(false);
+
+   const [modalShow, setModalShow] = React.useState(false);
+    
+// const navigate = useNavigate();
+
 
 return (
     <>

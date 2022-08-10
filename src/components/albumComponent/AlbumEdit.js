@@ -3,14 +3,17 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import AlbumChange from './AlbumChange'
 
 const AlbumEdit = (props) => {
+
+  let { albumId } = useParams()
+  const navigate = useNavigate();  
+  const [album, setAlbum] = useState(null)
     
-    const [album, setAlbum] = useState(null)
-    // const [deleted, setDeleted] = useState(false)
-    // const [edited, setEdited] = useState(false)
-    let { albumId } = useParams()
-    const navigate = useNavigate();
+  // const [deleted, setDeleted] = useState(false)
+  // const [edited, setEdited] = useState(false)
+
 
 useEffect(() => {
     axios.get(`http://localhost:8000/album/${albumId}`)
@@ -34,15 +37,18 @@ return (
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered>
+        
         <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
                 Edit or Delete
             </Modal.Title>
         </Modal.Header>
+        
         <Modal.Body>
-            <h4>Album Settings</h4>
+           <h4>Album Settings</h4>
             <p>
-            (Here will be a form with edit options)
+           <AlbumChange />
+            <p></p>
                 <Button variant="danger"
                 onClick={handleDelete}>
                     Delete Album
@@ -50,10 +56,12 @@ return (
                 </Button>
             </p>
         </Modal.Body>
+        
         <Modal.Footer>
             <Button onClick={props.onHide}>
             Close</Button>
         </Modal.Footer>
+        
     </Modal>
     </>
 )}

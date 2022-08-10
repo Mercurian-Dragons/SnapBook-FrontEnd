@@ -1,30 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate, Routes, Route } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
+
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
 import Card from 'react-bootstrap/Card'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse, faTrashCan } from "@fortawesome/free-solid-svg-icons"
+import { faPencil, faLink,faTrashCan } from "@fortawesome/free-solid-svg-icons"
+// import { faStar,  faArrowLeft, faSquareShareNodes, faLock, faHouse } from "@fortawesome/free-solid-svg-icons"
 import PhotoEdit from './PhotoEdit'
 import PhotoDelete from './PhotoDelete';
 import PhotoCarousel from './PhotoCarousel'
 
 const PhotoViewer = ({ photo, photos, deletePhoto }) => {
-  
+
     const navigate = useNavigate()
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     // ^photo viewer modal
+    
     const [modalShow, setModalShow] = React.useState(false);
     // ^ edit modal
+    
     const [deleteModalShow, setDeleteModalShow] = React.useState(false);
     const handleDeleteClose = () => setDeleteModalShow(false);
     const handleDeleteShow = () => setDeleteModalShow(true);
     //  ^delete modal
-  useEffect(() =>{
-  }, [modalShow])
+    
     return (
     <>
         <Card 

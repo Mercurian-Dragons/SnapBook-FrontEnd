@@ -1,16 +1,18 @@
+
 import { useNavigate} from "react-router-dom";
 import { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
-import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse } from "@fortawesome/free-solid-svg-icons"
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse } from "@fortawesome/free-solid-svg-icons"
 import AlbumChange from "./AlbumChange";
+
 // each individual album
 const AlbumCard = ({ id, albumName }) => {
+  
   const navigate = useNavigate()
   const [copied, setCopied] = useState(false)
-  
+ 
   const handleClick = (event) => {
     navigate(`/${event.target.id}/photos`)
   }

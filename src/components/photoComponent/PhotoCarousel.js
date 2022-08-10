@@ -1,5 +1,5 @@
-import { toHaveDisplayValue } from '@testing-library/jest-dom/dist/matchers';
-import React, { useState, useEffect } from 'react';
+// import { toHaveDisplayValue } from '@testing-library/jest-dom/dist/matchers';
+import React, { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 
 function PhotoCarousel({photo, photos}) {

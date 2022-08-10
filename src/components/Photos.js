@@ -1,40 +1,42 @@
 import axios from 'axios'
-import React, { useEffect, useState, createContext} from 'react'
-import { useParams, useNavigate, Route } from 'react-router-dom'
-import Card from 'react-bootstrap/Card'
+import React, { useEffect, useState } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
+// import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
 import AlbumEdit from './AlbumEdit';
 import PhotoViewer from './photoComponent/PhotoViewer'
 import UploadPictures from './UploadPictures'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse, faTrashCan } from "@fortawesome/free-solid-svg-icons"
+import {faPencil,faLink, faArrowLeft, } from "@fortawesome/free-solid-svg-icons"
+// import { faStar, faSquareShareNodes, faLock, faHouse, faTrashCan } from "@fortawesome/free-solid-svg-icons"
+import copy from 'copy-to-clipboard'
 
 
 const Photos = () => {
   let { albumId } = useParams()
-  let { photoId } = useParams()
+  // let { photoId } = useParams()
   const [photos, setPhotos] = useState([])
   // const [deleted, setDeleted] = useState('')
   const [modalShow, setModalShow] = React.useState(false);
   const [deletePhoto, setDeletePhoto] = useState('')
-  const Context = createContext()
+  // const Context = createContext()
   const navigate = useNavigate()
   const [index, setIndex] = useState(0);
   // console.log(Context)
 
     // handle click to get all images from db
-    const handleClick = (event) => {
-        event.preventDefault();
-        axios.get(`http://localhost:8000//${albumId}/photos`)
-            .then(res => setPhotos(res.data))
-        // console.log(event.target.albumName)
-        navigate(`/photos/${event.target}`)
-        // console.log('hi')
-    }
+    // const handleClick = (event) => {
+    //     event.preventDefault();
+    //     axios.get(`http://localhost:8000//${albumId}/photos`)
+    //         .then(res => setPhotos(res.data))
+    //     // console.log(event.target.albumName)
+    //     navigate(`/photos/${event.target}`)
+    //     // console.log('hi')
+    // }
   // select carousel image
-    const handleSelect = (selectedIndex, e) => {
-      setIndex(selectedIndex);
-  };
+  //   const handleSelect = (selectedIndex, e) => {
+  //     setIndex(selectedIndex);
+  // };
 
     useEffect(() => {
       // useParams of album id to retrieve images associated to the specific album
@@ -42,6 +44,7 @@ const Photos = () => {
       .then(res => setPhotos(res.data)
       )
     },[photos])
+
 
   const photoViewerClick = (event) => {
     event.preventDefault()
@@ -52,10 +55,11 @@ const Photos = () => {
     navigate('/albums/')
   }
 
-  const copyLink = (event) => {
-    console.log(event.target.value)
-  }
- 
+  function copyToClipboard(text) {
+    copy(window.location.href)
+    alert('Copied!')
+}
+
   return (
     <div>
       <UploadPictures photos={photos}/>
@@ -64,7 +68,7 @@ const Photos = () => {
         className='logos' 
         onClick={handleReturn}/>
       {/* set up to return to /albums */}
-        <FontAwesomeIcon icon={faLink} className='logos link-logo' onClick={copyLink} />
+        <FontAwesomeIcon icon={faLink} className='logos link-logo' onClick={copyToClipboard} />
         {/* ^ get sharing link */}
 
       <FontAwesomeIcon 

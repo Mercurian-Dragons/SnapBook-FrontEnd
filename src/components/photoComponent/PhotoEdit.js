@@ -1,19 +1,19 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { useNavigate, useParams} from 'react-router-dom';
-import axios from 'axios';
+import React from 'react';
+// import {useEffect, useContext, useState} from 'react';
+// import { useNavigate, useParams} from 'react-router-dom';
+// import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 const PhotoEdit = (props) => {
-    const [photo, setPhoto] = useState(null)
+    // const [photo, setPhoto] = useState(null)
     // const [deleteImage, setDeleteImage] = useState(props.deletePhoto)
     // const [deleted, setDeleted] = useState(false)
     // const [edited, setEdited] = useState(false)
-    const navigate = useNavigate();
-    // console.log(deleteImage)
-    const [modalShow, setModalShow] = React.useState(false);
+    // const [modalShow, setModalShow] = React.useState(false);
+    
+const navigate = useNavigate();
 
- 
 return (
     <>
     <Modal

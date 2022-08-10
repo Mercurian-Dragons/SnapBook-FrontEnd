@@ -1,9 +1,6 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Card from 'react-bootstrap/Card';
-import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
-
 
 function Navigation() {
   return (
@@ -20,7 +17,6 @@ function Navigation() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  {/* <Card.Img className='Logo' variant="top" src="" alt='' /> Your logo */}
     </>
   )
 }

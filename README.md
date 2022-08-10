@@ -1,5 +1,5 @@
 # Snapbook
- A web app for creating albums of photos with your social groups. Create shareable albums for everything from sharing memes to combining photos everyone took during a group vacation!o easily share your album link with friends and family, so they can view and upload photos, too! 
+ A web app for creating albums of photos with your social groups. Create shareable albums for everything from sharing memes to combining photos everyone took during a group vacation! You can easily share your album link with friends and family, so they can view and upload photos, too! 
 
  [Deployed on Heroku](https://snapbook-frontend.herokuapp.com/)
 

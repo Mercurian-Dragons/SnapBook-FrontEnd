@@ -81,7 +81,7 @@ const Photos = () => {
 
   return (
     <div>
-      <span class='albumHeader'>
+      <span className='albumHeader'>
       <FontAwesomeIcon 
         icon={faArrowLeft} 
         className='logos' 
@@ -109,6 +109,7 @@ const Photos = () => {
         show={modalShow}
         onHide={() => setModalShow(false)}
         albumId={albumId}
+        albumName={albumName}
         />
 
         </span>

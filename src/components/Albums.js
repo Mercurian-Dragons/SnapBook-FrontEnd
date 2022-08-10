@@ -1,6 +1,6 @@
 import {  useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-
+import CreateAlbum from './albumComponent/CreateAlbum';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';

@@ -18,8 +18,6 @@ const UploadPictures = ({ photos }) => {
     console.log(event.target.value)
   }
   
-  useEffect(() => {
-  }, [photos])
   // const bodyFormData = new FormData();
   // bodyFormData.append('url', input)
   // console.log(bodyFormData)

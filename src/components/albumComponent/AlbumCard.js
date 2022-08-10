@@ -12,11 +12,6 @@ const AlbumCard = ({ id, albumName }) => {
   
   const navigate = useNavigate()
   const [copied, setCopied] = useState(false)
-<<<<<<< HEAD
- 
-=======
-
->>>>>>> able to display album name inside photo component
   const handleClick = (event) => {
     navigate(`/${event.target.id}/${albumName}/photos`)
   }

@@ -77,12 +77,12 @@ console.log(photos)
   return (
     <div>
       <span class='albumHeader'>
-        <FontAwesomeIcon
-          icon={faArrowLeft}
-          className='logos'
-          onClick={handleReturn} />
-        <span className='albumName'>(Album name)'s photos</span>
-        <span>
+      <FontAwesomeIcon 
+        icon={faArrowLeft} 
+        className='logos' 
+        onClick={handleReturn}/>
+      <span className='albumName'>{albumName}</span>
+      <span>
           <FontAwesomeIcon icon={faLink} className='logos link-logo' onClick={copyToClipboard} />
           {/* ^ get sharing link */}
           <FontAwesomeIcon
@@ -92,17 +92,14 @@ console.log(photos)
             
           <UploadPictures photos={photos} />
         
-
           {/* ^ opens edit modal */}
           {/* <Button variant="primary" onClick={() => setModalShow(true)}>Edit/Delete Album</Button> */}
-          <AlbumEdit
-            show={modalShow}
-            onHide={() => setModalShow(false)}
-            albumId={albumId} />
+      <AlbumEdit
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        albumId={albumId}
+        />
           {/* Trash icon, open edit modal */}
-          <h3>
-            {albumName}
-          </h3>
 
         </span>
       </span>

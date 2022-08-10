@@ -8,11 +8,14 @@ import Modal from 'react-bootstrap/Modal';
 const PhotoDelete = (props) => {
     const [deleteImage, setDeleteImage] = useState(props.deletePhoto)
     let { albumId } = useParams()
+    let { albumName } = useParams()
+    let { id } = useParams()
     const navigate = useNavigate();
 
 // button to delete the photo
 const handleDelete = () => {
     axios.delete(`http://localhost:8000/${albumId}/${props.id}`)
+    navigate(`/${albumId}/${albumName}/photos`);
 };
 
 return (

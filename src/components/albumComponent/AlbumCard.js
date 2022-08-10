@@ -22,7 +22,6 @@ const AlbumCard = ({ id, album, albumName }) => {
 
   return (
     <>
-    {/* <Container className='albumContainer'> */}
     <div>
       <Card style={{ width: '18rem' }}>
         <div className='logosContainer'>

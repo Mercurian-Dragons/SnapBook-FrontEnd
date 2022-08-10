@@ -16,6 +16,7 @@ import Popover from 'react-bootstrap/Popover';
 
 const Photos = () => {
   let { albumId } = useParams()
+  let {albumName} = useParams()
   // let { photoId } = useParams()
   const [photos, setPhotos] = useState([])
   // const [deleted, setDeleted] = useState('')
@@ -60,7 +61,7 @@ const Photos = () => {
         icon={faArrowLeft} 
         className='logos' 
         onClick={handleReturn}/>
-      <span className='albumName'>(Album name)'s photos</span>
+      <span className='albumName'>{albumName}</span>
       <span>
           <FontAwesomeIcon icon={faLink} className='logos link-logo' onClick={copyToClipboard} />
         {/* ^ get sharing link */}
@@ -73,8 +74,10 @@ const Photos = () => {
       <AlbumEdit
         show={modalShow}
         onHide={() => setModalShow(false)}
-        albumId={albumId}/>
+        albumId={albumId}
+        />
           {/* Trash icon, open edit modal */}
+
         </span>
       </span>
       

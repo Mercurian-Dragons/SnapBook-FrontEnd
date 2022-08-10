@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from 'react-router-dom'
 
 const AlbumChange = ({ id }) => {
+  let {albumId} = useParams()
   const navigate = useNavigate()
   const [reload, setReload] = useState(false)
   const [albumChange, setAlbumChange] = useState({
@@ -18,8 +19,9 @@ const AlbumChange = ({ id }) => {
   
   const handleSubmit = (event) => {
     event.preventDefault();
-      axios.patch(`http://localhost:8000/album/edit/${id}`, albumChange)
+      axios.patch(`http://localhost:8000/album/edit/${albumId}`, albumChange)
       .then(() => {
+        navigate('/albums')
       })
 
     }

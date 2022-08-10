@@ -26,8 +26,6 @@ const AlbumCard = ({ id, albumName }) => {
         </div>
           <Card.Body className='album-img-container img-container'>
           <Card.Title >{ albumName }</Card.Title>
-          <p id={id}>edit</p>
-          <AlbumChange id={id} />
           <Button onClick={handleClick} id={id} variant='primary'>View</Button>
       <p>
         Created by (creatorName) on (date)

@@ -44,6 +44,7 @@ return (
     <header className='albumsHeader'>
       <h1>Your Albums </h1>
     </header>
+    <CreateAlbum/>
     <Container className='albumContainer'>
       {album.map((album) => (
         <AlbumCard key={album._id} id={album._id} albumName={album.albumName} />

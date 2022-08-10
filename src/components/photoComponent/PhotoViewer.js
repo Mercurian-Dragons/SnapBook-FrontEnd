@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Routes, Route } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Card from 'react-bootstrap/Card'
@@ -8,7 +8,6 @@ import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHo
 import PhotoEdit from './PhotoEdit'
 import PhotoDelete from './PhotoDelete';
 import PhotoCarousel from './PhotoCarousel'
-
 
 const PhotoViewer = ({ photo, photos, deletePhoto }) => {
     let { albumId } = useParams()
@@ -24,7 +23,7 @@ const PhotoViewer = ({ photo, photos, deletePhoto }) => {
     const handleDeleteClose = () => setDeleteModalShow(false);
     const handleDeleteShow = () => setDeleteModalShow(true);
     //  ^delete modal
-    
+  
     return (
     <>
         <Card 
@@ -55,14 +54,12 @@ const PhotoViewer = ({ photo, photos, deletePhoto }) => {
             icon={faPencil} 
             className='logos'
             onClick={() => setModalShow(true)}
-            albumId={albumId}
             id={photo._id}
             />
 
             <PhotoEdit
             show={modalShow}
             onHide={() => setModalShow(false)}
-            albumId={albumId}
             id={photo._id}
             />
 
@@ -74,20 +71,17 @@ const PhotoViewer = ({ photo, photos, deletePhoto }) => {
             onHide={handleDeleteClose} 
             id={photo._id}
             />
-
+       
             <PhotoDelete 
             show={deleteModalShow}
-            deleteModalShow={deleteModalShow}
             onHide={handleDeleteClose}
-            albumId={albumId}
             id={photo._id}
-         
-            />
+            /> 
 
             </Modal.Header>
 
             <Modal.Body>
-                <PhotoCarousel photo={photo} photos= {photos} key={photo._id}/>
+                <PhotoCarousel photo={photo} photos={photos}/>
                 <p className='caption-container'> Caption </p>
             </Modal.Body>
             {/* ^Photo viewing modal */}

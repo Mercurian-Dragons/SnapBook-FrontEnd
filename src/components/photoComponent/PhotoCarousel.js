@@ -24,9 +24,8 @@ return (
     <>
         <Carousel activeIndex={index} onSelect={handleSelect} >
             {photos.map((photo) => (
-            <Carousel.Item className='mySlides' >
+            <Carousel.Item className='mySlides' key={photo._id} >
             <img className='demo'
-                key={photo._id}
                 id={photo._id}
                 src={photo.url}
                 alt={photo.altText}
@@ -38,9 +37,8 @@ return (
         <div className="row" >
         {photos.map((photo) => (
         // thumbnail images 
-        <div className="column" >
+        <div className="column" key={photo._id}>
             <img className='demo' onClick={ ( )=> handleClick(photo._id)}
-                key={photo._id}
                 id={photo._id}
                 src={photo.url}
                 alt={photo.altText}

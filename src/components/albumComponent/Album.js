@@ -30,7 +30,6 @@ const Album = () => {
     //     })
     // }
 
-
     if(!album){
       <Spinner
               as="span"

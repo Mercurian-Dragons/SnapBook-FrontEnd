@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 const PhotoDelete = (props) => {
-    const [photo, setPhoto] = useState(null)
+    console.log(props.show)
     const [deleteImage, setDeleteImage] = useState(props.deletePhoto)
     let { albumId } = useParams()
     const navigate = useNavigate();
@@ -15,12 +15,11 @@ console.log(props)
 const handleDelete = () => {
     axios.delete(`http://localhost:8000/${albumId}/${props.id}`)
     .then(res => {
-        console.log(deleteImage)
         navigate('/albums')
         // change this to navigate to album image was in
+
     })	
 };
-
 
 return (
     <>

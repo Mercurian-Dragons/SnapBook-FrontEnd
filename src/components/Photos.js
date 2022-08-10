@@ -90,7 +90,7 @@ const Photos = () => {
         <div key={i}>
           
           {/* <PhotoViewer photo={photo} show={modalShow} onHide={() => setModalShow(false)} deletePhoto={deletePhoto}/> */}
-          <PhotoViewer photo={photo} photos={photos}/>
+          <PhotoViewer photo={photo} photos={photos} key={i}/>
         </div>
         ))}
       </Container>

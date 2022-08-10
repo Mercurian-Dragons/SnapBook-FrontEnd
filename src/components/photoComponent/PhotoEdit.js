@@ -9,7 +9,6 @@ const PhotoEdit = (props) => {
     // const [deleteImage, setDeleteImage] = useState(props.deletePhoto)
     // const [deleted, setDeleted] = useState(false)
     // const [edited, setEdited] = useState(false)
-    let { albumId } = useParams()
     const navigate = useNavigate();
     // console.log(deleteImage)
     const [modalShow, setModalShow] = React.useState(false);

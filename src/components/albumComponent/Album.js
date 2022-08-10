@@ -4,7 +4,6 @@ import AlbumCard from './AlbumCard';
 import AlbumEdit from './AlbumEdit';
 import CreateAlbum from './CreateAlbum';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse, faTrashCan } from "@fortawesome/free-solid-svg-icons"
 import Container from 'react-bootstrap/Container';
 import Spinner from 'react-bootstrap/Spinner';
 
@@ -42,9 +41,10 @@ const Album = () => {
 return (
   <>
     <header className='albumsHeader'>
-      <h1>Your Albums </h1>
+      <h1>Create album : <CreateAlbum /> </h1>
     </header>
-    <CreateAlbum/>
+
+
     <Container className='albumContainer'>
       {album.map((album) => (
         <AlbumCard key={album._id} id={album._id} albumName={album.albumName} 

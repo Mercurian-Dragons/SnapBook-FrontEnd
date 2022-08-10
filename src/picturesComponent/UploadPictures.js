@@ -9,7 +9,6 @@ import PicturesModal from './PicturesModal';
 // import { faPlus, } from "@fortawesome/free-solid-svg-icons"
 
 
-
 const UploadPictures = ({ photos }) => {
   // const navigate = useNavigate()
   let { albumId } = useParams()

@@ -72,9 +72,9 @@ const PicturesModal = ({ name, url}) => {
                   // placeholder='Enter your image URL' 
                   onChange={handleChange} 
                   value={input.url}
-              />
+                />
             </Form.Group>
-      </Form>
+          </Form>
       </Modal.Body>
 
       <Modal.Footer>

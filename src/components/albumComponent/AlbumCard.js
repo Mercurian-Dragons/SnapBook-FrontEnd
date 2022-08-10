@@ -8,13 +8,17 @@ import Button from 'react-bootstrap/Button'
 import AlbumChange from "./AlbumChange";
 
 // each individual album
-const AlbumCard = ({ id, albumName }) => {
+const AlbumCard = ({ id, album, albumName }) => {
   
   const navigate = useNavigate()
   const [copied, setCopied] = useState(false)
   const handleClick = (event) => {
     navigate(`/${event.target.id}/${albumName}/photos`)
   }
+
+  const event = new Date(album.createdAt)
+
+  const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
 
   return (
     <>
@@ -28,8 +32,10 @@ const AlbumCard = ({ id, albumName }) => {
           <Card.Title >{ albumName }</Card.Title>
           <Button onClick={handleClick} id={id} variant='primary'>View</Button>
       <p>
-        Created by (creatorName) on (date)
-
+        {
+          album.creator ? (<p>Created by {album.creator.username}</p>):null
+        }
+        Created on <span>{event.toLocaleDateString(undefined, options)}</span>
         {/* Shared with (names) */}
         {/* stretch functionality to show who(users) it's shared with/the group */}
       </p>

@@ -100,7 +100,6 @@ console.log(photos)
         albumId={albumId}
         />
           {/* Trash icon, open edit modal */}
-
         </span>
       </span>
 

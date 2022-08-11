@@ -48,9 +48,6 @@ const PhotoViewer = ({ photo, photos, deletePhoto }) => {
 
             <Modal.Header closeButton >
 
-            <FontAwesomeIcon icon={faLink} className='logosModal' />
-                {/* ^ needs to have link to photo and copy it */}
-
             {/* Pencil icon, open edit modal */}
             <FontAwesomeIcon 
             icon={faPencil} 
@@ -84,7 +81,6 @@ const PhotoViewer = ({ photo, photos, deletePhoto }) => {
 
             <Modal.Body >
                 <PhotoCarousel photo={photo} photos={photos} />
-                <p className='caption-container'> caption </p>
             </Modal.Body>
             {/* ^Photo viewing modal */}
         </Modal>

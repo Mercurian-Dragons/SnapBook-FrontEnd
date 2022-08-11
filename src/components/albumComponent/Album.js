@@ -41,7 +41,8 @@ const Album = () => {
 return (
   <>
     <header className='albumsHeader'>
-      <h1>Create album : <CreateAlbum /> </h1>
+      <h1>Your Albums</h1>
+      <h2>Create a new album: <CreateAlbum /> </h2>
     </header>
 
 

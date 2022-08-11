@@ -8,6 +8,7 @@ import Photos from './components/Photos.js'
 import UploadPictures from './picturesComponent/UploadPictures';
 
 const App = () => {
+
   return (
     <>
       <Nav />

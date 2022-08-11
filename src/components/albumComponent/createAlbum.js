@@ -23,12 +23,17 @@ const CreateAlbum = () => {
   
   const handleSubmit = (event) => {
     event.preventDefault();
+    if(createAlbum.albumName === ''){
+      alert('Please enter an Album name')
+      setCreateAlbum(initialFormState)
+    } else{ 
       axios.post(`http://localhost:8000/album/create`, createAlbum)
       .then (() => {
         navigate('/albums')
         setShow(false)
       })
       setCreateAlbum(initialFormState)
+    }
 }
 
   return (

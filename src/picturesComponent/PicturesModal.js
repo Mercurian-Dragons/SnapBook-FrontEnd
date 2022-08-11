@@ -19,17 +19,11 @@ const PicturesModal = ({ name, url}) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-<<<<<<< HEAD
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const checkExt = (/\.(gif|jpe?g|tiff?|png|webp|bmp)$/i).test(input.url)
-=======
 
   
   const handleSubmit = () => {
    
     const checkExt = (/\.(gif|jpep|jpg|png|webp|)$/i).test(input.url)
->>>>>>> debuggin
     console.log(checkExt)
     if(checkExt === true){
     axios.post(`https://snapbook-backend.herokuapp.com/${albumId}/upload`, input)

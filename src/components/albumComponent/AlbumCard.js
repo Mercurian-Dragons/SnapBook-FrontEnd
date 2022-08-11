@@ -33,7 +33,7 @@ const AlbumCard = ({ id, album, albumName }) => {
         <span>{album.description}</span>
       <p>
         {
-          album.creator ? (<p>Created by {album.creator.username}</p>):null
+          album.creator ? (<span>Created by {album.creator.username}</span>):null
         }
         Created on <span>{event.toLocaleDateString(undefined, options)}</span>
         {/* Shared with (names) */}

@@ -16,7 +16,7 @@ const AlbumModal = ({ handleSubmit, handleChange, createAlbum, show, handleClose
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Create Album</Modal.Title>
+                    <Modal.Title>Create a New Album</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form onSubmit={handleSubmit}>
@@ -30,6 +30,18 @@ const AlbumModal = ({ handleSubmit, handleChange, createAlbum, show, handleClose
                                 value={createAlbum.albumName}
                             />
                         </Form.Group>
+
+                        <Form.Group className="mb-3" >
+                        <Form.Label>Add your name (optional)</Form.Label>
+                            <Form.Control
+                                type="text"
+                                // placeholder='Description'
+                                onChange={handleChange}
+                                id='creator'
+                                value={createAlbum.creator}
+                            />
+                        </Form.Group>
+
                         <Form.Group className="mb-3" >
                         <Form.Label>Add a Description (optional)</Form.Label>
                             <Form.Control
@@ -45,7 +57,7 @@ const AlbumModal = ({ handleSubmit, handleChange, createAlbum, show, handleClose
                 <Modal.Footer>
                     <Button type="submit"
                             onClick={handleSubmit}>
-                        Submit
+                        Create Album
                     </Button>
                     <Button 
                         variant="secondary" 

@@ -70,7 +70,6 @@ const PhotoViewer = ({ photo, photos, deletePhoto }) => {
             onHide={handleDeleteClose} 
             id={photo._id}
             />
-       
             <PhotoDelete 
             show={deleteModalShow}
             onHide={handleDeleteClose}

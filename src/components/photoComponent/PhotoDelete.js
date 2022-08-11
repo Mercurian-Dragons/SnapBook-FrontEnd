@@ -14,7 +14,7 @@ const PhotoDelete = (props) => {
 
 // button to delete the photo
 const handleDelete = () => {
-    axios.delete(`http://localhost:8000/${albumId}/${props.id}`)
+    axios.delete(`https://snapbook-backend.herokuapp.com/${albumId}/${props.id}`)
     navigate(`/${albumId}/${albumName}/photos`);
 };
 

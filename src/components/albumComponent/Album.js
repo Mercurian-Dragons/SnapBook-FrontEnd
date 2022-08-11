@@ -16,7 +16,7 @@ const Album = () => {
   })
  
   useEffect(() => {
-    axios.get('http://localhost:8000/albums')
+    axios.get('https://snapbook-backend.herokuapp.com/albums')
       .then(res => setAlbum(res.data))
     },[album])
 

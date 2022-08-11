@@ -32,7 +32,7 @@ const PicturesModal = ({ name, url}) => {
 >>>>>>> debuggin
     console.log(checkExt)
     if(checkExt === true){
-    axios.post(`http://localhost:8000/${albumId}/upload`, input)
+    axios.post(`https://snapbook-backend.herokuapp.com/${albumId}/upload`, input)
       .then(() => {
       })
       setShow(false)

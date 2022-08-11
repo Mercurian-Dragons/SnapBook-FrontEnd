@@ -27,7 +27,7 @@ const CreateAlbum = () => {
       alert('Please enter an Album name')
       setCreateAlbum(initialFormState)
     } else{ 
-      axios.post(`http://localhost:8000/album/create`, createAlbum)
+      axios.post(`https://snapbook-backend.herokuapp.com/album/create`, createAlbum)
       .then (() => {
         navigate('/albums')
         setShow(false)

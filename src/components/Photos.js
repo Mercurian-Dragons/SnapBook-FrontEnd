@@ -32,7 +32,7 @@ const Photos = () => {
 
   useEffect(() => {
     // useParams of album id to retrieve images associated to the specific album
-    axios.get(`http://localhost:8000/${albumId}/photos`)
+    axios.get(`https://snapbook-backend.herokuapp.com/${albumId}/photos`)
     .then(res => setPhotos(res.data))
   },[photos])
   // select carousel image

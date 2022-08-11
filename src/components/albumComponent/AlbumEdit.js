@@ -18,14 +18,14 @@ const AlbumEdit = (props) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/album/${albumId}`)
+        axios.get(`https://snapbook-backend.herokuapp.com/album/${albumId}`)
             .then(res =>
                 setAlbum(res.data))
     }, [albumId])
 
 // button to delete the album
 const handleDelete = () => {
-    axios.delete(`http://localhost:8000/album/edit/${albumId}`)
+    axios.delete(`https://snapbook-backend.herokuapp.com/album/edit/${albumId}`)
         .then(res => {
     // put some message here to display that it's been deleted?
             navigate('/albums');

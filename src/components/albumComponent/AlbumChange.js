@@ -19,7 +19,7 @@ const AlbumChange = ({ id }) => {
   
   const handleSubmit = (event) => {
     event.preventDefault();
-      axios.patch(`http://localhost:8000/album/edit/${albumId}`, albumChange)
+      axios.patch(`https://snapbook-backend.herokuapp.com/album/edit/${albumId}`, albumChange)
       .then(() => {
         navigate('/albums')
       })

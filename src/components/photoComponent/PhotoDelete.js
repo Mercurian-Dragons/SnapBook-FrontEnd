@@ -5,7 +5,7 @@ import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-const PhotoDelete = (props) => {
+const PhotoDelete = (props, {handleDeleteClose}) => {
     const [deleteImage, setDeleteImage] = useState(props.deletePhoto)
     let { albumId } = useParams()
     let { albumName } = useParams()
@@ -32,14 +32,15 @@ return (
             </Modal.Header>
             <Modal.Body>
                 <h5>Warning, this can't be undone!</h5>
-                <Button variant="danger"
-                onClick={handleDelete}
-                >
+                <Button 
+                    variant="danger"
+                    onClick={handleDelete}>
                     Delete Photo
                 </Button>
-                <Button variant="primary" 
-                onClick={props.onHide}>
-            Nevermind</Button>
+                <Button 
+                    variant="primary" 
+                    onClick={props.onHide}>
+                    Nevermind</Button>
             </Modal.Body>
         
     </Modal>

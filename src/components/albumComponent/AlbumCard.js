@@ -15,7 +15,7 @@ const AlbumCard = ({ id, album, albumName }) => {
   const handleClick = (event) => {
     navigate(`/${event.target.id}/${albumName}/photos`)
   }
-
+// console.log(album.creator)
   const event = new Date(album.createdAt)
 
   const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
@@ -35,7 +35,7 @@ const AlbumCard = ({ id, album, albumName }) => {
         <span>{album.description}</span>
         <Card.Text>
         {
-          album.creator ? (<Card.Subtitle>Created by {album.creator.username}</Card.Subtitle>):null
+          album.creator ? (<Card.Subtitle>Created by {album.creator}</Card.Subtitle>):null
         }
         Created on <span>{event.toLocaleDateString(undefined, options)}</span>
         {/* Shared with (names) */}

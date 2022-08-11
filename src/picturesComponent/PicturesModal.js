@@ -11,15 +11,11 @@ const PicturesModal = ({ name, url}) => {
   const navigate = useNavigate()
   let { albumId } = useParams()
   let { albumName } = useParams()
-
   const initialInputState = {
     name: '',
     url: ''
   }
-
-  // const [reload, setReload] = useState(false)
   const [input, setInput] = useState(initialInputState);
-
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -27,19 +23,17 @@ const PicturesModal = ({ name, url}) => {
     event.preventDefault();
     axios.post(`http://localhost:8000/${albumId}/upload`, input)
       .then(res => {
-        console.log(res);
-        console.log(res.data)
-        // setReload(true)
+      
       })
-      setInput(initialInputState)
       setShow(false)
       navigate(`/${albumId}/${albumName}/photos`);
+      setInput(initialInputState)
   }
 
   const handleChange = (event) => {
     setInput({ ...input, [event.target.id]: event.target.value });
-    // console.log(event.target.id)
-    // console.log(event.target.value)
+    console.log(event.target.id)
+    console.log(event.target.value)
   }
   
     return (

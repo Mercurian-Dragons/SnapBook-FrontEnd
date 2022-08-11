@@ -10,17 +10,13 @@ import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHo
 
 
 const Albums = () => {
- 
   const navigate = useNavigate()
-  // const [albumPhotos, setAlbumPhotos] = useState([])
 
-    // handle click to get all images from db
-    const handleClick = (event) => {
-      event.preventDefault();
-  
-      navigate("/photos")
-      // change to album 
-    }
+  const handleClick = (event) => {
+    event.preventDefault();
+    navigate("/photos")  
+    // change to album 
+  }
     
 
   // useEffect(() => {

@@ -29,18 +29,6 @@ const Photos = () => {
   const [show, setShow] = useState(false);
   const [target, setTarget] = useState(null);
   const ref = useRef(null);
-  // console.log(Context)
-
-  useEffect(() => {
-    // useParams of album id to retrieve images associated to the specific album
-    axios.get(`http://localhost:8000/${albumId}/photos`)
-    .then(res => setPhotos(res.data))
-  },[photos])
-      
-  // select carousel image
-  //   const handleSelect = (selectedIndex, e) => {
-  //     setIndex(selectedIndex);
-  // };
     
   useEffect(() => {
     // useParams of album id to retrieve images associated to the specific album

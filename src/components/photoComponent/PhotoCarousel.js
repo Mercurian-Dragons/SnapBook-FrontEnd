@@ -30,6 +30,7 @@ return (
                 src={photo.url}
                 alt={photo.altText}
             />
+            {/* <p>(Caption can go here</p> */}
             </Carousel.Item>
             ))}
         </Carousel>

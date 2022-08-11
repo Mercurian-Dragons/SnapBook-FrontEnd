@@ -19,7 +19,6 @@ function PhotoCarousel({photo, photos}) {
         console.log(find)
     }
 
-
 return (
     <>
         <Carousel activeIndex={index} onSelect={handleSelect} >

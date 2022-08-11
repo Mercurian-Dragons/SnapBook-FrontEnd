@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 
 function PhotoCarousel({photo, photos}) {
+    
     const [index, setIndex] = useState(0);
 
     const handleSelect = (selectedIndex, e) => {
@@ -17,6 +18,7 @@ function PhotoCarousel({photo, photos}) {
     setIndex(photos.indexOf(find))
         console.log(find)
     }
+
 
 return (
     <>

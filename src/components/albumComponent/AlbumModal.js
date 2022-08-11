@@ -7,7 +7,6 @@ import Form from 'react-bootstrap/Form';
 
 const AlbumModal = ({ handleSubmit, handleChange, createAlbum, show, handleClose, handleShow  }) => {
 
-
     return (
         <>
             <label>
@@ -43,8 +42,13 @@ const AlbumModal = ({ handleSubmit, handleChange, createAlbum, show, handleClose
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
+<<<<<<< HEAD
                     <Button type="submit"
                             onClick={handleSubmit}>
+=======
+                    <Button type="submit"       onClick={handleSubmit}
+>
+>>>>>>> making changes
                         Submit
                     </Button>
                     <Button 

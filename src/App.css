@@ -44,9 +44,12 @@
   grid-row-gap: 10px;
 }
 
-.img-container {
-  height: 100%;
-  width: 100%;
+.img-container, .card {
+  min-height: 200px;
+  max-height: 250px;
+  max-width: 300px;
+  margin: 5px;
+  padding: 0 auto;
 }
 
 .logosContainer {
@@ -193,6 +196,8 @@ img {
   animation-name: zoom;
   animation-duration: 0.6s;
 }
+
+
 
 @media only screen and (min-width: 768px) {
   .albumContainer {

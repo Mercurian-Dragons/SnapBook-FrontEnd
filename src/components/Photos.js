@@ -10,10 +10,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil, faLink, faArrowLeft, faPlus } from "@fortawesome/free-solid-svg-icons"
 // import { faStar, faSquareShareNodes, faLock, faHouse, faTrashCan } from "@fortawesome/free-solid-svg-icons"
 import copy from 'copy-to-clipboard'
-import Overlay from 'react-bootstrap/Overlay';
-import Popover from 'react-bootstrap/Popover';
-import Button from 'react-bootstrap/Button';
-
+import Tooltip from 'react-bootstrap/Tooltip';
+import { OverlayTrigger } from 'react-bootstrap';
 
 
 const Photos = () => {
@@ -103,7 +101,6 @@ const Photos = () => {
         albumName={albumName}
         />
           {/* Trash icon, open edit modal */}
-
         </span>
       </span>
 

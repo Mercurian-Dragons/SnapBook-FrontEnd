@@ -22,19 +22,24 @@ const PicturesModal = ({ name, url}) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    const checkExt = (/\.(gif|jpe?g|tiff?|png|webp|bmp)$/i).test(input.url)
+    console.log(checkExt)
+    if(checkExt === true){
     axios.post(`http://localhost:8000/${albumId}/upload`, input)
       .then(res => {
-      
       })
       setShow(false)
       navigate(`/${albumId}/${albumName}/photos`);
       setInput(initialInputState)
+    }else{
+      setInput(initialInputState)
+      alert('please enter file with valid extension')
+    }
   }
-
+  
   const handleChange = (event) => {
-    setInput({ ...input, [event.target.id]: event.target.value });
-    console.log(event.target.id)
-    console.log(event.target.value)
+    setInput({ ...input, [event.target.id]: event.target.value })
+    // console.log('please enter valid file image')
   }
   
     return (

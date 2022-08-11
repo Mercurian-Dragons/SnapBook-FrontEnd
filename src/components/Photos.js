@@ -43,7 +43,7 @@ const Photos = () => {
     setDeletePhoto(event.target.id)
   }
   const handleReturn = () => {
-    navigate('/albums/')
+    navigate('/albums')
   }
 
   function copyToClipboard(text) {

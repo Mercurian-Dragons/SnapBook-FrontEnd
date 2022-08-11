@@ -42,7 +42,7 @@ return (
   <>
     <header className='albumsHeader'>
       <h1>Your Albums</h1>
-      <h2>Create a new album: <CreateAlbum /> </h2>
+      <CreateAlbum />
     </header>
 
 

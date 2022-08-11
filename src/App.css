@@ -10,8 +10,13 @@
 }
 
 .albumHeader {
-  margin: 15px;
+  margin: 20px;
   vertical-align: middle;
+}
+
+/* /albums */
+.albumsHeader {
+  margin: 25px;
 }
 
 .albumName {
@@ -22,6 +27,7 @@
 .copyright {
   text-decoration: none;
 }
+
 .albumContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

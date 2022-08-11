@@ -62,31 +62,49 @@ const Photos = () => {
     </Tooltip>
   );
 
+//   const renderEditTooltip = (props) => (
+
+// );  
+
 
   return (
     <div>
-      <span className='albumHeader'>
+      <div className='albumHeader'>
+      
+      <OverlayTrigger
+      placement="right"
+      overlay={<Tooltip id="button-tooltip-2">Return to Your Albums </Tooltip>}>
       <FontAwesomeIcon 
         icon={faArrowLeft} 
         className='logos' 
         onClick={handleReturn}/>
+    </OverlayTrigger>
+      
       <span className='albumName'>{albumName}</span>
-      <span>
+
 
       <OverlayTrigger
-      placement="bottom"
+      placement="right"
       overlay={renderTooltip}>
           <FontAwesomeIcon icon={faLink} className='logos link-logo' onClick={copyToClipboard} ref={target}/>
       </OverlayTrigger>
   
         {/* ^ get sharing link */}
-      
-      <FontAwesomeIcon 
+      {/* <OverlayTrigger
+      placement="bottom"
+      overlay={renderEditTooltip}> */} 
+    <OverlayTrigger
+      placement="right"
+      overlay={<Tooltip id="button-tooltip-2">Edit or Delete Album</Tooltip>}>
+        <FontAwesomeIcon 
         icon={faPencil} 
         className='logos'
         onClick={() => setModalShow(true)}/>
-
-          <UploadPictures photos={photos} />
+    </OverlayTrigger>
+      {/* </OverlayTrigger> */}
+      {/* <Tooltip id="button-tooltip" {...props}>
+        Click to Edit or Delete Album
+      </Tooltip> */}
 
      {/* <Button variant="primary" onClick={() => setModalShow(true)}>Edit/Delete Album</Button> */}
       <AlbumEdit
@@ -95,9 +113,9 @@ const Photos = () => {
         albumId={albumId}
         albumName={albumName}
         />
+        <UploadPictures photos={photos} />
 
-        </span>
-      </span>
+      </div>
 
       <Container className='photosContainer' onClick={photoViewerClick}>
         {photos.map((photo, i) => (

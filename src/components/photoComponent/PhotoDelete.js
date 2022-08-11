@@ -20,29 +20,26 @@ const handleDelete = () => {
 
 return (
     <>
-    <Modal
-        {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered>
+    <Modal {...props}>
         <Modal.Header closeButton>
-            <Modal.Title id="contained-modal-title-vcenter">
+            <Modal.Title>
                 Delete Photo
             </Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <h5>Warning, this can't be undone!</h5>
-                <Button 
-                    variant="danger"
-                    onClick={handleDelete}>
-                    Delete Photo
-                </Button>
-                <Button 
-                    variant="primary" 
-                    onClick={props.onHide}>
-                    Nevermind</Button>
-            </Modal.Body>
-        
+                </Modal.Body>
+            <Modal.Footer>
+            <Button 
+                variant="danger"
+                onClick={handleDelete}>
+                Delete Photo
+            </Button>
+            <Button 
+                variant="primary" 
+                onClick={props.onHide}>
+                Nevermind</Button>
+            </Modal.Footer>
     </Modal>
     </>
 )}

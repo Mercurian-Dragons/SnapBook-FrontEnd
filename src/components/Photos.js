@@ -39,7 +39,11 @@ const Photos = () => {
   //   const handleSelect = (selectedIndex, e) => {
   //     setIndex(selectedIndex);
   // };
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> made minor changes
   const photoViewerClick = (event) => {
     event.preventDefault()
     setDeletePhoto(event.target.id)

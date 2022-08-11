@@ -23,7 +23,6 @@ const PicturesModal = ({ name, url}) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
   const handleSubmit = (event) => {
     event.preventDefault();
     axios.post(`http://localhost:8000/${albumId}/upload`, input)

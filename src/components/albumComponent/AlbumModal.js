@@ -6,9 +6,6 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons"
 import Form from 'react-bootstrap/Form';
 
 const AlbumModal = ({ handleSubmit, handleChange, createAlbum, show, handleClose, handleShow }) => {
-
-   
-
     return (
         <>
             <label>

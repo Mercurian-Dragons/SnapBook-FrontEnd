@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import Tooltip from 'react-bootstrap/Tooltip';
+import { OverlayTrigger } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons"
 import Form from 'react-bootstrap/Form';
@@ -44,7 +46,12 @@ const PicturesModal = ({ name, url}) => {
   
     return (
       <>
-      <FontAwesomeIcon icon={faPlus}  className='logos' onClick={handleShow} />
+      <OverlayTrigger
+        placement="right"
+        overlay={<Tooltip id="button-tooltip-2">Upload Photos </Tooltip>}>
+        <FontAwesomeIcon icon={faPlus}  className='logos' onClick={handleShow} />
+    </OverlayTrigger>
+      
         <Modal show={show} onHide={handleClose}>
 
           <Modal.Header closeButton>

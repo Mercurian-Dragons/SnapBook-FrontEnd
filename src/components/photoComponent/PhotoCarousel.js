@@ -22,7 +22,7 @@ function PhotoCarousel({photo, photos}) {
 
 return (
     <>
-        <Carousel activeIndex={index} onSelect={handleSelect} >
+        <Carousel activeIndex={index} onSelect={handleSelect} className="carousel">
             {photos.map((photo) => (
             <Carousel.Item className='mySlides' key={photo._id} >
             <img className='demo'

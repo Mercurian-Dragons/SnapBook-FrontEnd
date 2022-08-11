@@ -1,25 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate} from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
+import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Card from 'react-bootstrap/Card'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPencil, faLink,faTrashCan } from "@fortawesome/free-solid-svg-icons"
-// import { faStar,  faArrowLeft, faSquareShareNodes, faLock, faHouse } from "@fortawesome/free-solid-svg-icons"
-import PhotoEdit from './PhotoEdit'
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons"
+// import { faStar, faPencil, faLink, faArrowLeft, faSquareShareNodes, faLock, faHouse } from "@fortawesome/free-solid-svg-icons"
 import PhotoDelete from './PhotoDelete';
 import PhotoCarousel from './PhotoCarousel'
 
 const PhotoViewer = ({ photo, photos, deletePhoto }) => {
-
-    const navigate = useNavigate()
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     // ^photo viewer modal
     
-    const [modalShow, setModalShow] = React.useState(false);
+    // const [modalShow, setModalShow] = React.useState(false);
     // ^ edit modal
     
     const [deleteModalShow, setDeleteModalShow] = React.useState(false);
@@ -29,7 +24,7 @@ const PhotoViewer = ({ photo, photos, deletePhoto }) => {
     return (
     <>
         <Card 
-        className='img-container' 
+        className='img-container carousel-modal' 
         style={{ width: '18rem' }} 
         onClick={handleShow}>
             <Card.Body className='imgBody' >
@@ -62,22 +57,22 @@ const PhotoViewer = ({ photo, photos, deletePhoto }) => {
             id={photo._id}
             /> */}
 
-        {/* Trash icon, open delete modal */}
-            <FontAwesomeIcon 
-            icon={ faTrashCan }
-            className='logosModal'
-            onClick={handleDeleteShow}
-            onHide={handleDeleteClose} 
-            id={photo._id}
-            />
-       
-            <PhotoDelete 
-            show={deleteModalShow}
-            onHide={handleDeleteClose}
-            id={photo._id}
-            /> 
-
-            </Modal.Header>
+        
+            <span className='deleteIcon'>
+                <FontAwesomeIcon 
+                icon={ faTrashCan }
+                className='logosModal'
+                onClick={handleDeleteShow}
+                onHide={handleDeleteClose} 
+                id={photo._id}
+                />
+                <PhotoDelete 
+                show={deleteModalShow}
+                onHide={handleDeleteClose}
+                id={photo._id}
+                /> 
+            </span>
+        </Modal.Header>
 
             <Modal.Body >
                 <PhotoCarousel photo={photo} photos={photos} />

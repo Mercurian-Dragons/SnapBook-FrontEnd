@@ -17,8 +17,6 @@ const CreateAlbum = () => {
 
   const handleChange = (event) => {
     setCreateAlbum({ ...createAlbum, [event.target.id]: event.target.value });
-    // console.log(event.target.value)
-    // console.log(createAlbum)
   }
   
   const handleSubmit = (event) => {
@@ -29,10 +27,9 @@ const CreateAlbum = () => {
         setShow(false)
       })
       setCreateAlbum(initialFormState)
-}
+    }
 
   return (
-
       <AlbumModal 
         handleSubmit={handleSubmit} 
         handleChange={handleChange} createAlbum={createAlbum}  

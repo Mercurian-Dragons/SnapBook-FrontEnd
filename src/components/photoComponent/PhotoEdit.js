@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useContext } from 'react';
-import axios from 'axios';
+import React from 'react';
+// import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
@@ -9,7 +9,7 @@ const PhotoEdit = (props) => {
     // const [deleted, setDeleted] = useState(false)
     // const [edited, setEdited] = useState(false)
 
-   const [modalShow, setModalShow] = React.useState(false);
+//    const [modalShow, setModalShow] = React.useState(false);
     
 // const navigate = useNavigate();
 
@@ -17,10 +17,11 @@ const PhotoEdit = (props) => {
 return (
     <>
     <Modal
-        {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered>
+        // {...props}
+        // size="lg"
+        // aria-labelledby="contained-modal-title-vcenter"
+        // centered
+        >
         <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
                 Edit Image

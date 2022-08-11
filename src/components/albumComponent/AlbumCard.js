@@ -1,17 +1,12 @@
 
 import { useNavigate} from "react-router-dom";
-import { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse } from "@fortawesome/free-solid-svg-icons"
-import AlbumChange from "./AlbumChange";
 
 // each individual album
 const AlbumCard = ({ id, album, albumName }) => {
   
   const navigate = useNavigate()
-  const [copied, setCopied] = useState(false)
   const handleClick = (event) => {
     navigate(`/${event.target.id}/${albumName}/photos`)
   }
@@ -23,26 +18,36 @@ const AlbumCard = ({ id, album, albumName }) => {
   return (
     <>
     <div>
-      <Card style={{ width: '18rem' }}>
-        <div className='logosContainer'>
-      
-        </div>
+    <Card 
+      className="text-center"
+      style={{ width: '18rem' }}>
+        <Card.Header class="card-header">
+          <Card.Title  as="h4" >{ albumName }</Card.Title>
+        </Card.Header>
+
           <Card.Body className='album-img-container img-container'>
-          <Card.Title >{ albumName }</Card.Title>
-          <Button onClick={handleClick} id={id} variant='primary'>View</Button>
-        <span>{album.description}</span>
-      <p>
-        {
-          album.creator ? (<span>Created by {album.creator.username}</span>):null
-        }
-        Created on <span>{event.toLocaleDateString(undefined, options)}</span>
-        {/* Shared with (names) */}
-        {/* stretch functionality to show who(users) it's shared with/the group */}
-      </p>
+          <Card.Subtitle >{album.description}</Card.Subtitle>
+            <br />
+          
+          <Button 
+            onClick={handleClick} 
+            id={id} 
+            variant='primary'
+            className="viewAlbumBtn">
+            Open
+          </Button>
+            <br />
+          <Card.Text className="albumCardDetails">
+            {
+              album.creator ? (<Card.Subtitle>Created by {album.creator}</Card.Subtitle>):null
+            }
+            Created on <span>{event.toLocaleDateString(undefined, options)}</span>
+            {/* Shared with (names) */}
+            {/* stretch functionality to show who(users) it's shared with/the group */}
+          </Card.Text>
         </Card.Body>
       </Card>
     </div>
-    {/* </Container> */}
     </>
   )
 }

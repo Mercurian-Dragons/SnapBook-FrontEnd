@@ -31,7 +31,7 @@
 .albumContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(6, 1fr);
   grid-column-gap: 20px;
   grid-row-gap: 20px;
 }
@@ -53,6 +53,10 @@
   padding: 0 auto;
 }
 
+
+.card-img-top {
+  margin: auto 0;
+}
 .card-body {
   padding: 0px;
 }
@@ -269,7 +273,7 @@ border: 10px solid red;
   .albumContainer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     grid-column-gap: 20px;
     grid-row-gap: 20px;
   }

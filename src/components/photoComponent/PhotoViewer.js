@@ -49,7 +49,7 @@ const PhotoViewer = ({ photo, photos, deletePhoto }) => {
             <Modal.Header closeButton >
 
             {/* Pencil icon, open edit modal */}
-            <FontAwesomeIcon 
+            {/* <FontAwesomeIcon 
             icon={faPencil} 
             className='logos'
             onClick={() => setModalShow(true)}
@@ -60,7 +60,7 @@ const PhotoViewer = ({ photo, photos, deletePhoto }) => {
             show={modalShow}
             onHide={() => setModalShow(false)}
             id={photo._id}
-            />
+            /> */}
 
         {/* Trash icon, open delete modal */}
             <FontAwesomeIcon 

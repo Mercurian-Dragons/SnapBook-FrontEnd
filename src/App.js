@@ -12,7 +12,7 @@ const App = () => {
     <>
       <Nav />
       <Routes>
-        <Route path='/' element={ <Home /> } />
+        <Route path='/' element={ <Album /> } />
         {/* until have login functionality, makes most sense to route directly */}
         <Route path='/albums' element={ <Album /> } />
         <Route path='/:albumId/:albumName/photos/' element={ <Photos /> } />

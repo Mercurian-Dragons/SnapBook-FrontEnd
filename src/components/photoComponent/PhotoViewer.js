@@ -29,7 +29,7 @@ const PhotoViewer = ({ photo, photos, deletePhoto }) => {
     return (
     <>
         <Card 
-        className='img-container' 
+        className='img-container carousel-modal' 
         style={{ width: '18rem' }} 
         onClick={handleShow}>
             <Card.Body className='imgBody' >
@@ -62,22 +62,22 @@ const PhotoViewer = ({ photo, photos, deletePhoto }) => {
             id={photo._id}
             /> */}
 
-        {/* Trash icon, open delete modal */}
-            <FontAwesomeIcon 
-            icon={ faTrashCan }
-            className='logosModal'
-            onClick={handleDeleteShow}
-            onHide={handleDeleteClose} 
-            id={photo._id}
-            />
-       
-            <PhotoDelete 
-            show={deleteModalShow}
-            onHide={handleDeleteClose}
-            id={photo._id}
-            /> 
-
-            </Modal.Header>
+        
+            <span className='deleteIcon'>
+                <FontAwesomeIcon 
+                icon={ faTrashCan }
+                className='logosModal'
+                onClick={handleDeleteShow}
+                onHide={handleDeleteClose} 
+                id={photo._id}
+                />
+                <PhotoDelete 
+                show={deleteModalShow}
+                onHide={handleDeleteClose}
+                id={photo._id}
+                /> 
+            </span>
+        </Modal.Header>
 
             <Modal.Body >
                 <PhotoCarousel photo={photo} photos={photos} />

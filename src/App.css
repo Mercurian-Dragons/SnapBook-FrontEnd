@@ -142,6 +142,11 @@ img {
   display: none;
 }
 
+.carousel-item img {
+  height: auto;
+  width: auto;
+}
+
 /* Container for image text */
 .caption-container {
   text-align: center;

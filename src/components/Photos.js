@@ -49,7 +49,7 @@ const Photos = () => {
   }
   
   const handleReturn = () => {
-    navigate('/albums/')
+    navigate('/albums')
   }
 
   function copyToClipboard(text) {

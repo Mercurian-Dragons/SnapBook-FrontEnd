@@ -48,6 +48,7 @@
   min-height: 200px;
   max-height: 250px;
   max-width: 300px;
+  max-height: 300px;
   margin: 5px;
   padding: 0 auto;
 }
@@ -93,6 +94,7 @@
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
+  max-height: 300px;
 }
 
 .imagos:hover {opacity: 0.7;}
@@ -252,6 +254,16 @@ Add Animation
     grid-row-gap: 10px;
   }
 }
+
+.visually-hidden {
+border: 10px solid red;
+
+  /* z-index: 1;
+  opacity: 1; */
+  color: black;
+/* fill:  */
+}
+  
 
 @media only screen and (min-width: 1200px) {
   .albumContainer {

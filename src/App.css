@@ -52,6 +52,21 @@
   padding: 0 auto;
 }
 
+.card-body {
+  padding: 0px;
+}
+
+.card-header {
+  margin-bottom: 10px;
+}
+
+.card-body .viewAlbumBtn {
+  margin: 10px auto;
+}
+
+.albumCardDetails {
+  margin-top: 10px;
+}
 .logosContainer {
   display: inline;
   height: 70%;

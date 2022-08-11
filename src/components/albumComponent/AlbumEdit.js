@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import AlbumChange from './AlbumChange'
-import Form from 'react-bootstrap/Form';
+
 
 
 const AlbumEdit = (props) => {

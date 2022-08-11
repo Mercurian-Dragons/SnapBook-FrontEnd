@@ -1,17 +1,12 @@
 
 import { useNavigate} from "react-router-dom";
-import { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faStar, faSquareShareNodes, faPencil, faLock, faLink, faArrowLeft, faHouse } from "@fortawesome/free-solid-svg-icons"
-import AlbumChange from "./AlbumChange";
 
 // each individual album
 const AlbumCard = ({ id, album, albumName }) => {
   
   const navigate = useNavigate()
-  const [copied, setCopied] = useState(false)
   const handleClick = (event) => {
     navigate(`/${event.target.id}/${albumName}/photos`)
   }
@@ -26,12 +21,23 @@ const AlbumCard = ({ id, album, albumName }) => {
     <Card 
       className="text-center"
       style={{ width: '18rem' }}>
-          <Card.Body className='album-img-container img-container'>
+        <Card.Header class="card-header">
+          <Card.Title  as="h4" >{ albumName }</Card.Title>
+        </Card.Header>
 
-          <Card.Title >{ albumName }</Card.Title>
+          <Card.Body className='album-img-container img-container'>
+          <Card.Subtitle >{album.description}</Card.Subtitle>
+            <br />
           
-          <span>{album.description}</span>
-          <Card.Text>
+          <Button 
+            onClick={handleClick} 
+            id={id} 
+            variant='primary'
+            className="viewAlbumBtn">
+            Open
+          </Button>
+            <br />
+          <Card.Text className="albumCardDetails">
             {
               album.creator ? (<Card.Subtitle>Created by {album.creator}</Card.Subtitle>):null
             }
@@ -39,16 +45,9 @@ const AlbumCard = ({ id, album, albumName }) => {
             {/* Shared with (names) */}
             {/* stretch functionality to show who(users) it's shared with/the group */}
           </Card.Text>
-          <Button 
-            onClick={handleClick} 
-            id={id} 
-            variant='primary'>
-            Open
-          </Button>
         </Card.Body>
       </Card>
     </div>
-    {/* </Container> */}
     </>
   )
 }

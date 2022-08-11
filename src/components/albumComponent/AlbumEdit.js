@@ -106,30 +106,28 @@ return (
                 centered>
                 <Modal.Header closeButton>
                     <Modal.Title id="contained-modal-title-vcenter">
-                        Edit or Delete
+                        Edit or Delete Album
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <h4>Album Settings</h4>
                     <Form>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                           
-                            <Form.Control type="email" placeholder="Album Name" />
+                        <Form.Group className="mb-3">
+                            <Form.Control placeholder="Album Name" />
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicPassword">
-                          
-                            <Form.Control type="password" placeholder="New Name" />
+                        <Form.Group className="mb-3">
+                            <Form.Control placeholder="New Name" />
                         </Form.Group>
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="danger"
                         onClick={handleDelete}>
-                        Delete Album
+                        Delete Album <br></br>
                         (Warning, this can't be undone!)
                     </Button>
                     <Button onClick={props.onHide}>
-                        Close</Button>
+                        Nevermind</Button>
                 </Modal.Footer>
             </Modal>
         </>

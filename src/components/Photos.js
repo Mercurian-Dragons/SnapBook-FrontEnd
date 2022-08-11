@@ -33,31 +33,15 @@ const Photos = () => {
 
   useEffect(() => {
     // useParams of album id to retrieve images associated to the specific album
-    axios.get(`http://localhost:8000/${albumId}/photos`)
+    axios.get(`http://localhost:8000/${albumId}/${albumName}/photos`)
     .then(res => setPhotos(res.data))
-  },[])
-  
-    // handle click to get all images from db
-    const handleClick = (event) => {
-        event.preventDefault();
-        axios.get(`http://localhost:8000//${albumId}/photos`)
-            .then(res => setPhotos(res.data))
-        // console.log(event.target.albumName)
-        navigate(`/photos/${event.target}`)
-        // console.log('hi')
-    }
-    
+  },[photos])
+
   // select carousel image
-    const handleSelect = (selectedIndex, e) => {
-      setIndex(selectedIndex);
-  };
-    
-  useEffect(() => {
-    // useParams of album id to retrieve images associated to the specific album
-    axios.get(`http://localhost:8000/${albumId}/photos`)
-      .then(res => setPhotos(res.data)
-      )
-  }, [photos])
+  //   const handleSelect = (selectedIndex, e) => {
+  //     setIndex(selectedIndex);
+  // };
+
 
   const photoViewerClick = (event) => {
     event.preventDefault()
@@ -90,11 +74,11 @@ const Photos = () => {
       <span>
 
       <OverlayTrigger
-      placement="right"
+      placement="bottom"
       overlay={renderTooltip}>
           <FontAwesomeIcon icon={faLink} className='logos link-logo' onClick={copyToClipboard} ref={target}/>
-          </OverlayTrigger>
-         
+      </OverlayTrigger>
+  
         {/* ^ get sharing link */}
       
       <FontAwesomeIcon 

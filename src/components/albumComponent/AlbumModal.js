@@ -5,13 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons"
 import Form from 'react-bootstrap/Form';
 
-<<<<<<< HEAD
 const AlbumModal = ({ handleSubmit, handleChange, createAlbum, show, handleClose, handleShow }) => {
-=======
-const AlbumModal = ({ handleSubmit, handleChange, createAlbum, show, handleClose, handleShow  }) => {
-
-
->>>>>>> Integrated Steven's fixes to create album modal bug, and updated README
     return (
         <>
             <label>
@@ -47,18 +41,11 @@ const AlbumModal = ({ handleSubmit, handleChange, createAlbum, show, handleClose
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-<<<<<<< HEAD
                     <Button type="submit"       onClick={handleSubmit}
 >
-=======
-                    <Button type="submit"
-                            onClick={handleSubmit}>
->>>>>>> Bug fixes to album edit modal
                         Submit
                     </Button>
-                    <Button 
-                        variant="secondary" 
-                        onClick={handleClose}>
+                    <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
                 </Modal.Footer>

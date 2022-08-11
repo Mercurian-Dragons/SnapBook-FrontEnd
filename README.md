@@ -9,7 +9,7 @@
 ## Features
 - Create albums and upload photos to them
 - Clickable icon to easily share your album link 
-- Functionality to delete, and edit information about both albums and photos
+- Functionality to delete both albums and photos
 - Upload images into each album by URL
 - Carousel image viewer
 
@@ -28,7 +28,7 @@ Note: You must also fork and clone [this second repository](https://github.com/M
 
 2. Install all dependencies locally 
 
-> `npm install axios bootstrap copy-to-clipboard font-awesome react react-bootstrap react-router-dom`
+> `npm install`
 
 4. Once installation is complete, and you've also completed installation steps for the [other repository](https://github.com/Mercurian-Dragons/SnapBook-Backend)), run the following code in your terminal:
 

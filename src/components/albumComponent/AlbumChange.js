@@ -40,23 +40,20 @@ const AlbumChange = ({ id, handleDelete}) => {
     <div>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
+          <label htmlFor="albumName">Change Album Name</label>
             <Form.Control 
-              placeholder="Change Album Name" 
+              placeholder="Name" 
               onChange={handleChange} 
               id='albumName'
               required="true"
               value={albumChange.albumName} 
               />
         </Form.Group>
-        {/* <input 
-          placeholder='enter name of album' 
-          onChange={handleChange} 
-          id='albumName'
-          value={albumChange.albumName} 
-          /> */}
+
         <Form.Group className="mb-3">
+        <label htmlFor="description">Change Album Description</label>
             <Form.Control 
-              placeholder="Change Album Description" 
+              placeholder="Description" 
               onChange={handleChange} 
               id='description'
               value={albumChange.description} 
@@ -64,8 +61,9 @@ const AlbumChange = ({ id, handleDelete}) => {
         </Form.Group>
 
         <Form.Group className="mb-3">
+        <label htmlFor="creator">Change Album Owner</label>
             <Form.Control 
-              placeholder="Change Album Owner" 
+              placeholder="Owner" 
               onChange={handleChange} 
               id='creator'
               value={albumChange.creator} 
@@ -73,7 +71,7 @@ const AlbumChange = ({ id, handleDelete}) => {
         </Form.Group>
 
         <Modal.Footer>
-          <Button type='submit'>Submit</Button>
+          <Button type='submit'>Submit Changes</Button>
           <Button 
               variant="danger"
               onClick={handleDelete}>

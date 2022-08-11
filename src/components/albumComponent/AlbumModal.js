@@ -7,12 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons"
 import Form from 'react-bootstrap/Form';
 
-const AlbumModal = ({ handleSubmit, handleChange, createAlbum }) => {
-
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
+const AlbumModal = ({ handleSubmit, handleChange, createAlbum, show, handleClose, handleShow  }) => {
 
     return (
         <>
@@ -68,7 +63,9 @@ const AlbumModal = ({ handleSubmit, handleChange, createAlbum }) => {
                             onClick={handleSubmit}>
                         Create Album
                     </Button>
-                    <Button variant="secondary" onClick={handleClose}>
+                    <Button 
+                        variant="secondary" 
+                        onClick={handleClose}>
                         Close
                     </Button>
                 </Modal.Footer>

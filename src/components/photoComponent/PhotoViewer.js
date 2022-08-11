@@ -48,11 +48,8 @@ const PhotoViewer = ({ photo, photos, deletePhoto }) => {
 
             <Modal.Header closeButton >
 
-            <FontAwesomeIcon icon={faLink} className='logosModal' />
-                {/* ^ needs to have link to photo and copy it */}
-
             {/* Pencil icon, open edit modal */}
-            <FontAwesomeIcon 
+            {/* <FontAwesomeIcon 
             icon={faPencil} 
             className='logos'
             onClick={() => setModalShow(true)}
@@ -63,7 +60,7 @@ const PhotoViewer = ({ photo, photos, deletePhoto }) => {
             show={modalShow}
             onHide={() => setModalShow(false)}
             id={photo._id}
-            />
+            /> */}
 
         {/* Trash icon, open delete modal */}
             <FontAwesomeIcon 
@@ -84,7 +81,6 @@ const PhotoViewer = ({ photo, photos, deletePhoto }) => {
 
             <Modal.Body >
                 <PhotoCarousel photo={photo} photos={photos} />
-                <p className='caption-container'> caption </p>
             </Modal.Body>
             {/* ^Photo viewing modal */}
         </Modal>

@@ -7,10 +7,13 @@ const AlbumChange = ({ id }) => {
   let {albumId} = useParams()
   const navigate = useNavigate()
   const [reload, setReload] = useState(false)
-  const [albumChange, setAlbumChange] = useState({
+  const [albumChange, setAlbumChange] = useState(initialFormState);
+
+  const initialFormState = {
     albumName: '',
-    description: ''
-  });
+    description: '',
+    creator: ''
+}
 
   const handleChange = (event) => {
     setAlbumChange({ ...albumChange, [event.target.id]: event.target.value });

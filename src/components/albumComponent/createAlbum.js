@@ -35,7 +35,8 @@ const CreateAlbum = () => {
 
       <AlbumModal 
         handleSubmit={handleSubmit} 
-        handleChange={handleChange} createAlbum={createAlbum}  
+        handleChange={handleChange} 
+        createAlbum={createAlbum}  
         show={show}
         handleClose={handleClose}
         handleShow={handleShow}/>

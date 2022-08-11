@@ -86,15 +86,16 @@ const Photos = () => {
         className='logos'
         onClick={() => setModalShow(true)}/>
 
-          <UploadPictures photos={photos} />
-
      {/* <Button variant="primary" onClick={() => setModalShow(true)}>Edit/Delete Album</Button> */}
       <AlbumEdit
         show={modalShow}
+        onClick={() => setModalShow(true)}
         onHide={() => setModalShow(false)}
         albumId={albumId}
         albumName={albumName}
         />
+
+    <UploadPictures photos={photos} />
 
         </span>
       </span>

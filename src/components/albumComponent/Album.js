@@ -9,12 +9,7 @@ import Spinner from 'react-bootstrap/Spinner';
 
 const Album = () => {
   const [album, setAlbum] = useState([])
-  const [targetAlbum, setTargetAlbum] = ('')
-  const [editAlbum, setEditAlbum] = useState({
-    albumName: '',
-    description: '',
-  })
- 
+
   useEffect(() => {
     axios.get('http://localhost:8000/albums')
       .then(res => setAlbum(res.data))

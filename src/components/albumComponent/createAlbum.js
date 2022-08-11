@@ -27,7 +27,7 @@ const CreateAlbum = () => {
       })
       setCreateAlbum(initialFormState)
     }
-   
+
   return (
 
       <AlbumModal handleSubmit={handleSubmit} handleChange={handleChange} createAlbum={createAlbum} />

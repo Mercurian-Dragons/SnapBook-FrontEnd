@@ -6,16 +6,6 @@ import Modal from 'react-bootstrap/Modal';
 import AlbumChange from './AlbumChange'
 import Form from 'react-bootstrap/Form';
 
-const AlbumEdit = (props) => {
-
-  let { albumId } = useParams()
-  const navigate = useNavigate();  
-  const [album, setAlbum] = useState(null)
-    
-  // const [deleted, setDeleted] = useState(false)
-  // const [edited, setEdited] = useState(false)
-
-
 
 const AlbumEdit = (props) => {
 
@@ -44,94 +34,30 @@ return (
     <>
     <Modal
         {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered>
+        // size="lg"
+        // aria-labelledby="contained-modal-title-vcenter"
+        // centered
+        >
         
         <Modal.Header closeButton>
-            <Modal.Title id="contained-modal-title-vcenter">
-                Edit or Delete
+            <Modal.Title>
+                Edit or Delete Album
             </Modal.Title>
         </Modal.Header>
         
         <Modal.Body>
-           <h4>Album Settings</h4>
-            <p>
-           <AlbumChange />
-            <p></p>
-                <Button variant="danger"
-                onClick={handleDelete}>
-                    Delete Album
-                    (Warning, this can't be undone!)
-                </Button>
-            </p>
+            <AlbumChange 
+                handleDelete={handleDelete}/>
         </Modal.Body>
-        
+
         <Modal.Footer>
-            <Button onClick={props.onHide}>
-            Close</Button>
+            {/* <Button onClick={props.onHide}>
+            Close</Button> */}
         </Modal.Footer>
         
     </Modal>
     </>
 )}
-    // const handleChange = (event) => {
-    // 	setAlbum({ ...album, [event.target.id]: event.target.value });
-    // };
 
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     axios.patch(`http://localhost:8000/album/edit/${id}`, album)
-    //         .then(res => {
-    //             navigate(`/albums`);
-    //         })
-    // };
-    // ^ for editing
-
-    // button to delete the album
-    const handleDelete = () => {
-        axios.delete(`http://localhost:8000/album/edit/${albumId}`)
-            .then(res => {
-                // put some message here to display that it's been deleted?
-                navigate('/albums');
-            })
-    };
-
-    return (
-        <>
-            <Modal
-                {...props}
-                size="lg"
-                aria-labelledby="contained-modal-title-vcenter"
-                centered>
-                <Modal.Header closeButton>
-                    <Modal.Title id="contained-modal-title-vcenter">
-                        Edit or Delete Album
-                    </Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <h4>Album Settings</h4>
-                    <Form>
-                        <Form.Group className="mb-3">
-                            <Form.Control placeholder="Album Name" />
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                            <Form.Control placeholder="New Name" />
-                        </Form.Group>
-                    </Form>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="danger"
-                        onClick={handleDelete}>
-                        Delete Album <br></br>
-                        (Warning, this can't be undone!)
-                    </Button>
-                    <Button onClick={props.onHide}>
-                        Nevermind</Button>
-                </Modal.Footer>
-            </Modal>
-        </>
-    )
-}
 
 export default AlbumEdit

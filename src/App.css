@@ -4,6 +4,11 @@
 .albumsHeader, .navbarContainer, .footerContainer {
   text-align: center;
 }
+
+.footerButtons {
+  margin: 0 auto;
+}
+
 .albumHeader {
   margin: 15px;
   vertical-align: middle;

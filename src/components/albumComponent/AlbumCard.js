@@ -23,22 +23,28 @@ const AlbumCard = ({ id, album, albumName }) => {
   return (
     <>
     <div>
-      <Card style={{ width: '18rem' }}>
-        <div className='logosContainer'>
-      
-        </div>
+    <Card 
+      className="text-center"
+      style={{ width: '18rem' }}>
           <Card.Body className='album-img-container img-container'>
+
           <Card.Title >{ albumName }</Card.Title>
-          <Button onClick={handleClick} id={id} variant='primary'>View</Button>
-        <span>{album.description}</span>
-      <p>
-        {
-          album.creator ? (<p>Created by {album.creator.username}</p>):null
-        }
-        Created on <span>{event.toLocaleDateString(undefined, options)}</span>
-        {/* Shared with (names) */}
-        {/* stretch functionality to show who(users) it's shared with/the group */}
-      </p>
+          
+          <span>{album.description}</span>
+          <Card.Text>
+            {
+              album.creator ? (<Card.Subtitle>Created by {album.creator}</Card.Subtitle>):null
+            }
+            Created on <span>{event.toLocaleDateString(undefined, options)}</span>
+            {/* Shared with (names) */}
+            {/* stretch functionality to show who(users) it's shared with/the group */}
+          </Card.Text>
+          <Button 
+            onClick={handleClick} 
+            id={id} 
+            variant='primary'>
+            Open
+          </Button>
         </Card.Body>
       </Card>
     </div>
